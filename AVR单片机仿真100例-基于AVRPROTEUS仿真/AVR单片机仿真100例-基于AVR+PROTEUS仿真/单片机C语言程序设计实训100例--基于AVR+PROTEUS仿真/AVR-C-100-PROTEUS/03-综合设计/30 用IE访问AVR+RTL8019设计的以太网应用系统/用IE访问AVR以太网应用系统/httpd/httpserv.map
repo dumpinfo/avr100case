@@ -1,0 +1,2510 @@
+Archive member included because of file (symbol)
+
+../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+                              httpserv.o (NutDhcpIfConfig)
+../../nutbld_13h/lib\libnutpro.a(resolv.o)
+                              ../../nutbld_13h/lib\libnutpro.a(dhcpc.o) (NutDnsConfig2)
+../../nutbld_13h/lib\libnutpro.a(auth.o)
+                              httpserv.o (NutClearAuth)
+../../nutbld_13h/lib\libnutpro.a(cgi.o)
+                              httpserv.o (NutRegisterCgi)
+../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                              httpserv.o (NutHttpSendHeaderBottom)
+../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (DestroyRequestInfo)
+../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+                              httpserv.o (NutHttpGetParameterName)
+../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (Rfc1123TimeString)
+../../nutbld_13h/lib\libnutpro.a(dencode.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (NutDecodePath)
+../../nutbld_13h/lib\libnutos.a(heap.o)
+                              ../../nutbld_13h/lib/nutinit.o (NutHeapRootAdd)
+../../nutbld_13h/lib\libnutos.a(thread.o)
+                              ../../nutbld_13h/lib/nutinit.o (NutThreadDestroy)
+../../nutbld_13h/lib\libnutos.a(timer.o)
+                              ../../nutbld_13h/lib\libnutpro.a(dhcpc.o) (NutGetMillis)
+../../nutbld_13h/lib\libnutos.a(event.o)
+                              ../../nutbld_13h/lib\libnutos.a(thread.o) (NutEventPostAsync)
+../../nutbld_13h/lib\libnutos.a(devreg.o)
+                              ../../nutbld_13h/lib\libnutpro.a(dhcpc.o) (NutDeviceLookup)
+../../nutbld_13h/lib\libnutos.a(confos.o)
+                              ../../nutbld_13h/lib\libnutpro.a(dhcpc.o) (confos)
+../../nutbld_13h/lib\libnutos.a(version.o)
+                              httpserv.o (NutVersionString)
+../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+                              ../../nutbld_13h/lib\libnutos.a(thread.o) (NutThreadSwitch)
+../../nutbld_13h/lib\libnutarch.a(ostimer.o)
+                              ../../nutbld_13h/lib\libnutos.a(timer.o) (NutArchClockGet)
+../../nutbld_13h/lib\libnutarch.a(ih_int7.o)
+                              httpserv.o (sig_INTERRUPT7)
+../../nutbld_13h/lib\libnutarch.a(ih_timer0_comp.o)
+                              ../../nutbld_13h/lib\libnutarch.a(ostimer.o) (sig_OUTPUT_COMPARE0)
+../../nutbld_13h/lib\libnutarch.a(debug0.o)
+                              httpserv.o (devDebug0)
+../../nutbld_13h/lib\libnutarch.a(eth0rtl.o)
+                              httpserv.o (devEth0)
+../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+                              ../../nutbld_13h/lib\libnutarch.a(eth0rtl.o) (NicInit)
+../../nutbld_13h/lib\libnutarch.a(ih_int5.o)
+                              ../../nutbld_13h/lib\libnutarch.a(nicrtl.o) (sig_INTERRUPT5)
+../../nutbld_13h/lib\libnutdev.a(ihndlr.o)
+                              ../../nutbld_13h/lib\libnutarch.a(ih_int7.o) (CallHandler)
+../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+                              ../../nutbld_13h/lib\libnutarch.a(nicrtl.o) (NutNetBufAlloc)
+../../nutbld_13h/lib\libnutdev.a(nvmem.o)
+                              ../../nutbld_13h/lib\libnutos.a(confos.o) (NutNvMemSave)
+../../nutbld_13h/lib\libnutgorp.a(base64_decode.o)
+                              ../../nutbld_13h/lib\libnutpro.a(auth.o) (NutDecodeBase64)
+../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                              httpserv.o (NutTcpCloseSocket)
+../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                              ../../nutbld_13h/lib\libnutpro.a(dhcpc.o) (NutUdpSetSockOpt)
+../../nutbld_13h/lib\libnutnet.a(ipdemux.o)
+                              ../../nutbld_13h/lib\libnutnet.a(tcpsock.o) (NutRegisterIpHandler)
+../../nutbld_13h/lib\libnutnet.a(route.o)
+                              ../../nutbld_13h/lib\libnutnet.a(tcpsock.o) (NutIpRouteQuery)
+../../nutbld_13h/lib\libnutnet.a(inet.o)
+                              httpserv.o (inet_addr)
+../../nutbld_13h/lib\libnutnet.a(ethin.o)
+                              ../../nutbld_13h/lib\libnutarch.a(eth0rtl.o) (NutEtherInput)
+../../nutbld_13h/lib\libnutnet.a(ethout.o)
+                              ../../nutbld_13h/lib\libnutarch.a(eth0rtl.o) (NutEtherOutput)
+../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+                              ../../nutbld_13h/lib\libnutpro.a(dhcpc.o) (NutNetIfSetup)
+../../nutbld_13h/lib\libnutnet.a(confnet.o)
+                              ../../nutbld_13h/lib\libnutnet.a(ifconfig.o) (NutNetSaveConfig)
+../../nutbld_13h/lib\libnutnet.a(tcpin.o)
+                              ../../nutbld_13h/lib\libnutnet.a(tcpsock.o) (NutTcpInput)
+../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+                              ../../nutbld_13h/lib\libnutnet.a(tcpsock.o) (NutTcpOutput)
+../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                              ../../nutbld_13h/lib\libnutnet.a(tcpsock.o) (NutTcpInitStateMachine)
+../../nutbld_13h/lib\libnutnet.a(tcputil.o)
+                              ../../nutbld_13h/lib\libnutnet.a(tcpsm.o) (IsInLimits)
+../../nutbld_13h/lib\libnutnet.a(udpin.o)
+                              ../../nutbld_13h/lib\libnutnet.a(udpsock.o) (NutUdpInput)
+../../nutbld_13h/lib\libnutnet.a(udpout.o)
+                              ../../nutbld_13h/lib\libnutnet.a(udpsock.o) (NutUdpOutput)
+../../nutbld_13h/lib\libnutnet.a(ipcsum.o)
+                              ../../nutbld_13h/lib\libnutnet.a(tcpout.o) (NutIpChkSumPartial)
+../../nutbld_13h/lib\libnutnet.a(ipin.o)
+                              ../../nutbld_13h/lib\libnutnet.a(ethin.o) (NutIpInput)
+../../nutbld_13h/lib\libnutnet.a(ipout.o)
+                              ../../nutbld_13h/lib\libnutnet.a(tcpout.o) (NutIpOutput)
+../../nutbld_13h/lib\libnutnet.a(icmpin.o)
+                              ../../nutbld_13h/lib\libnutnet.a(ipin.o) (NutIcmpInput)
+../../nutbld_13h/lib\libnutnet.a(icmpout.o)
+                              ../../nutbld_13h/lib\libnutnet.a(icmpin.o) (NutIcmpOutput)
+../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+                              ../../nutbld_13h/lib\libnutnet.a(ipout.o) (NutArpCacheQuery)
+../../nutbld_13h/lib\libnutnet.a(arpin.o)
+                              ../../nutbld_13h/lib\libnutnet.a(ethin.o) (NutArpInput)
+../../nutbld_13h/lib\libnutnet.a(arpout.o)
+                              ../../nutbld_13h/lib\libnutnet.a(arpcache.o) (NutArpOutput)
+../../nutbld_13h/lib\libnutfs.a(pathops.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (stat)
+../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+                              httpserv.o (devUrom)
+../../nutbld_13h/lib\libnutcrt.a(close.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (_close)
+../../nutbld_13h/lib\libnutcrt.a(ioctl.o)
+                              httpserv.o (_ioctl)
+../../nutbld_13h/lib\libnutcrt.a(open.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (_open)
+../../nutbld_13h/lib\libnutcrt.a(read.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (_read)
+../../nutbld_13h/lib\libnutcrt.a(fclose.o)
+                              httpserv.o (fclose)
+../../nutbld_13h/lib\libnutcrt.a(fdopen.o)
+                              httpserv.o (_fdopen)
+../../nutbld_13h/lib\libnutcrt.a(fflush.o)
+                              httpserv.o (fflush)
+../../nutbld_13h/lib\libnutcrt.a(filelength.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (_filelength)
+../../nutbld_13h/lib\libnutcrt.a(fileno.o)
+                              httpserv.o (_fileno)
+../../nutbld_13h/lib\libnutcrt.a(fmode.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(fdopen.o) (_fmode)
+../../nutbld_13h/lib\libnutcrt.a(fopen.o)
+                              httpserv.o (__iob)
+../../nutbld_13h/lib\libnutcrt.a(freopen.o)
+                              httpserv.o (freopen)
+../../nutbld_13h/lib\libnutcrt.a(fgets.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (fgets)
+../../nutbld_13h/lib\libnutcrt.a(fread.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpopt.o) (fread)
+../../nutbld_13h/lib\libnutcrt.a(fprintf.o)
+                              httpserv.o (fprintf)
+../../nutbld_13h/lib\libnutcrt.a(fputs.o)
+                              httpserv.o (fputs)
+../../nutbld_13h/lib\libnutcrt.a(fwrite.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (fwrite)
+../../nutbld_13h/lib\libnutcrt.a(printf.o)
+                              httpserv.o (printf)
+../../nutbld_13h/lib\libnutcrt.a(puts.o)
+                              httpserv.o (puts)
+../../nutbld_13h/lib\libnutcrt.a(vfprintf.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(fprintf.o) (vfprintf)
+../../nutbld_13h/lib\libnutcrt.a(fprintf_p.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (fprintf_P)
+../../nutbld_13h/lib\libnutcrt.a(fputs_p.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (fputs_P)
+../../nutbld_13h/lib\libnutcrt.a(vfprintf_p.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(fprintf_p.o) (vfprintf_P)
+../../nutbld_13h/lib\libnutcrt.a(sprintf.o)
+                              ../../nutbld_13h/lib\libnutpro.a(rfctime.o) (sprintf)
+../../nutbld_13h/lib\libnutcrt.a(vsprintf.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(sprintf.o) (vsprintf)
+../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (gmtime)
+../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+                              ../../nutbld_13h/lib\libnutpro.a(rfctime.o) (_mkgmtime)
+../../nutbld_13h/lib\libnutcrt.a(time.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (time)
+../../nutbld_13h/lib\libnutcrt.a(tzset.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(mktime.o) (_dstbias)
+../../nutbld_13h/lib\libnutcrt.a(errno.o)
+                              ../../nutbld_13h/lib\libnutfs.a(pathops.o) (errno)
+../../nutbld_13h/lib\libnutcrt.a(calloc.o)
+                              ../../nutbld_13h/lib\libnutpro.a(resolv.o) (calloc)
+../../nutbld_13h/lib\libnutcrt.a(malloc.o)
+                              ../../nutbld_13h/lib\libnutpro.a(dhcpc.o) (free)
+../../nutbld_13h/lib\libnutcrt.a(strdup.o)
+                              ../../nutbld_13h/lib\libnutpro.a(resolv.o) (strdup)
+../../nutbld_13h/lib\libnutcrt.a(putf.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(vfprintf.o) (_putf)
+../../nutbld_13h/lib\libnutcrt.a(write.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(fflush.o) (_write)
+../../nutbld_13h/lib\libnutcrt.a(write_p.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(fputs_p.o) (_write_P)
+../../nutbld_13h/lib\libnutcrt.a(fgetc.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(fgets.o) (fgetc)
+../../nutbld_13h/lib\libnutcrt.a(fputc.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(puts.o) (fputc)
+../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(mktime.o) (localtime)
+../../nutbld_13h/lib\libnutarch.a(eeprom.o)
+                              ../../nutbld_13h/lib\libnutdev.a(nvmem.o) (OnChipNvMemSave)
+../../nutbld_13h/lib\libnutdev.a(rtc.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(time.o) (NutRtcGetTime)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_mulsi3.o)
+                              ../../nutbld_13h/lib\libnutpro.a(dhcpc.o) (__mulsi3)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodqi4.o)
+                              ../../nutbld_13h/lib\libnutnet.a(inet.o) (__udivmodqi4)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodhi4.o)
+                              ../../nutbld_13h/lib\libnutnet.a(tcpsock.o) (__udivmodhi4)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodhi4.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(gmtime.o) (__divmodhi4)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodsi4.o)
+                              ../../nutbld_13h/lib\libnutpro.a(dhcpc.o) (__udivmodsi4)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodsi4.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(gmtime.o) (__divmodsi4)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o (exit)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
+                              ../../nutbld_13h/lib/nutinit.o (__do_clear_bss)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strtol.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (strtol)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(atol.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (atol)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalnum.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpopt.o) (isalnum)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(cty_isfalse.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalnum.o) (__ctype_isfalse)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalpha.o)
+                              ../../nutbld_13h/lib\libnutpro.a(rfctime.o) (isalpha)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isspace.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strtol.o) (isspace)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcpy_P.o)
+                              ../../nutbld_13h/lib\libnutnet.a(tcpsock.o) (memcpy_P)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcmp_P.o)
+                              ../../nutbld_13h/lib\libnutfs.a(uromfs.o) (strcmp_P)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcpy_P.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(putf.o) (strcpy_P)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strlen_P.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(fputs_p.o) (strlen_P)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memchr.o)
+                              ../../nutbld_13h/lib\libnutcrt.a(putf.o) (memchr)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcmp.o)
+                              ../../nutbld_13h/lib\libnutpro.a(dhcpc.o) (memcmp)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcpy.o)
+                              ../../nutbld_13h/lib\libnutpro.a(dhcpc.o) (memcpy)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memset.o)
+                              ../../nutbld_13h/lib\libnutpro.a(dhcpc.o) (memset)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcasecmp.o)
+                              ../../nutbld_13h/lib\libnutpro.a(cgi.o) (strcasecmp)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcat.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd_p.o) (strcat)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strchr.o)
+                              ../../nutbld_13h/lib\libnutpro.a(httpd.o) (strchr)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcmp.o)
+                              httpserv.o (strcmp)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcpy.o)
+                              httpserv.o (strcpy)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strncasecmp.o)
+                              ../../nutbld_13h/lib\libnutpro.a(cgi.o) (strncasecmp)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strncmp.o)
+                              ../../nutbld_13h/lib\libnutpro.a(auth.o) (strncmp)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strrchr.o)
+                              ../../nutbld_13h/lib\libnutpro.a(auth.o) (strrchr)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strstr.o)
+                              ../../nutbld_13h/lib\libnutpro.a(auth.o) (strstr)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eerd_block.o)
+                              httpserv.o (__eerd_block)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eewr_block.o)
+                              httpserv.o (__eewr_block)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(mulsi10.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(atol.o) (__mulsi_const_10)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_prologue.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eerd_block.o) (__prologue_saves__)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_epilogue.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eerd_block.o) (__epilogue_restores__)
+
+Allocating common symbols
+Common symbol       size              file
+
+errno               0x2               ../../nutbld_13h/lib\libnutcrt.a(errno.o)
+udpSocketList       0x2               ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+heapFreeList        0x2               ../../nutbld_13h/lib\libnutos.a(heap.o)
+nut_delay_loops     0x4               ../../nutbld_13h/lib\libnutos.a(timer.o)
+rteList             0x2               ../../nutbld_13h/lib\libnutnet.a(route.o)
+nutTimerList        0x2               ../../nutbld_13h/lib\libnutos.a(timer.o)
+confos              0x13              ../../nutbld_13h/lib\libnutos.a(confos.o)
+nutThreadList       0x2               ../../nutbld_13h/lib\libnutos.a(thread.o)
+runQueue            0x2               ../../nutbld_13h/lib\libnutos.a(thread.o)
+tcp_in_nbq          0x2               ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+nutmem_onchip       0x40              ../../nutbld_13h/lib/nutinit.o
+ether_demux         0x2               ../../nutbld_13h/lib\libnutnet.a(ethin.o)
+nut_ticks           0x4               ../../nutbld_13h/lib\libnutos.a(timer.o)
+tcp_in_rdy          0x2               ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+_tb                 0x12              ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+runningThread       0x2               ../../nutbld_13h/lib\libnutos.a(thread.o)
+ip_demux            0x2               ../../nutbld_13h/lib\libnutnet.a(ipin.o)
+killedThread        0x2               ../../nutbld_13h/lib\libnutos.a(thread.o)
+http_root           0x2               ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+confnet             0x20              ../../nutbld_13h/lib\libnutnet.a(confnet.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+LOAD httpserv.o
+LOAD urom.o
+                0x00000000                main = 0x0
+START GROUP
+LOAD ../../nutbld_13h/lib/nutinit.o
+LOAD ../../nutbld_13h/lib\libnutpro.a
+LOAD ../../nutbld_13h/lib\libnutos.a
+LOAD ../../nutbld_13h/lib\libnutarch.a
+LOAD ../../nutbld_13h/lib\libnutdev.a
+LOAD ../../nutbld_13h/lib\libnutgorp.a
+LOAD ../../nutbld_13h/lib\libnutnet.a
+LOAD ../../nutbld_13h/lib\libnutfs.a
+LOAD ../../nutbld_13h/lib\libnutcrt.a
+END GROUP
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000    0x13430
+ *(.vectors)
+ .vectors       0x00000000       0x8c c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data  0x0000008c     0x5132 urom.o
+                0x000051b5                file6name
+                0x0000352f                file2data
+                0x000046f1                file5name
+                0x0000008c                file1data
+                0x00003dd2                file3name
+                0x00004084                file4name
+                0x000037b9                file3data
+                0x0000351d                file1name
+                0x000037ae                file2name
+                0x00003ddc                file4data
+                0x00004702                file6data
+                0x00004094                file5data
+ .progmem.data  0x000051be       0xd0 ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+ .progmem.data  0x0000528e       0x12 ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+ .progmem.data  0x000052a0       0x60 ../../nutbld_13h/lib\libnutgorp.a(base64_decode.o)
+                0x00005300                . = ALIGN (0x2)
+                0x00005300                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00005300        0x0 linker stubs
+ *(.trampolines*)
+                0x00005300                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00005300                __ctors_start = .
+ *(.ctors)
+                0x00005300                __ctors_end = .
+                0x00005300                __dtors_start = .
+ *(.dtors)
+                0x00005300                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00005300        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+                0x00005300                __init
+ *(.init0)
+ *(.init1)
+ .init1         0x00005300       0x50 ../../nutbld_13h/lib/nutinit.o
+ *(.init1)
+ *(.init2)
+ .init2         0x00005350        0xc c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x0000535c       0x1a c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+                0x0000535c                __do_copy_data
+ .init4         0x00005376       0x10 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
+                0x00005376                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ .init5         0x00005386       0x2a ../../nutbld_13h/lib/nutinit.o
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ .init8         0x000053b0       0x18 ../../nutbld_13h/lib/nutinit.o
+                0x000053b0                NutInit
+ *(.init8)
+ *(.init9)
+ .init9         0x000053c8        0x8 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+ *(.init9)
+ *(.text)
+ .text          0x000053d0        0x4 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+                0x000053d0                __vector_22
+                0x000053d0                __vector_28
+                0x000053d0                __vector_1
+                0x000053d0                __vector_32
+                0x000053d0                __vector_34
+                0x000053d0                __vector_24
+                0x000053d0                __vector_12
+                0x000053d0                __bad_interrupt
+                0x000053d0                __vector_31
+                0x000053d0                __vector_3
+                0x000053d0                __vector_23
+                0x000053d0                __vector_30
+                0x000053d0                __vector_25
+                0x000053d0                __vector_11
+                0x000053d0                __vector_13
+                0x000053d0                __vector_17
+                0x000053d0                __vector_19
+                0x000053d0                __vector_7
+                0x000053d0                __vector_27
+                0x000053d0                __vector_5
+                0x000053d0                __vector_33
+                0x000053d0                __vector_4
+                0x000053d0                __vector_9
+                0x000053d0                __vector_2
+                0x000053d0                __vector_21
+                0x000053d0                __vector_29
+                0x000053d0                __vector_26
+                0x000053d0                __vector_14
+                0x000053d0                __vector_10
+                0x000053d0                __vector_16
+                0x000053d0                __vector_18
+                0x000053d0                __vector_20
+ .text          0x000053d4      0x826 httpserv.o
+                0x0000540a                NutAppMain
+                0x000056f2                create_status_webpage
+                0x00005a9c                Service
+ .text          0x00005bfa        0x0 urom.o
+ .text          0x00005bfa       0x5e ../../nutbld_13h/lib/nutinit.o
+                0x00005c06                NutIdle
+                0x00005bfa                NutThreadSetSleepMode
+ .text          0x00005c58     0x18aa ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+                0x00005d74                NutDhcpRelease
+                0x00005c72                NutDhcpIsConfigured
+                0x00005c60                NutDhcpError
+                0x00005c58                NutDhcpStatus
+                0x00005e36                NutDhcpIfConfig
+                0x00005d46                NutDhcpInform
+                0x0000671a                NutDhcpClient
+ .text          0x00007502      0x8d8 ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+                0x000076d0                NutDnsGetResource
+                0x00007502                NutDnsGetConfig2
+                0x00007dc6                NutDnsGetMxByDomain
+                0x00007dd0                NutDnsGetHostByName
+                0x0000761e                NutDnsConfig
+                0x0000756e                NutDnsConfig2
+ .text          0x00007dda      0x1b0 ../../nutbld_13h/lib\libnutpro.a(auth.o)
+                0x00007f14                NutRegisterAuth
+                0x00007e38                NutHttpAuthValidate
+                0x00007eda                NutClearAuth
+ .text          0x00007f8a      0x1c6 ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+                0x00007f8a                NutCgiProcessRequest
+                0x00008126                NutRegisterCgiBinPath
+                0x00008010                NutRegisterCgi
+                0x00008090                NutCgiCheckRequest
+ .text          0x00008150      0xc8e ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                0x0000829c                NutHttpURLDecode
+                0x000084a8                NutHttpSendHeaderBottom
+                0x0000854a                NutHttpSendHeaderTop
+                0x00008342                NutHttpProcessQueryString
+                0x00008230                NutGetMimeType
+                0x00008532                NutHttpSendHeaderBot
+                0x00008162                NutHttpGetOptionFlags
+                0x00008608                NutHttpSendError
+                0x00008764                NutHttpProcessRequest
+                0x00008150                NutHttpSetOptionFlags
+                0x0000823c                NutRegisterHttpRoot
+                0x00008224                NutGetMimeHandler
+ .text          0x00008dde      0x14c ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+                0x00008dde                DestroyRequestInfo
+                0x00008e60                CreateFilePath
+ .text          0x00008f2a      0x4da ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+                0x00008f64                NutHttpGetParameterValue
+                0x0000925a                NutHttpURLEncode
+                0x00009398                NutSetMimeHandler
+                0x00008f94                NutHttpGetParameter
+                0x00008f2a                NutHttpGetParameterCount
+                0x00008f32                NutHttpGetParameterName
+                0x00009028                NutHttpProcessPostQuery
+ .text          0x00009404      0x526 ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+                0x00009576                Rfc1123TimeString
+                0x00009784                RfcTimeParse
+                0x0000946e                TimeParseHms
+                0x000096de                TimeParseDmy
+                0x00009616                TimeParseMonth
+                0x00009404                TimeParseYear
+ .text          0x0000992a      0x14e ../../nutbld_13h/lib\libnutpro.a(dencode.o)
+                0x0000992a                NutDecodeHex
+                0x00009974                NutDecodePath
+ .text          0x00009a78      0x408 ../../nutbld_13h/lib\libnutos.a(heap.o)
+                0x00009c26                NutHeapRootAvailable
+                0x00009c04                NutHeapRootAdd
+                0x00009c4c                NutHeapRootRegionAvailable
+                0x00009c7e                NutHeapDump
+                0x00009a78                NutHeapRootAlloc
+                0x00009b28                NutHeapRootFree
+                0x00009e52                NutHeapRootAllocClear
+                0x00009cde                NutHeapRootRealloc
+                0x00009c78                NutHeapCheck
+ .text          0x00009e80      0x344 ../../nutbld_13h/lib\libnutos.a(thread.o)
+                0x00009fc0                NutThreadWake
+                0x0000a094                NutThreadSetPriority
+                0x0000a024                NutThreadDestroy
+                0x0000a102                NutThreadExit
+                0x00009f32                NutThreadRemoveQueue
+                0x00009e80                NutThreadAddPriQueue
+                0x0000a10a                NutThreadResume
+                0x0000a046                NutThreadKill
+                0x0000a194                NutThreadYield
+                0x00009fd6                GetThreadByName
+ .text          0x0000a1c4      0x6c0 ../../nutbld_13h/lib\libnutos.a(timer.o)
+                0x0000a224                NutDelay
+                0x0000a5ba                NutSleep
+                0x0000a346                NutGetTickCount
+                0x0000a594                NutTimerStart
+                0x0000a658                NutTimerProcessElapsed
+                0x0000a2c6                NutTimerStop
+                0x0000a774                NutTimerInit
+                0x0000a3bc                NutGetMillis
+                0x0000a3a6                NutClockSet
+                0x0000a494                NutGetSeconds
+                0x0000a1ec                NutMicroDelay
+                0x0000a240                NutTimerInsert
+                0x0000a366                NutGetCpuClock
+                0x0000a576                NutTimerStartTicks
+                0x0000a4d4                NutTimerCreate
+ .text          0x0000a884      0x2c2 ../../nutbld_13h/lib\libnutos.a(event.o)
+                0x0000a994                NutEventBroadcast
+                0x0000aa58                NutEventWait
+                0x0000a924                NutEventBroadcastAsync
+                0x0000ab24                NutEventWaitNext
+                0x0000a884                NutEventPostAsync
+                0x0000a9ae                NutEventPost
+                0x0000a9c8                NutEventTimeout
+ .text          0x0000ab46       0x8e ../../nutbld_13h/lib\libnutos.a(devreg.o)
+                0x0000ab7e                NutRegisterDevice
+                0x0000ab46                NutDeviceLookup
+ .text          0x0000abd4       0x6e ../../nutbld_13h/lib\libnutos.a(confos.o)
+                0x0000abf8                NutLoadConfig
+                0x0000abd4                NutSaveConfig
+ .text          0x0000ac42       0x10 ../../nutbld_13h/lib\libnutos.a(version.o)
+                0x0000ac4c                NutVersionString
+                0x0000ac42                NutVersion
+ .text          0x0000ac52      0x1c6 ../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+                0x0000acd8                NutThreadCreate
+                0x0000ac96                thread_start
+                0x0000ac62                NutThreadSwitch
+ .text          0x0000ae18       0xf6 ../../nutbld_13h/lib\libnutarch.a(ostimer.o)
+                0x0000ae18                NutArchClockGet
+                0x0000ae2a                NutGetTickClock
+                0x0000ae6e                NutRegisterTimer
+                0x0000ae34                NutTimerMillisToTicks
+ .text          0x0000af0e      0x15e ../../nutbld_13h/lib\libnutarch.a(ih_int7.o)
+                0x0000b018                __vector_8
+ .text          0x0000b06c       0xe4 ../../nutbld_13h/lib\libnutarch.a(ih_timer0_comp.o)
+                0x0000b0fc                __vector_15
+ .text          0x0000b150       0xda ../../nutbld_13h/lib\libnutarch.a(debug0.o)
+ .text          0x0000b22a        0x0 ../../nutbld_13h/lib\libnutarch.a(eth0rtl.o)
+ .text          0x0000b22a      0x8ec ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+                0x0000b5d6                NicInit
+                0x0000b86a                NicRx
+                0x0000b68e                NicOutput
+ .text          0x0000bb16      0x154 ../../nutbld_13h/lib\libnutarch.a(ih_int5.o)
+                0x0000bc16                __vector_6
+ .text          0x0000bc6a      0x18a ../../nutbld_13h/lib\libnutdev.a(ihndlr.o)
+                0x0000bc6a                CallHandler
+                0x0000bd7c                NutIrqSetMode
+                0x0000bcc4                NutIrqEnable
+                0x0000bce8                NutIrqDisable
+                0x0000bd0c                NutIrqSetPriority
+                0x0000bc80                NutRegisterIrqHandler
+ .text          0x0000bdf4      0x364 ../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+                0x0000c096                NutNetBufAlloc
+                0x0000be52                NutNetBufCollect
+                0x0000bf36                NutNetBufClone
+                0x0000bdf4                NutNetBufFree
+ .text          0x0000c158        0xc ../../nutbld_13h/lib\libnutdev.a(nvmem.o)
+                0x0000c15e                NutNvMemLoad
+                0x0000c158                NutNvMemSave
+ .text          0x0000c164       0x96 ../../nutbld_13h/lib\libnutgorp.a(base64_decode.o)
+                0x0000c164                NutDecodeBase64
+ .text          0x0000c1fa      0xc12 ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                0x0000c3d0                NutTcpDiscardBuffers
+                0x0000c36a                NutTcpDeviceIOCtl
+                0x0000c1fa                NutTcpFindSocket
+                0x0000c7ec                NutTcpDeviceWrite
+                0x0000ca62                NutTcpCloseSocket
+                0x0000c43c                NutTcpReceive
+                0x0000cda8                NutTcpDestroySocket
+                0x0000c696                NutTcpSend
+                0x0000ca80                NutTcpSetSockOpt
+                0x0000cbaa                NutTcpConnect
+                0x0000c352                NutTcpError
+                0x0000c9f6                NutTcpDeviceWrite_P
+                0x0000c27a                NutTcpGetSockOpt
+                0x0000ccbe                NutTcpCreateSocket
+                0x0000cb98                NutTcpAccept
+                0x0000c690                NutTcpDeviceRead
+ .text          0x0000ce0c      0x396 ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                0x0000ce0c                NutUdpError
+                0x0000cec6                NutUdpGetSockOpt
+                0x0000cf94                NutUdpReceiveFrom
+                0x0000cf36                NutUdpDestroySocket
+                0x0000cefa                NutUdpSetSocketError
+                0x0000ce66                NutUdpFindSocket
+                0x0000d06a                NutUdpSendTo
+                0x0000ce92                NutUdpSetSockOpt
+                0x0000d0f6                NutUdpCreateSocket
+ .text          0x0000d1a2       0xf2 ../../nutbld_13h/lib\libnutnet.a(ipdemux.o)
+                0x0000d208                NutRegisterIpHandler
+ .text          0x0000d294      0x31c ../../nutbld_13h/lib\libnutnet.a(route.o)
+                0x0000d564                NutIpRouteDelAll
+                0x0000d434                NutIpRouteList
+                0x0000d4a4                NutIpRouteDel
+                0x0000d294                NutIpRouteQuery
+                0x0000d368                NutIpRouteAdd
+ .text          0x0000d5b0      0x210 ../../nutbld_13h/lib\libnutnet.a(inet.o)
+                0x0000d726                inet_mtoa
+                0x0000d5b0                inet_addr
+                0x0000d654                inet_ntoa
+ .text          0x0000d7c0       0x8a ../../nutbld_13h/lib\libnutnet.a(ethin.o)
+                0x0000d7c0                NutEtherInput
+ .text          0x0000d84a       0xc2 ../../nutbld_13h/lib\libnutnet.a(ethout.o)
+                0x0000d84a                NutEtherOutput
+ .text          0x0000d90c      0x3c4 ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+                0x0000db02                NutNetIfConfig2
+                0x0000d90c                NutNetIfSetup
+                0x0000dca4                NutNetIfConfig
+ .text          0x0000dcd0       0x88 ../../nutbld_13h/lib\libnutnet.a(confnet.o)
+                0x0000dcd0                NutNetSaveConfig
+                0x0000dcf8                NutNetLoadConfig
+ .text          0x0000dd58       0x70 ../../nutbld_13h/lib\libnutnet.a(tcpin.o)
+                0x0000dd58                NutTcpInput
+ .text          0x0000ddc8      0x4ea ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+                0x0000ddc8                NutTcpReject
+                0x0000deec                NutTcpOutput
+ .text          0x0000e2b2     0x1298 ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                0x0000e706                NutTcpStatePassiveOpenEvent
+                0x0000e310                NutTcpInitStateMachine
+                0x0000eab2                NutTcpSm
+                0x0000e2b2                NutTcpAbortSocket
+                0x0000e836                NutTcpStateRetranTimeout
+                0x0000e6ca                NutTcpStateActiveOpenEvent
+                0x0000f4ec                NutTcpStateCloseEvent
+                0x0000e40c                NutTcpStateWindowEvent
+                0x0000e34a                NutTcpStateMachine
+ .text          0x0000f54a       0xc8 ../../nutbld_13h/lib\libnutnet.a(tcputil.o)
+                0x0000f5a4                NutTcpCalcRtt
+                0x0000f54a                IsInLimits
+ .text          0x0000f612      0x114 ../../nutbld_13h/lib\libnutnet.a(udpin.o)
+                0x0000f612                NutUdpInput
+ .text          0x0000f726      0x12a ../../nutbld_13h/lib\libnutnet.a(udpout.o)
+                0x0000f726                NutUdpOutput
+ .text          0x0000f850       0xdc ../../nutbld_13h/lib\libnutnet.a(ipcsum.o)
+                0x0000f8bc                NutIpChkSum
+                0x0000f850                NutIpChkSumPartial
+                0x0000f8ca                NutIpPseudoChkSumPartial
+ .text          0x0000f92c      0x204 ../../nutbld_13h/lib\libnutnet.a(ipin.o)
+                0x0000f936                NutIpInput
+                0x0000f92c                NutIpSetInputFilter
+ .text          0x0000fb30      0x2dc ../../nutbld_13h/lib\libnutnet.a(ipout.o)
+                0x0000fb30                NutIpOutput
+ .text          0x0000fe0c      0x124 ../../nutbld_13h/lib\libnutnet.a(icmpin.o)
+                0x0000fe0c                NutIcmpInput
+ .text          0x0000ff30      0x18c ../../nutbld_13h/lib\libnutnet.a(icmpout.o)
+                0x0000ff30                NutIcmpOutput
+                0x0000ff98                NutIcmpReply
+                0x0001000c                NutIcmpResponse
+ .text          0x000100bc      0x3f2 ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+                0x0001023c                NutArpCacheQuery
+                0x0001044c                NutArpCacheUpdate
+ .text          0x000104ae       0xea ../../nutbld_13h/lib\libnutnet.a(arpin.o)
+                0x000104ae                NutArpInput
+ .text          0x00010598      0x124 ../../nutbld_13h/lib\libnutnet.a(arpout.o)
+                0x00010604                NutArpAllocNetBuf
+                0x00010598                NutArpOutput
+ .text          0x000106bc      0x2d0 ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+                0x00010884                rmdir
+                0x000106bc                lseek
+                0x000106cc                rename
+                0x000106c6                fstat
+                0x0001087a                unlink
+                0x0001088e                stat
+                0x0001094c                access
+                0x00010870                mkdir
+ .text          0x0001098c      0x204 ../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+                0x000109b4                UromIOCtl
+ .text          0x00010b90       0x2c ../../nutbld_13h/lib\libnutcrt.a(close.o)
+                0x00010b90                _close
+ .text          0x00010bbc       0x2a ../../nutbld_13h/lib\libnutcrt.a(ioctl.o)
+                0x00010bbc                _ioctl
+ .text          0x00010be6       0xbe ../../nutbld_13h/lib\libnutcrt.a(open.o)
+                0x00010be6                _open
+ .text          0x00010ca4       0x24 ../../nutbld_13h/lib\libnutcrt.a(read.o)
+                0x00010ca4                _read
+ .text          0x00010cc8       0x7c ../../nutbld_13h/lib\libnutcrt.a(fclose.o)
+                0x00010cc8                fclose
+ .text          0x00010d44       0xae ../../nutbld_13h/lib\libnutcrt.a(fdopen.o)
+                0x00010d44                _fdopen
+ .text          0x00010df2       0x24 ../../nutbld_13h/lib\libnutcrt.a(fflush.o)
+                0x00010df2                fflush
+ .text          0x00010e16       0x7a ../../nutbld_13h/lib\libnutcrt.a(filelength.o)
+                0x00010e16                _filelength
+ .text          0x00010e90        0x8 ../../nutbld_13h/lib\libnutcrt.a(fileno.o)
+                0x00010e90                _fileno
+ .text          0x00010e98       0x68 ../../nutbld_13h/lib\libnutcrt.a(fmode.o)
+                0x00010e98                _fmode
+ .text          0x00010f00       0xbc ../../nutbld_13h/lib\libnutcrt.a(fopen.o)
+                0x00010f00                fopen
+ .text          0x00010fbc       0xe4 ../../nutbld_13h/lib\libnutcrt.a(freopen.o)
+                0x00010fbc                freopen
+ .text          0x000110a0       0x56 ../../nutbld_13h/lib\libnutcrt.a(fgets.o)
+                0x000110a0                fgets
+ .text          0x000110f6       0x94 ../../nutbld_13h/lib\libnutcrt.a(fread.o)
+                0x000110f6                fread
+ .text          0x0001118a       0x20 ../../nutbld_13h/lib\libnutcrt.a(fprintf.o)
+                0x0001118a                fprintf
+ .text          0x000111aa       0x20 ../../nutbld_13h/lib\libnutcrt.a(fputs.o)
+                0x000111aa                fputs
+ .text          0x000111ca       0x4c ../../nutbld_13h/lib\libnutcrt.a(fwrite.o)
+                0x000111ca                fwrite
+ .text          0x00011216       0x24 ../../nutbld_13h/lib\libnutcrt.a(printf.o)
+                0x00011216                printf
+ .text          0x0001123a       0x32 ../../nutbld_13h/lib\libnutcrt.a(puts.o)
+                0x0001123a                puts
+ .text          0x0001126c       0x16 ../../nutbld_13h/lib\libnutcrt.a(vfprintf.o)
+                0x0001126c                vfprintf
+ .text          0x00011282       0x20 ../../nutbld_13h/lib\libnutcrt.a(fprintf_p.o)
+                0x00011282                fprintf_P
+ .text          0x000112a2       0x28 ../../nutbld_13h/lib\libnutcrt.a(fputs_p.o)
+                0x000112a2                fputs_P
+ .text          0x000112ca       0x7a ../../nutbld_13h/lib\libnutcrt.a(vfprintf_p.o)
+                0x000112ca                vfprintf_P
+ .text          0x00011344       0x20 ../../nutbld_13h/lib\libnutcrt.a(sprintf.o)
+                0x00011344                sprintf
+ .text          0x00011364       0x60 ../../nutbld_13h/lib\libnutcrt.a(vsprintf.o)
+                0x00011364                vsprintf
+ .text          0x000113c4      0x26e ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+                0x000113c4                gmtime_r
+                0x00011618                gmtime
+ .text          0x00011632      0x3da ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+                0x00011a02                mktime
+                0x000119f8                _mkgmtime
+ .text          0x00011a0c       0xde ../../nutbld_13h/lib\libnutcrt.a(time.o)
+                0x00011a52                time
+                0x00011a0c                stime
+ .text          0x00011aea      0x50e ../../nutbld_13h/lib\libnutcrt.a(tzset.o)
+                0x00011e30                _isindst
+ .text          0x00011ff8        0x0 ../../nutbld_13h/lib\libnutcrt.a(errno.o)
+ .text          0x00011ff8       0x38 ../../nutbld_13h/lib\libnutcrt.a(calloc.o)
+                0x00011ff8                calloc
+ .text          0x00012030       0x2c ../../nutbld_13h/lib\libnutcrt.a(malloc.o)
+                0x0001203c                malloc
+                0x00012030                free
+ .text          0x0001205c       0x48 ../../nutbld_13h/lib\libnutcrt.a(strdup.o)
+                0x0001205c                strdup
+ .text          0x000120a4      0x6ee ../../nutbld_13h/lib\libnutcrt.a(putf.o)
+                0x000120f4                _putf
+ .text          0x00012792       0x24 ../../nutbld_13h/lib\libnutcrt.a(write.o)
+                0x00012792                _write
+ .text          0x000127b6       0x24 ../../nutbld_13h/lib\libnutcrt.a(write_p.o)
+                0x000127b6                _write_P
+ .text          0x000127da       0x68 ../../nutbld_13h/lib\libnutcrt.a(fgetc.o)
+                0x000127da                fgetc
+ .text          0x00012842       0x3c ../../nutbld_13h/lib\libnutcrt.a(fputc.o)
+                0x00012842                fputc
+ .text          0x0001287e      0x37a ../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+                0x00012bde                localtime
+                0x0001287e                localtime_r
+ .text          0x00012bf8       0x76 ../../nutbld_13h/lib\libnutarch.a(eeprom.o)
+                0x00012c08                OnChipNvMemSave
+                0x00012c5a                OnChipNvMemLoad
+ .text          0x00012c6e      0x114 ../../nutbld_13h/lib\libnutdev.a(rtc.o)
+                0x00012d3a                NutRtcGetStatus
+                0x00012ca2                NutRtcGetTime
+                0x00012cf2                NutRtcGetAlarm
+                0x00012cca                NutRtcSetTime
+                0x00012c6e                NutRegisterRtc
+                0x00012d5e                NutRtcClearStatus
+                0x00012d16                NutRtcSetAlarm
+ .text          0x00012d82        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_mulsi3.o)
+ .text          0x00012d82        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodqi4.o)
+ .text          0x00012d82        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodhi4.o)
+ .text          0x00012d82        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodhi4.o)
+ .text          0x00012d82        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodsi4.o)
+ .text          0x00012d82        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodsi4.o)
+ .text          0x00012d82        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+ .text          0x00012d82        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
+ .text          0x00012d82      0x25e c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strtol.o)
+                0x00012d82                strtol
+ .text          0x00012fe0       0x4e c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(atol.o)
+                0x00012fe0                atol
+ .text          0x0001302e        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalnum.o)
+ .text          0x0001302e        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(cty_isfalse.o)
+ .text          0x0001302e        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalpha.o)
+ .text          0x0001302e        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isspace.o)
+ .text          0x0001302e       0x12 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcpy_P.o)
+                0x0001302e                memcpy_P
+ .text          0x00013040       0x12 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcmp_P.o)
+                0x00013040                strcmp_P
+ .text          0x00013052        0xe c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcpy_P.o)
+                0x00013052                strcpy_P
+ .text          0x00013060       0x12 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strlen_P.o)
+                0x00013060                strlen_P
+ .text          0x00013072       0x1a c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memchr.o)
+                0x00013072                memchr
+ .text          0x0001308c       0x1a c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcmp.o)
+                0x0001308c                memcmp
+ .text          0x000130a6       0x12 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcpy.o)
+                0x000130a6                memcpy
+ .text          0x000130b8        0xe c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memset.o)
+                0x000130b8                memset
+ .text          0x000130c6       0x26 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcasecmp.o)
+                0x000130c6                strcasecmp
+ .text          0x000130ec       0x16 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcat.o)
+                0x000130ec                strcat
+ .text          0x00013102       0x16 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strchr.o)
+                0x00013102                strchr
+ .text          0x00013118       0x12 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcmp.o)
+                0x00013118                strcmp
+ .text          0x0001312a        0xe c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcpy.o)
+                0x0001312a                strcpy
+ .text          0x00013138       0x30 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strncasecmp.o)
+                0x00013138                strncasecmp
+ .text          0x00013168       0x1c c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strncmp.o)
+                0x00013168                strncmp
+ .text          0x00013184       0x16 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strrchr.o)
+                0x00013184                strrchr
+ .text          0x0001319a       0x34 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strstr.o)
+                0x0001319a                strstr
+ .text          0x000131ce       0x38 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eerd_block.o)
+                0x000131ce                __eerd_block
+ .text          0x00013206       0x38 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eewr_block.o)
+                0x00013206                __eewr_block
+ .text          0x0001323e       0x2a c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(mulsi10.o)
+                0x0001323e                __mulsi_const_10
+ .text          0x00013268        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_prologue.o)
+ .text          0x00013268        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_epilogue.o)
+                0x00013268                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00013268       0x3e c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_mulsi3.o)
+                0x00013268                __mulsi3
+ .text.libgcc   0x000132a6       0x18 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodqi4.o)
+                0x000132a6                __udivmodqi4
+ .text.libgcc   0x000132be       0x28 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodhi4.o)
+                0x000132be                __udivmodhi4
+ .text.libgcc   0x000132e6       0x26 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodhi4.o)
+                0x000132e6                __divmodhi4
+                0x000132e6                _div
+ .text.libgcc   0x0001330c       0x44 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodsi4.o)
+                0x0001330c                __udivmodsi4
+ .text.libgcc   0x00013350       0x36 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodsi4.o)
+                0x00013350                __divmodsi4
+ .text.libgcc   0x00013386        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+ .text.libgcc   0x00013386        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
+ .text.ctype    0x00013386       0x10 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalnum.o)
+                0x00013386                isalnum
+ .text.ctype    0x00013396        0x6 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(cty_isfalse.o)
+                0x0001339a                __ctype_istrue
+                0x00013396                __ctype_isfalse
+ .text.ctype    0x0001339c       0x12 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalpha.o)
+                0x000133a2                islower
+                0x0001339c                isupper
+                0x000133a0                isalpha
+ .text.ctype    0x000133ae       0x10 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isspace.o)
+                0x000133ae                isspace
+ .text.libgcc   0x000133be       0x38 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_prologue.o)
+                0x000133be                __prologue_saves__
+ .text.libgcc   0x000133f6       0x36 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_epilogue.o)
+                0x000133f6                __epilogue_restores__
+                0x0001342c                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0001342c        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+                0x0001342c                exit
+                0x0001342c                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0001342c        0x4 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00013430                _etext = .
+
+.data           0x00800100      0xaf0 load address 0x00013430
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+ .data          0x00800100      0x588 httpserv.o
+ .data          0x00800688       0x32 urom.o
+                0x00800688                romEntryList
+ .data          0x008006ba        0xb ../../nutbld_13h/lib/nutinit.o
+                0x008006c4                idle_sleep_mode
+ .data          0x008006c5        0x6 ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+ .data          0x008006cb        0x0 ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+ .data          0x008006cb        0x9 ../../nutbld_13h/lib\libnutpro.a(auth.o)
+ .data          0x008006d4        0x9 ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+ .data          0x008006dd      0x238 ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                0x008008be                mimeTypes
+ .data          0x00800915       0x7f ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+                0x00800980                default_files
+ .data          0x00800994       0x13 ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+ .data          0x008009a7       0x96 ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+ .data          0x00800a3d        0x0 ../../nutbld_13h/lib\libnutpro.a(dencode.o)
+ .data          0x00800a3d        0x8 ../../nutbld_13h/lib\libnutos.a(heap.o)
+ .data          0x00800a45        0x0 ../../nutbld_13h/lib\libnutos.a(thread.o)
+ .data          0x00800a45        0x0 ../../nutbld_13h/lib\libnutos.a(timer.o)
+ .data          0x00800a45        0x0 ../../nutbld_13h/lib\libnutos.a(event.o)
+ .data          0x00800a45        0x0 ../../nutbld_13h/lib\libnutos.a(devreg.o)
+ .data          0x00800a45        0xc ../../nutbld_13h/lib\libnutos.a(confos.o)
+ .data          0x00800a51        0x8 ../../nutbld_13h/lib\libnutos.a(version.o)
+ .data          0x00800a59        0x0 ../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+ .data          0x00800a59        0x0 ../../nutbld_13h/lib\libnutarch.a(ostimer.o)
+ .data          0x00800a59        0x6 ../../nutbld_13h/lib\libnutarch.a(ih_int7.o)
+                0x00800a59                sig_INTERRUPT7
+ .data          0x00800a5f        0x6 ../../nutbld_13h/lib\libnutarch.a(ih_timer0_comp.o)
+                0x00800a5f                sig_OUTPUT_COMPARE0
+ .data          0x00800a65       0x23 ../../nutbld_13h/lib\libnutarch.a(debug0.o)
+                0x00800a65                devDebug0
+ .data          0x00800a88       0x4a ../../nutbld_13h/lib\libnutarch.a(eth0rtl.o)
+                0x00800a88                devEth0
+ .data          0x00800ad2        0x5 ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+ .data          0x00800ad7        0x6 ../../nutbld_13h/lib\libnutarch.a(ih_int5.o)
+                0x00800ad7                sig_INTERRUPT5
+ .data          0x00800add        0x0 ../../nutbld_13h/lib\libnutdev.a(ihndlr.o)
+ .data          0x00800add        0x0 ../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+ .data          0x00800add        0x0 ../../nutbld_13h/lib\libnutdev.a(nvmem.o)
+ .data          0x00800add        0x0 ../../nutbld_13h/lib\libnutgorp.a(base64_decode.o)
+ .data          0x00800add        0x2 ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+ .data          0x00800adf        0x2 ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+ .data          0x00800ae1        0x0 ../../nutbld_13h/lib\libnutnet.a(ipdemux.o)
+ .data          0x00800ae1        0x0 ../../nutbld_13h/lib\libnutnet.a(route.o)
+ .data          0x00800ae1       0x11 ../../nutbld_13h/lib\libnutnet.a(inet.o)
+ .data          0x00800af2        0x0 ../../nutbld_13h/lib\libnutnet.a(ethin.o)
+ .data          0x00800af2        0x0 ../../nutbld_13h/lib\libnutnet.a(ethout.o)
+ .data          0x00800af2        0xe ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+ .data          0x00800b00        0x0 ../../nutbld_13h/lib\libnutnet.a(confnet.o)
+ .data          0x00800b00        0x0 ../../nutbld_13h/lib\libnutnet.a(tcpin.o)
+ .data          0x00800b00        0x0 ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+ .data          0x00800b00        0x6 ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+ .data          0x00800b06        0x0 ../../nutbld_13h/lib\libnutnet.a(tcputil.o)
+ .data          0x00800b06        0x0 ../../nutbld_13h/lib\libnutnet.a(udpin.o)
+ .data          0x00800b06        0x0 ../../nutbld_13h/lib\libnutnet.a(udpout.o)
+ .data          0x00800b06        0x0 ../../nutbld_13h/lib\libnutnet.a(ipcsum.o)
+ .data          0x00800b06        0x0 ../../nutbld_13h/lib\libnutnet.a(ipin.o)
+ .data          0x00800b06        0x0 ../../nutbld_13h/lib\libnutnet.a(ipout.o)
+ .data          0x00800b06       0x20 ../../nutbld_13h/lib\libnutnet.a(icmpin.o)
+ .data          0x00800b26        0x0 ../../nutbld_13h/lib\libnutnet.a(icmpout.o)
+ .data          0x00800b26        0x0 ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+ .data          0x00800b26        0x0 ../../nutbld_13h/lib\libnutnet.a(arpin.o)
+ .data          0x00800b26        0x0 ../../nutbld_13h/lib\libnutnet.a(arpout.o)
+ .data          0x00800b26        0x0 ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+ .data          0x00800b26       0x23 ../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+                0x00800b26                devUrom
+ .data          0x00800b49        0x0 ../../nutbld_13h/lib\libnutcrt.a(close.o)
+ .data          0x00800b49        0x0 ../../nutbld_13h/lib\libnutcrt.a(ioctl.o)
+ .data          0x00800b49        0x0 ../../nutbld_13h/lib\libnutcrt.a(open.o)
+ .data          0x00800b49        0x0 ../../nutbld_13h/lib\libnutcrt.a(read.o)
+ .data          0x00800b49        0x0 ../../nutbld_13h/lib\libnutcrt.a(fclose.o)
+ .data          0x00800b49        0x0 ../../nutbld_13h/lib\libnutcrt.a(fdopen.o)
+ .data          0x00800b49        0x0 ../../nutbld_13h/lib\libnutcrt.a(fflush.o)
+ .data          0x00800b49        0x0 ../../nutbld_13h/lib\libnutcrt.a(filelength.o)
+ .data          0x00800b49        0x0 ../../nutbld_13h/lib\libnutcrt.a(fileno.o)
+ .data          0x00800b49        0x0 ../../nutbld_13h/lib\libnutcrt.a(fmode.o)
+ .data          0x00800b49       0x10 ../../nutbld_13h/lib\libnutcrt.a(fopen.o)
+                0x00800b49                __iob
+ .data          0x00800b59        0x0 ../../nutbld_13h/lib\libnutcrt.a(freopen.o)
+ .data          0x00800b59        0x0 ../../nutbld_13h/lib\libnutcrt.a(fgets.o)
+ .data          0x00800b59        0x0 ../../nutbld_13h/lib\libnutcrt.a(fread.o)
+ .data          0x00800b59        0x0 ../../nutbld_13h/lib\libnutcrt.a(fprintf.o)
+ .data          0x00800b59        0x0 ../../nutbld_13h/lib\libnutcrt.a(fputs.o)
+ .data          0x00800b59        0x0 ../../nutbld_13h/lib\libnutcrt.a(fwrite.o)
+ .data          0x00800b59        0x0 ../../nutbld_13h/lib\libnutcrt.a(printf.o)
+ .data          0x00800b59        0x0 ../../nutbld_13h/lib\libnutcrt.a(puts.o)
+ .data          0x00800b59        0x0 ../../nutbld_13h/lib\libnutcrt.a(vfprintf.o)
+ .data          0x00800b59        0x0 ../../nutbld_13h/lib\libnutcrt.a(fprintf_p.o)
+ .data          0x00800b59        0x0 ../../nutbld_13h/lib\libnutcrt.a(fputs_p.o)
+ .data          0x00800b59        0x0 ../../nutbld_13h/lib\libnutcrt.a(vfprintf_p.o)
+ .data          0x00800b59        0x0 ../../nutbld_13h/lib\libnutcrt.a(sprintf.o)
+ .data          0x00800b59        0x0 ../../nutbld_13h/lib\libnutcrt.a(vsprintf.o)
+ .data          0x00800b59       0x34 ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+                0x00800b59                _lpdays
+                0x00800b73                _days
+ .data          0x00800b8d        0x0 ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+ .data          0x00800b8d        0x0 ../../nutbld_13h/lib\libnutcrt.a(time.o)
+ .data          0x00800b8d       0x1a ../../nutbld_13h/lib\libnutcrt.a(tzset.o)
+                0x00800b8d                _daylight
+                0x00800b8f                _dstbias
+                0x00800b93                _timezone
+ .data          0x00800ba7        0x0 ../../nutbld_13h/lib\libnutcrt.a(errno.o)
+ .data          0x00800ba7        0x0 ../../nutbld_13h/lib\libnutcrt.a(calloc.o)
+ .data          0x00800ba7        0x0 ../../nutbld_13h/lib\libnutcrt.a(malloc.o)
+ .data          0x00800ba7        0x0 ../../nutbld_13h/lib\libnutcrt.a(strdup.o)
+ .data          0x00800ba7       0x49 ../../nutbld_13h/lib\libnutcrt.a(putf.o)
+ .data          0x00800bf0        0x0 ../../nutbld_13h/lib\libnutcrt.a(write.o)
+ .data          0x00800bf0        0x0 ../../nutbld_13h/lib\libnutcrt.a(write_p.o)
+ .data          0x00800bf0        0x0 ../../nutbld_13h/lib\libnutcrt.a(fgetc.o)
+ .data          0x00800bf0        0x0 ../../nutbld_13h/lib\libnutcrt.a(fputc.o)
+ .data          0x00800bf0        0x0 ../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+ .data          0x00800bf0        0x0 ../../nutbld_13h/lib\libnutarch.a(eeprom.o)
+ .data          0x00800bf0        0x0 ../../nutbld_13h/lib\libnutdev.a(rtc.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_mulsi3.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodqi4.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodhi4.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodhi4.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodsi4.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodsi4.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strtol.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(atol.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalnum.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(cty_isfalse.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalpha.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isspace.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcpy_P.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcmp_P.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcpy_P.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strlen_P.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memchr.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcmp.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcpy.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memset.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcasecmp.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcat.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strchr.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcmp.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcpy.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strncasecmp.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strncmp.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strrchr.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strstr.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eerd_block.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eewr_block.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(mulsi10.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_prologue.o)
+ .data          0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_epilogue.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800bf0                . = ALIGN (0x2)
+                0x00800bf0                _edata = .
+                0x00800bf0                PROVIDE (__data_end, .)
+
+.bss            0x00800bf0      0x167
+                0x00800bf0                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800bf0        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+ .bss           0x00800bf0        0x0 httpserv.o
+ .bss           0x00800bf0        0x0 urom.o
+ .bss           0x00800bf0        0x1 ../../nutbld_13h/lib/nutinit.o
+                0x00800bf0                ms62_5
+ .bss           0x00800bf1       0x13 ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+ .bss           0x00800c04        0xc ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+ .bss           0x00800c10        0x2 ../../nutbld_13h/lib\libnutpro.a(auth.o)
+                0x00800c10                authList
+ .bss           0x00800c12        0x4 ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+                0x00800c14                cgiBinPath
+                0x00800c12                cgiFunctionList
+ .bss           0x00800c16        0x4 ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+ .bss           0x00800c1a        0x0 ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+ .bss           0x00800c1a        0x0 ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+ .bss           0x00800c1a       0x20 ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+ .bss           0x00800c3a        0x0 ../../nutbld_13h/lib\libnutpro.a(dencode.o)
+ .bss           0x00800c3a        0x0 ../../nutbld_13h/lib\libnutos.a(heap.o)
+ .bss           0x00800c3a        0x0 ../../nutbld_13h/lib\libnutos.a(thread.o)
+ .bss           0x00800c3a        0x8 ../../nutbld_13h/lib\libnutos.a(timer.o)
+ .bss           0x00800c42        0x0 ../../nutbld_13h/lib\libnutos.a(event.o)
+ .bss           0x00800c42        0x2 ../../nutbld_13h/lib\libnutos.a(devreg.o)
+                0x00800c42                nutDeviceList
+ .bss           0x00800c44        0x0 ../../nutbld_13h/lib\libnutos.a(confos.o)
+ .bss           0x00800c44        0x0 ../../nutbld_13h/lib\libnutos.a(version.o)
+ .bss           0x00800c44        0x0 ../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+ .bss           0x00800c44        0x4 ../../nutbld_13h/lib\libnutarch.a(ostimer.o)
+ .bss           0x00800c48        0x0 ../../nutbld_13h/lib\libnutarch.a(ih_int7.o)
+ .bss           0x00800c48        0x0 ../../nutbld_13h/lib\libnutarch.a(ih_timer0_comp.o)
+ .bss           0x00800c48        0x6 ../../nutbld_13h/lib\libnutarch.a(debug0.o)
+ .bss           0x00800c4e       0x26 ../../nutbld_13h/lib\libnutarch.a(eth0rtl.o)
+ .bss           0x00800c74        0x0 ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+ .bss           0x00800c74        0x0 ../../nutbld_13h/lib\libnutarch.a(ih_int5.o)
+ .bss           0x00800c74        0x0 ../../nutbld_13h/lib\libnutdev.a(ihndlr.o)
+ .bss           0x00800c74        0x0 ../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+ .bss           0x00800c74        0x0 ../../nutbld_13h/lib\libnutdev.a(nvmem.o)
+ .bss           0x00800c74        0x0 ../../nutbld_13h/lib\libnutgorp.a(base64_decode.o)
+ .bss           0x00800c74        0x3 ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                0x00800c74                tcpSocketList
+ .bss           0x00800c77        0x1 ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+ .bss           0x00800c78        0x2 ../../nutbld_13h/lib\libnutnet.a(ipdemux.o)
+ .bss           0x00800c7a        0x0 ../../nutbld_13h/lib\libnutnet.a(route.o)
+ .bss           0x00800c7a       0x22 ../../nutbld_13h/lib\libnutnet.a(inet.o)
+ .bss           0x00800c9c        0x0 ../../nutbld_13h/lib\libnutnet.a(ethin.o)
+ .bss           0x00800c9c        0x0 ../../nutbld_13h/lib\libnutnet.a(ethout.o)
+ .bss           0x00800c9c        0x0 ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+ .bss           0x00800c9c        0x0 ../../nutbld_13h/lib\libnutnet.a(confnet.o)
+ .bss           0x00800c9c        0x0 ../../nutbld_13h/lib\libnutnet.a(tcpin.o)
+ .bss           0x00800c9c        0x0 ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+ .bss           0x00800c9c        0x6 ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+ .bss           0x00800ca2        0x0 ../../nutbld_13h/lib\libnutnet.a(tcputil.o)
+ .bss           0x00800ca2        0x0 ../../nutbld_13h/lib\libnutnet.a(udpin.o)
+ .bss           0x00800ca2        0x0 ../../nutbld_13h/lib\libnutnet.a(udpout.o)
+ .bss           0x00800ca2        0x0 ../../nutbld_13h/lib\libnutnet.a(ipcsum.o)
+ .bss           0x00800ca2        0x2 ../../nutbld_13h/lib\libnutnet.a(ipin.o)
+ .bss           0x00800ca4        0x0 ../../nutbld_13h/lib\libnutnet.a(ipout.o)
+ .bss           0x00800ca4        0x0 ../../nutbld_13h/lib\libnutnet.a(icmpin.o)
+ .bss           0x00800ca4        0x0 ../../nutbld_13h/lib\libnutnet.a(icmpout.o)
+ .bss           0x00800ca4        0x4 ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutnet.a(arpin.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutnet.a(arpout.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(close.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(ioctl.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(open.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(read.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(fclose.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(fdopen.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(fflush.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(filelength.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(fileno.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(fmode.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(fopen.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(freopen.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(fgets.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(fread.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(fprintf.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(fputs.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(fwrite.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(printf.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(puts.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(vfprintf.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(fprintf_p.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(fputs_p.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(vfprintf_p.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(sprintf.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(vsprintf.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+ .bss           0x00800ca8        0x0 ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+ .bss           0x00800ca8        0x4 ../../nutbld_13h/lib\libnutcrt.a(time.o)
+ .bss           0x00800cac        0x0 ../../nutbld_13h/lib\libnutcrt.a(tzset.o)
+ .bss           0x00800cac        0x0 ../../nutbld_13h/lib\libnutcrt.a(errno.o)
+ .bss           0x00800cac        0x0 ../../nutbld_13h/lib\libnutcrt.a(calloc.o)
+ .bss           0x00800cac        0x0 ../../nutbld_13h/lib\libnutcrt.a(malloc.o)
+ .bss           0x00800cac        0x0 ../../nutbld_13h/lib\libnutcrt.a(strdup.o)
+ .bss           0x00800cac        0x0 ../../nutbld_13h/lib\libnutcrt.a(putf.o)
+ .bss           0x00800cac        0x0 ../../nutbld_13h/lib\libnutcrt.a(write.o)
+ .bss           0x00800cac        0x0 ../../nutbld_13h/lib\libnutcrt.a(write_p.o)
+ .bss           0x00800cac        0x0 ../../nutbld_13h/lib\libnutcrt.a(fgetc.o)
+ .bss           0x00800cac        0x0 ../../nutbld_13h/lib\libnutcrt.a(fputc.o)
+ .bss           0x00800cac        0x0 ../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+ .bss           0x00800cac        0x0 ../../nutbld_13h/lib\libnutarch.a(eeprom.o)
+ .bss           0x00800cac        0x2 ../../nutbld_13h/lib\libnutdev.a(rtc.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_mulsi3.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodqi4.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodhi4.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodhi4.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodsi4.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodsi4.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strtol.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(atol.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalnum.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(cty_isfalse.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalpha.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isspace.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcpy_P.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcmp_P.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcpy_P.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strlen_P.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memchr.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcmp.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcpy.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memset.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcasecmp.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcat.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strchr.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcmp.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcpy.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strncasecmp.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strncmp.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strrchr.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strstr.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eerd_block.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eewr_block.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(mulsi10.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_prologue.o)
+ .bss           0x00800cae        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_epilogue.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800cae       0x40 ../../nutbld_13h/lib/nutinit.o
+                0x00800cae                nutmem_onchip
+ COMMON         0x00800cee        0x2 ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+                0x00800cee                http_root
+ COMMON         0x00800cf0        0x2 ../../nutbld_13h/lib\libnutos.a(heap.o)
+                0x00800cf0                heapFreeList
+ COMMON         0x00800cf2        0x8 ../../nutbld_13h/lib\libnutos.a(thread.o)
+                0x00800cf2                nutThreadList
+                0x00800cf4                runQueue
+                0x00800cf6                runningThread
+                0x00800cf8                killedThread
+ COMMON         0x00800cfa        0xa ../../nutbld_13h/lib\libnutos.a(timer.o)
+                0x00800cfa                nut_delay_loops
+                0x00800cfe                nutTimerList
+                0x00800d00                nut_ticks
+ COMMON         0x00800d04       0x13 ../../nutbld_13h/lib\libnutos.a(confos.o)
+                0x00800d04                confos
+ COMMON         0x00800d17        0x2 ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                0x00800d17                udpSocketList
+ COMMON         0x00800d19        0x2 ../../nutbld_13h/lib\libnutnet.a(route.o)
+                0x00800d19                rteList
+ COMMON         0x00800d1b        0x2 ../../nutbld_13h/lib\libnutnet.a(ethin.o)
+                0x00800d1b                ether_demux
+ COMMON         0x00800d1d       0x20 ../../nutbld_13h/lib\libnutnet.a(confnet.o)
+                0x00800d1d                confnet
+ COMMON         0x00800d3d        0x4 ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                0x00800d3d                tcp_in_nbq
+                0x00800d3f                tcp_in_rdy
+ COMMON         0x00800d41        0x2 ../../nutbld_13h/lib\libnutnet.a(ipin.o)
+                0x00800d41                ip_demux
+ COMMON         0x00800d43       0x12 ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+                0x00800d43                _tb
+ COMMON         0x00800d55        0x2 ../../nutbld_13h/lib\libnutcrt.a(errno.o)
+                0x00800d55                errno
+                0x00800d57                PROVIDE (__bss_end, .)
+                0x00013430                __data_load_start = LOADADDR (.data)
+                0x00013f20                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800d57        0x0
+                0x00800d57                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800d57                PROVIDE (__noinit_end, .)
+                0x00800d57                _end = .
+                0x00800d57                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(httpserv.elf elf32-avr)
+LOAD linker stubs
+
+Cross Reference Table
+
+Symbol                                            File
+CallHandler                                       ../../nutbld_13h/lib\libnutdev.a(ihndlr.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(ih_int5.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(ih_timer0_comp.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(ih_int7.o)
+CreateFilePath                                    ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+DestroyRequestInfo                                ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+GetThreadByName                                   ../../nutbld_13h/lib\libnutos.a(thread.o)
+IsInLimits                                        ../../nutbld_13h/lib\libnutnet.a(tcputil.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+NicInit                                           ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(eth0rtl.o)
+NicOutput                                         ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(eth0rtl.o)
+NicRx                                             ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+NutAppMain                                        httpserv.o
+                                                  ../../nutbld_13h/lib/nutinit.o
+NutArchClockGet                                   ../../nutbld_13h/lib\libnutarch.a(ostimer.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+NutArpAllocNetBuf                                 ../../nutbld_13h/lib\libnutnet.a(arpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+NutArpCacheQuery                                  ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipout.o)
+NutArpCacheUpdate                                 ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpin.o)
+NutArpInput                                       ../../nutbld_13h/lib\libnutnet.a(arpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ethin.o)
+NutArpOutput                                      ../../nutbld_13h/lib\libnutnet.a(arpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+NutCgiCheckRequest                                ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+NutCgiProcessRequest                              ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+NutClearAuth                                      ../../nutbld_13h/lib\libnutpro.a(auth.o)
+                                                  httpserv.o
+NutClockSet                                       ../../nutbld_13h/lib\libnutos.a(timer.o)
+NutDecodeBase64                                   ../../nutbld_13h/lib\libnutgorp.a(base64_decode.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(auth.o)
+NutDecodeHex                                      ../../nutbld_13h/lib\libnutpro.a(dencode.o)
+NutDecodePath                                     ../../nutbld_13h/lib\libnutpro.a(dencode.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+NutDelay                                          ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+NutDeviceLookup                                   ../../nutbld_13h/lib\libnutos.a(devreg.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(open.o)
+                                                  ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutDhcpClient                                     ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutDhcpError                                      ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutDhcpIfConfig                                   ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+                                                  httpserv.o
+NutDhcpInform                                     ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutDhcpIsConfigured                               ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutDhcpRelease                                    ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutDhcpStatus                                     ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutDnsConfig                                      ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+NutDnsConfig2                                     ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutDnsGetConfig2                                  ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+NutDnsGetHostByName                               ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+NutDnsGetMxByDomain                               ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+NutDnsGetResource                                 ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+NutEtherInput                                     ../../nutbld_13h/lib\libnutnet.a(ethin.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(eth0rtl.o)
+NutEtherOutput                                    ../../nutbld_13h/lib\libnutnet.a(ethout.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(eth0rtl.o)
+NutEventBroadcast                                 ../../nutbld_13h/lib\libnutos.a(event.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutEventBroadcastAsync                            ../../nutbld_13h/lib\libnutos.a(event.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+NutEventPost                                      ../../nutbld_13h/lib\libnutos.a(event.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutEventPostAsync                                 ../../nutbld_13h/lib\libnutos.a(event.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(thread.o)
+NutEventTimeout                                   ../../nutbld_13h/lib\libnutos.a(event.o)
+NutEventWait                                      ../../nutbld_13h/lib\libnutos.a(event.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutEventWaitNext                                  ../../nutbld_13h/lib\libnutos.a(event.o)
+NutGetCpuClock                                    ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(debug0.o)
+NutGetMillis                                      ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcputil.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutGetMimeHandler                                 ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+NutGetMimeType                                    ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+NutGetSeconds                                     ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(time.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutGetTickClock                                   ../../nutbld_13h/lib\libnutarch.a(ostimer.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+NutGetTickCount                                   ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutHeapCheck                                      ../../nutbld_13h/lib\libnutos.a(heap.o)
+NutHeapDump                                       ../../nutbld_13h/lib\libnutos.a(heap.o)
+NutHeapRootAdd                                    ../../nutbld_13h/lib\libnutos.a(heap.o)
+                                                  ../../nutbld_13h/lib/nutinit.o
+NutHeapRootAlloc                                  ../../nutbld_13h/lib\libnutos.a(heap.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(malloc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vfprintf_p.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+NutHeapRootAllocClear                             ../../nutbld_13h/lib\libnutos.a(heap.o)
+                                                  ../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+NutHeapRootAvailable                              ../../nutbld_13h/lib\libnutos.a(heap.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  httpserv.o
+NutHeapRootFree                                   ../../nutbld_13h/lib\libnutos.a(heap.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(malloc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vfprintf_p.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(thread.o)
+NutHeapRootRealloc                                ../../nutbld_13h/lib\libnutos.a(heap.o)
+NutHeapRootRegionAvailable                        ../../nutbld_13h/lib\libnutos.a(heap.o)
+NutHttpAuthValidate                               ../../nutbld_13h/lib\libnutpro.a(auth.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+NutHttpGetOptionFlags                             ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+NutHttpGetParameter                               ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+                                                  httpserv.o
+NutHttpGetParameterCount                          ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+NutHttpGetParameterName                           ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+                                                  httpserv.o
+NutHttpGetParameterValue                          ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+                                                  httpserv.o
+NutHttpProcessPostQuery                           ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+NutHttpProcessQueryString                         ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+NutHttpProcessRequest                             ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  httpserv.o
+NutHttpSendError                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+NutHttpSendHeaderBot                              ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+NutHttpSendHeaderBottom                           ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  httpserv.o
+NutHttpSendHeaderTop                              ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  httpserv.o
+NutHttpSetOptionFlags                             ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+NutHttpURLDecode                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+NutHttpURLEncode                                  ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+NutIcmpInput                                      ../../nutbld_13h/lib\libnutnet.a(icmpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipin.o)
+NutIcmpOutput                                     ../../nutbld_13h/lib\libnutnet.a(icmpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(icmpin.o)
+NutIcmpReply                                      ../../nutbld_13h/lib\libnutnet.a(icmpout.o)
+NutIcmpResponse                                   ../../nutbld_13h/lib\libnutnet.a(icmpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpin.o)
+NutIdle                                           ../../nutbld_13h/lib/nutinit.o
+NutInit                                           ../../nutbld_13h/lib/nutinit.o
+NutIpChkSum                                       ../../nutbld_13h/lib\libnutnet.a(ipcsum.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(icmpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+NutIpChkSumPartial                                ../../nutbld_13h/lib\libnutnet.a(ipcsum.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(icmpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+NutIpInput                                        ../../nutbld_13h/lib\libnutnet.a(ipin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ethin.o)
+NutIpOutput                                       ../../nutbld_13h/lib\libnutnet.a(ipout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(icmpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+NutIpPseudoChkSumPartial                          ../../nutbld_13h/lib\libnutnet.a(ipcsum.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+NutIpRouteAdd                                     ../../nutbld_13h/lib\libnutnet.a(route.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+                                                  httpserv.o
+NutIpRouteDel                                     ../../nutbld_13h/lib\libnutnet.a(route.o)
+NutIpRouteDelAll                                  ../../nutbld_13h/lib\libnutnet.a(route.o)
+NutIpRouteList                                    ../../nutbld_13h/lib\libnutnet.a(route.o)
+NutIpRouteQuery                                   ../../nutbld_13h/lib\libnutnet.a(route.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutIpSetInputFilter                               ../../nutbld_13h/lib\libnutnet.a(ipin.o)
+NutIrqDisable                                     ../../nutbld_13h/lib\libnutdev.a(ihndlr.o)
+NutIrqEnable                                      ../../nutbld_13h/lib\libnutdev.a(ihndlr.o)
+                                                  httpserv.o
+NutIrqSetMode                                     ../../nutbld_13h/lib\libnutdev.a(ihndlr.o)
+NutIrqSetPriority                                 ../../nutbld_13h/lib\libnutdev.a(ihndlr.o)
+NutLoadConfig                                     ../../nutbld_13h/lib\libnutos.a(confos.o)
+                                                  ../../nutbld_13h/lib/nutinit.o
+NutMicroDelay                                     ../../nutbld_13h/lib\libnutos.a(timer.o)
+NutNetBufAlloc                                    ../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(icmpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ethout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+NutNetBufClone                                    ../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+NutNetBufCollect                                  ../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+NutNetBufFree                                     ../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(icmpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ethout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ethin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutNetIfConfig                                    ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+                                                  httpserv.o
+NutNetIfConfig2                                   ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutNetIfSetup                                     ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutNetLoadConfig                                  ../../nutbld_13h/lib\libnutnet.a(confnet.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutNetSaveConfig                                  ../../nutbld_13h/lib\libnutnet.a(confnet.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+NutNvMemLoad                                      ../../nutbld_13h/lib\libnutdev.a(nvmem.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(confnet.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(confos.o)
+NutNvMemSave                                      ../../nutbld_13h/lib\libnutdev.a(nvmem.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(confnet.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(confos.o)
+NutRegisterAuth                                   ../../nutbld_13h/lib\libnutpro.a(auth.o)
+                                                  httpserv.o
+NutRegisterCgi                                    ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+                                                  httpserv.o
+NutRegisterCgiBinPath                             ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+                                                  httpserv.o
+NutRegisterDevice                                 ../../nutbld_13h/lib\libnutos.a(devreg.o)
+                                                  httpserv.o
+NutRegisterHttpRoot                               ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+NutRegisterIpHandler                              ../../nutbld_13h/lib\libnutnet.a(ipdemux.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutRegisterIrqHandler                             ../../nutbld_13h/lib\libnutdev.a(ihndlr.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(ostimer.o)
+                                                  httpserv.o
+NutRegisterRtc                                    ../../nutbld_13h/lib\libnutdev.a(rtc.o)
+NutRegisterTimer                                  ../../nutbld_13h/lib\libnutarch.a(ostimer.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+NutRtcClearStatus                                 ../../nutbld_13h/lib\libnutdev.a(rtc.o)
+NutRtcGetAlarm                                    ../../nutbld_13h/lib\libnutdev.a(rtc.o)
+NutRtcGetStatus                                   ../../nutbld_13h/lib\libnutdev.a(rtc.o)
+NutRtcGetTime                                     ../../nutbld_13h/lib\libnutdev.a(rtc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(time.o)
+NutRtcSetAlarm                                    ../../nutbld_13h/lib\libnutdev.a(rtc.o)
+NutRtcSetTime                                     ../../nutbld_13h/lib\libnutdev.a(rtc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(time.o)
+NutSaveConfig                                     ../../nutbld_13h/lib\libnutos.a(confos.o)
+NutSetMimeHandler                                 ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+NutSleep                                          ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+                                                  httpserv.o
+NutTcpAbortSocket                                 ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(icmpin.o)
+NutTcpAccept                                      ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  httpserv.o
+NutTcpCalcRtt                                     ../../nutbld_13h/lib\libnutnet.a(tcputil.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+NutTcpCloseSocket                                 ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  httpserv.o
+NutTcpConnect                                     ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpCreateSocket                                ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  httpserv.o
+NutTcpDestroySocket                               ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+NutTcpDeviceIOCtl                                 ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpDeviceRead                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpDeviceWrite                                 ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpDeviceWrite_P                               ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpDiscardBuffers                              ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+NutTcpError                                       ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpFindSocket                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(icmpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+NutTcpGetSockOpt                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpInitStateMachine                            ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpInput                                       ../../nutbld_13h/lib\libnutnet.a(tcpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpOutput                                      ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpReceive                                     ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpReject                                      ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+NutTcpSend                                        ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpSetSockOpt                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpSm                                          ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+NutTcpStateActiveOpenEvent                        ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpStateCloseEvent                             ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpStateMachine                                ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpin.o)
+NutTcpStatePassiveOpenEvent                       ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutTcpStateRetranTimeout                          ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+NutTcpStateWindowEvent                            ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+NutThreadAddPriQueue                              ../../nutbld_13h/lib\libnutos.a(thread.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(event.o)
+NutThreadCreate                                   ../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+                                                  ../../nutbld_13h/lib/nutinit.o
+                                                  httpserv.o
+NutThreadDestroy                                  ../../nutbld_13h/lib\libnutos.a(thread.o)
+                                                  ../../nutbld_13h/lib/nutinit.o
+NutThreadExit                                     ../../nutbld_13h/lib\libnutos.a(thread.o)
+NutThreadKill                                     ../../nutbld_13h/lib\libnutos.a(thread.o)
+NutThreadRemoveQueue                              ../../nutbld_13h/lib\libnutos.a(thread.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(event.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+NutThreadResume                                   ../../nutbld_13h/lib\libnutos.a(thread.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(event.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+NutThreadSetPriority                              ../../nutbld_13h/lib\libnutos.a(thread.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+                                                  ../../nutbld_13h/lib/nutinit.o
+                                                  httpserv.o
+NutThreadSetSleepMode                             ../../nutbld_13h/lib/nutinit.o
+NutThreadSwitch                                   ../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(thread.o)
+NutThreadWake                                     ../../nutbld_13h/lib\libnutos.a(thread.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+NutThreadYield                                    ../../nutbld_13h/lib\libnutos.a(thread.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(event.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib/nutinit.o
+NutTimerCreate                                    ../../nutbld_13h/lib\libnutos.a(timer.o)
+NutTimerInit                                      ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib/nutinit.o
+NutTimerInsert                                    ../../nutbld_13h/lib\libnutos.a(timer.o)
+NutTimerMillisToTicks                             ../../nutbld_13h/lib\libnutarch.a(ostimer.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+NutTimerProcessElapsed                            ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(thread.o)
+NutTimerStart                                     ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(event.o)
+NutTimerStartTicks                                ../../nutbld_13h/lib\libnutos.a(timer.o)
+NutTimerStop                                      ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(event.o)
+NutUdpCreateSocket                                ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutUdpDestroySocket                               ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutUdpError                                       ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+NutUdpFindSocket                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpin.o)
+NutUdpGetSockOpt                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+NutUdpInput                                       ../../nutbld_13h/lib\libnutnet.a(udpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+NutUdpOutput                                      ../../nutbld_13h/lib\libnutnet.a(udpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+NutUdpReceiveFrom                                 ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutUdpSendTo                                      ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutUdpSetSockOpt                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+NutUdpSetSocketError                              ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+NutVersion                                        ../../nutbld_13h/lib\libnutos.a(version.o)
+NutVersionString                                  ../../nutbld_13h/lib\libnutos.a(version.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  httpserv.o
+OnChipNvMemLoad                                   ../../nutbld_13h/lib\libnutarch.a(eeprom.o)
+                                                  ../../nutbld_13h/lib\libnutdev.a(nvmem.o)
+OnChipNvMemSave                                   ../../nutbld_13h/lib\libnutarch.a(eeprom.o)
+                                                  ../../nutbld_13h/lib\libnutdev.a(nvmem.o)
+Rfc1123TimeString                                 ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+RfcTimeParse                                      ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+Service                                           httpserv.o
+TimeParseDmy                                      ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+TimeParseHms                                      ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+TimeParseMonth                                    ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+TimeParseYear                                     ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+UromIOCtl                                         ../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+__bad_interrupt                                   c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__bss_end                                         c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
+__bss_start                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
+__ctype_isfalse                                   c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(cty_isfalse.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isspace.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalpha.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalnum.o)
+__ctype_istrue                                    c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(cty_isfalse.o)
+__data_end                                        c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__data_load_start                                 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__data_start                                      c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__divmodhi4                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodhi4.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+__divmodsi4                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodsi4.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(tzset.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+__do_clear_bss                                    c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_clear_bss.o)
+                                                  ../../nutbld_13h/lib\libnutdev.a(rtc.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(eeprom.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fputc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fgetc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(write_p.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(write.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(putf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(strdup.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(malloc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(calloc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(errno.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(tzset.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(time.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vsprintf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(sprintf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vfprintf_p.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fputs_p.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fprintf_p.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vfprintf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(puts.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(printf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fwrite.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fputs.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fprintf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fread.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fgets.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(freopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fmode.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fileno.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(filelength.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fflush.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fdopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fclose.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(read.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(open.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(ioctl.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(close.o)
+                                                  ../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+                                                  ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(icmpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(icmpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipcsum.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcputil.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(confnet.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ethout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ethin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(inet.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(route.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipdemux.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutgorp.a(base64_decode.o)
+                                                  ../../nutbld_13h/lib\libnutdev.a(nvmem.o)
+                                                  ../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+                                                  ../../nutbld_13h/lib\libnutdev.a(ihndlr.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(ih_int5.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(eth0rtl.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(debug0.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(ih_timer0_comp.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(ih_int7.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(ostimer.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(version.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(confos.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(devreg.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(event.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(thread.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(heap.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dencode.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(auth.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+                                                  ../../nutbld_13h/lib/nutinit.o
+__do_copy_data                                    c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+                                                  ../../nutbld_13h/lib\libnutdev.a(rtc.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(eeprom.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fputc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fgetc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(write_p.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(write.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(putf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(strdup.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(malloc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(calloc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(errno.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(tzset.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(time.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vsprintf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(sprintf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vfprintf_p.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fputs_p.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fprintf_p.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vfprintf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(puts.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(printf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fwrite.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fputs.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fprintf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fread.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fgets.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(freopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fmode.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fileno.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(filelength.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fflush.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fdopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fclose.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(read.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(open.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(ioctl.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(close.o)
+                                                  ../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+                                                  ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(icmpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(icmpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipcsum.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcputil.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(confnet.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ethout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ethin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(inet.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(route.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipdemux.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutgorp.a(base64_decode.o)
+                                                  ../../nutbld_13h/lib\libnutdev.a(nvmem.o)
+                                                  ../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+                                                  ../../nutbld_13h/lib\libnutdev.a(ihndlr.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(ih_int5.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(eth0rtl.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(debug0.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(ih_timer0_comp.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(ih_int7.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(ostimer.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(version.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(confos.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(devreg.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(event.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(thread.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(heap.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dencode.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(auth.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+                                                  ../../nutbld_13h/lib/nutinit.o
+                                                  urom.o
+                                                  httpserv.o
+__eerd_block                                      c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eerd_block.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(eeprom.o)
+                                                  httpserv.o
+__eewr_block                                      c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eewr_block.o)
+                                                  httpserv.o
+__epilogue_restores__                             c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_epilogue.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eewr_block.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eerd_block.o)
+__heap_end                                        c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__heap_start                                      ../../nutbld_13h/lib/nutinit.o
+__init                                            c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__iob                                             ../../nutbld_13h/lib\libnutcrt.a(fopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(puts.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(printf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(freopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fdopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fclose.o)
+                                                  httpserv.o
+__mulsi3                                          c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_mulsi3.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strtol.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(tzset.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+__mulsi_const_10                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(mulsi10.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(atol.o)
+__prologue_saves__                                c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_prologue.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eewr_block.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(eerd_block.o)
+__stack                                           c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__udivmodhi4                                      c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodhi4.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodhi4.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fwrite.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fread.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcputil.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+__udivmodqi4                                      c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodqi4.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(inet.o)
+__udivmodsi4                                      c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_udivmodsi4.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strtol.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodsi4.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(putf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(debug0.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(ostimer.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+__vector_1                                        c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_10                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_11                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_12                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_13                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_14                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_15                                       ../../nutbld_13h/lib\libnutarch.a(ih_timer0_comp.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_16                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_17                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_18                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_19                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_2                                        c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_20                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_21                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_22                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_23                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_24                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_25                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_26                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_27                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_28                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_29                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_3                                        c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_30                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_31                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_32                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_33                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_34                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_4                                        c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_5                                        c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_6                                        ../../nutbld_13h/lib\libnutarch.a(ih_int5.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_7                                        c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_8                                        ../../nutbld_13h/lib\libnutarch.a(ih_int7.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_9                                        c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vector_default                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+__vectors                                         c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+_close                                            ../../nutbld_13h/lib\libnutcrt.a(close.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fclose.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+_daylight                                         ../../nutbld_13h/lib\libnutcrt.a(tzset.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+_days                                             ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(tzset.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+_div                                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_divmodhi4.o)
+_dstbias                                          ../../nutbld_13h/lib\libnutcrt.a(tzset.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+_exit                                             c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+_fdopen                                           ../../nutbld_13h/lib\libnutcrt.a(fdopen.o)
+                                                  httpserv.o
+_filelength                                       ../../nutbld_13h/lib\libnutcrt.a(filelength.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+_fileno                                           ../../nutbld_13h/lib\libnutcrt.a(fileno.o)
+                                                  httpserv.o
+_fmode                                            ../../nutbld_13h/lib\libnutcrt.a(fmode.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(freopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fdopen.o)
+_ioctl                                            ../../nutbld_13h/lib\libnutcrt.a(ioctl.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+                                                  httpserv.o
+_isindst                                          ../../nutbld_13h/lib\libnutcrt.a(tzset.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+_lpdays                                           ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(tzset.o)
+_mkgmtime                                         ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(time.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+_open                                             ../../nutbld_13h/lib\libnutcrt.a(open.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(freopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fopen.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+_putf                                             ../../nutbld_13h/lib\libnutcrt.a(putf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vsprintf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vfprintf_p.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vfprintf.o)
+_read                                             ../../nutbld_13h/lib\libnutcrt.a(read.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fgetc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fread.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+_tb                                               ../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+_timezone                                         ../../nutbld_13h/lib\libnutcrt.a(tzset.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+_write                                            ../../nutbld_13h/lib\libnutcrt.a(write.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fputc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vfprintf_p.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vfprintf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fwrite.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fputs.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fflush.o)
+_write_P                                          ../../nutbld_13h/lib\libnutcrt.a(write_p.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fputs_p.o)
+access                                            ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+atol                                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(atol.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+authList                                          ../../nutbld_13h/lib\libnutpro.a(auth.o)
+calloc                                            ../../nutbld_13h/lib\libnutcrt.a(calloc.o)
+                                                  ../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipdemux.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+cgiBinPath                                        ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+cgiFunctionList                                   ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+confnet                                           ../../nutbld_13h/lib\libnutnet.a(confnet.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+                                                  httpserv.o
+confos                                            ../../nutbld_13h/lib\libnutos.a(confos.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+create_status_webpage                             httpserv.o
+default_files                                     ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+devDebug0                                         ../../nutbld_13h/lib\libnutarch.a(debug0.o)
+                                                  httpserv.o
+devEth0                                           ../../nutbld_13h/lib\libnutarch.a(eth0rtl.o)
+                                                  httpserv.o
+devUrom                                           ../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+                                                  httpserv.o
+errno                                             c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strtol.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(malloc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(errno.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(freopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fmode.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(filelength.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fdopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fclose.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(open.o)
+                                                  ../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+                                                  ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+ether_demux                                       ../../nutbld_13h/lib\libnutnet.a(ethin.o)
+exit                                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr51\libgcc.a(_exit.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+fclose                                            ../../nutbld_13h/lib\libnutcrt.a(fclose.o)
+                                                  httpserv.o
+fflush                                            ../../nutbld_13h/lib\libnutcrt.a(fflush.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  httpserv.o
+fgetc                                             ../../nutbld_13h/lib\libnutcrt.a(fgetc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fgets.o)
+fgets                                             ../../nutbld_13h/lib\libnutcrt.a(fgets.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+file1data                                         urom.o
+file1name                                         urom.o
+file2data                                         urom.o
+file2name                                         urom.o
+file3data                                         urom.o
+file3name                                         urom.o
+file4data                                         urom.o
+file4name                                         urom.o
+file5data                                         urom.o
+file5name                                         urom.o
+file6data                                         urom.o
+file6name                                         urom.o
+fopen                                             ../../nutbld_13h/lib\libnutcrt.a(fopen.o)
+fprintf                                           ../../nutbld_13h/lib\libnutcrt.a(fprintf.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(heap.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  httpserv.o
+fprintf_P                                         ../../nutbld_13h/lib\libnutcrt.a(fprintf_p.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+fputc                                             ../../nutbld_13h/lib\libnutcrt.a(fputc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(puts.o)
+fputs                                             ../../nutbld_13h/lib\libnutcrt.a(fputs.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(puts.o)
+                                                  httpserv.o
+fputs_P                                           ../../nutbld_13h/lib\libnutcrt.a(fputs_p.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+fread                                             ../../nutbld_13h/lib\libnutcrt.a(fread.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+free                                              ../../nutbld_13h/lib\libnutcrt.a(malloc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(putf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(time.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(freopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fclose.o)
+                                                  ../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(route.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(auth.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+freopen                                           ../../nutbld_13h/lib\libnutcrt.a(freopen.o)
+                                                  httpserv.o
+fstat                                             ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+fwrite                                            ../../nutbld_13h/lib\libnutcrt.a(fwrite.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+gmtime                                            ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(time.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+gmtime_r                                          ../../nutbld_13h/lib\libnutcrt.a(gmtime.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+heapFreeList                                      ../../nutbld_13h/lib\libnutcrt.a(malloc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vfprintf_p.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(thread.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(heap.o)
+                                                  ../../nutbld_13h/lib/nutinit.o
+                                                  httpserv.o
+http_root                                         ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+idle_sleep_mode                                   ../../nutbld_13h/lib/nutinit.o
+inet_addr                                         ../../nutbld_13h/lib\libnutnet.a(inet.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ifconfig.o)
+                                                  httpserv.o
+inet_mtoa                                         ../../nutbld_13h/lib\libnutnet.a(inet.o)
+inet_ntoa                                         ../../nutbld_13h/lib\libnutnet.a(inet.o)
+                                                  httpserv.o
+ip_demux                                          ../../nutbld_13h/lib\libnutnet.a(ipin.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipdemux.o)
+isalnum                                           c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalnum.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+isalpha                                           c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalpha.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalnum.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+islower                                           c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalpha.o)
+isspace                                           c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isspace.o)
+                                                  c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strtol.o)
+isupper                                           c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(isalpha.o)
+killedThread                                      ../../nutbld_13h/lib\libnutos.a(thread.o)
+localtime                                         ../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+localtime_r                                       ../../nutbld_13h/lib\libnutcrt.a(localtim.o)
+lseek                                             ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+main                                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51/crtm128.o
+malloc                                            ../../nutbld_13h/lib\libnutcrt.a(malloc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(putf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(strdup.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(calloc.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(time.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(freopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fopen.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fdopen.o)
+                                                  ../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(route.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(auth.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+memchr                                            c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memchr.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(putf.o)
+memcmp                                            c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcmp.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(confos.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+memcpy                                            c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcpy.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(strdup.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vsprintf.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutdev.a(netbuf.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(heap.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+memcpy_P                                          c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memcpy_P.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vfprintf_p.o)
+                                                  ../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+memset                                            c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(memset.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(calloc.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipout.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(confnet.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ethout.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(heap.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(dhcpc.o)
+mimeTypes                                         ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+mkdir                                             ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+mktime                                            ../../nutbld_13h/lib\libnutcrt.a(mktime.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+ms62_5                                            ../../nutbld_13h/lib/nutinit.o
+nutDeviceList                                     ../../nutbld_13h/lib\libnutos.a(devreg.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(arpcache.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(ipout.o)
+nutThreadList                                     ../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(thread.o)
+nutTimerList                                      ../../nutbld_13h/lib\libnutos.a(timer.o)
+nut_delay_loops                                   ../../nutbld_13h/lib\libnutos.a(timer.o)
+nut_ticks                                         ../../nutbld_13h/lib\libnutos.a(timer.o)
+nutmem_onchip                                     ../../nutbld_13h/lib/nutinit.o
+printf                                            ../../nutbld_13h/lib\libnutcrt.a(printf.o)
+                                                  httpserv.o
+puts                                              ../../nutbld_13h/lib\libnutcrt.a(puts.o)
+                                                  httpserv.o
+rename                                            ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+rmdir                                             ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+romEntryList                                      urom.o
+                                                  ../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+rteList                                           ../../nutbld_13h/lib\libnutnet.a(route.o)
+runQueue                                          ../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(event.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(thread.o)
+runningThread                                     ../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(event.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(timer.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(thread.o)
+sig_INTERRUPT5                                    ../../nutbld_13h/lib\libnutarch.a(ih_int5.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(nicrtl.o)
+sig_INTERRUPT7                                    ../../nutbld_13h/lib\libnutarch.a(ih_int7.o)
+                                                  httpserv.o
+sig_OUTPUT_COMPARE0                               ../../nutbld_13h/lib\libnutarch.a(ih_timer0_comp.o)
+                                                  ../../nutbld_13h/lib\libnutarch.a(ostimer.o)
+sprintf                                           ../../nutbld_13h/lib\libnutcrt.a(sprintf.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+stat                                              ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+stime                                             ../../nutbld_13h/lib\libnutcrt.a(time.o)
+strcasecmp                                        c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcasecmp.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+strcat                                            c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcat.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+strchr                                            c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strchr.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+strcmp                                            c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcmp.o)
+                                                  ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(confnet.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(devreg.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(thread.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(rfctime.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpopt.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(auth.o)
+                                                  httpserv.o
+strcmp_P                                          c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcmp_P.o)
+                                                  ../../nutbld_13h/lib\libnutfs.a(uromfs.o)
+strcpy                                            c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcpy.o)
+                                                  ../../nutbld_13h/lib\libnutos.a(confos.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd_p.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  httpserv.o
+strcpy_P                                          c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strcpy_P.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(putf.o)
+strdup                                            ../../nutbld_13h/lib\libnutcrt.a(strdup.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(auth.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(resolv.o)
+strlen_P                                          c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strlen_P.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(putf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(vfprintf_p.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fputs_p.o)
+strncasecmp                                       c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strncasecmp.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(cgi.o)
+strncmp                                           c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strncmp.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(auth.o)
+strrchr                                           c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strrchr.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(auth.o)
+strstr                                            c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strstr.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(auth.o)
+strtol                                            c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr51\libc.a(strtol.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+tcpSocketList                                     ../../nutbld_13h/lib\libnutnet.a(tcpsock.o)
+                                                  ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+tcp_in_nbq                                        ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+tcp_in_rdy                                        ../../nutbld_13h/lib\libnutnet.a(tcpsm.o)
+thread_start                                      ../../nutbld_13h/lib\libnutarch.a(context_gcc.o)
+time                                              ../../nutbld_13h/lib\libnutcrt.a(time.o)
+                                                  ../../nutbld_13h/lib\libnutpro.a(httpd.o)
+udpSocketList                                     ../../nutbld_13h/lib\libnutnet.a(udpsock.o)
+unlink                                            ../../nutbld_13h/lib\libnutfs.a(pathops.o)
+vfprintf                                          ../../nutbld_13h/lib\libnutcrt.a(vfprintf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(printf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fprintf.o)
+vfprintf_P                                        ../../nutbld_13h/lib\libnutcrt.a(vfprintf_p.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(fprintf_p.o)
+vsprintf                                          ../../nutbld_13h/lib\libnutcrt.a(vsprintf.o)
+                                                  ../../nutbld_13h/lib\libnutcrt.a(sprintf.o)

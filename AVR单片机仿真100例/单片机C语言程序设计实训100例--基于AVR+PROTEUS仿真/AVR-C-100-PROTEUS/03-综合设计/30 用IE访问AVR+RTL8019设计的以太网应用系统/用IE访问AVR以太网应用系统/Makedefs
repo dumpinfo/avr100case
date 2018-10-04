@@ -1,0 +1,12 @@
+# Do not edit! Automatically generated on Fri Nov 06 23:30:48 2009
+
+top_srcdir = ../../nut
+top_blddir = ../../nutbld_13h
+top_appdir = ../../nutapp_13h
+
+LIBDIR = ../../nutbld_13h/lib
+INCFIRST=$(INCPRE)$(top_blddir)/include 
+include $(top_appdir)/NutConf.mk
+include $(top_srcdir)/app/Makedefs.avr-gcc
+include $(top_srcdir)/app/Makeburn.avr-dude
+

@@ -1,0 +1,3 @@
+http://www.atmel.com/dyn/resources/prod_documents/AvrStudio416Setup.exe
+
+http://www.atmel.com/dyn/resources/prod_documents/AvrStudio417Setup.exe

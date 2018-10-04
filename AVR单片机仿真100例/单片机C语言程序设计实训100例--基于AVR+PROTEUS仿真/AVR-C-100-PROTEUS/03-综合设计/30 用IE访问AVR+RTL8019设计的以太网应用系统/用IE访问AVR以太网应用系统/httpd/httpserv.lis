@@ -1,0 +1,3366 @@
+                        .module httpserv.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0000           _html_mt:
+ 0000                   .blkw 1
+                        .area idata
+ 0000 4C03              .word L2
+                        .area data(ram, con, rel)
+ 0002                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0002                   .dbsym s html_mt _html_mt pc
+                        .area text(rom, con, rel)
+ 0000                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0000                   .dbfunc s ASPCallback _ASPCallback fI
+ 0000                   .dbstruct 0 0 __iobuf
+ 0000                   .dbend
+ 0000           ;         stream -> R10,R11
+ 0000           ;   pASPFunction -> R12,R13
+                        .even
+ 0000           _ASPCallback:
+ 0000 0E940000          xcall push_xgset003C
+ 0004 5901              movw R10,R18
+ 0006 6801              movw R12,R16
+ 0008                   .dbline -1
+ 0008                   .dbline 263
+ 0008           ; /*
+ 0008           ;  * Copyright (C) 2001-2004 by egnite Software GmbH. All rights reserved.
+ 0008           ;  *
+ 0008           ;  * Redistribution and use in source and binary forms, with or without
+ 0008           ;  * modification, are permitted provided that the following conditions
+ 0008           ;  * are met:
+ 0008           ;  *
+ 0008           ;  * 1. Redistributions of source code must retain the above copyright
+ 0008           ;  *    notice, this list of conditions and the following disclaimer.
+ 0008           ;  * 2. Redistributions in binary form must reproduce the above copyright
+ 0008           ;  *    notice, this list of conditions and the following disclaimer in the
+ 0008           ;  *    documentation and/or other materials provided with the distribution.
+ 0008           ;  * 3. Neither the name of the copyright holders nor the names of
+ 0008           ;  *    contributors may be used to endorse or promote products derived
+ 0008           ;  *    from this software without specific prior written permission.
+ 0008           ;  *
+ 0008           ;  * THIS SOFTWARE IS PROVIDED BY EGNITE SOFTWARE GMBH AND CONTRIBUTORS
+ 0008           ;  * ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ 0008           ;  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ 0008           ;  * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL EGNITE
+ 0008           ;  * SOFTWARE GMBH OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ 0008           ;  * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ 0008           ;  * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ 0008           ;  * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ 0008           ;  * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ 0008           ;  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+ 0008           ;  * THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ 0008           ;  * SUCH DAMAGE.
+ 0008           ;  *
+ 0008           ;  * For additional information see http://www.ethernut.de/
+ 0008           ;  *
+ 0008           ;  */
+ 0008           ; 
+ 0008           ; /*!
+ 0008           ;  * $Log$
+ 0008           ;  * Revision 1.21  2009/02/18 12:18:58  olereinhardt
+ 0008           ;  * 2009-02-18  Ole Reinhardt <ole.reinhardt@thermotemp.de>
+ 0008           ;  *
+ 0008           ;  *           Fixed compilier warnings. Especialy signedness of char buffers
+ 0008           ;  *           as well as unused code on arm platform and main functions without
+ 0008           ;  *           return value
+ 0008           ;  *
+ 0008           ;  * Revision 1.20  2009/02/06 15:37:40  haraldkipp
+ 0008           ;  * Added stack space multiplier and addend. Adjusted stack space.
+ 0008           ;  *
+ 0008           ;  * Revision 1.19  2008/07/25 10:20:12  olereinhardt
+ 0008           ;  * Fixed compiler bug for AVR-ICC and added missing PSTR macro around
+ 0008           ;  * prog_char strings
+ 0008           ;  *
+ 0008           ;  * Revision 1.18  2008/07/17 11:56:20  olereinhardt
+ 0008           ;  * Updated the webserver demo to show new webserver functions (different cgi
+ 0008           ;  * pathes with seperate authentication, $QUERY_STRING parameter for ssi
+ 0008           ;  * included CGIs)
+ 0008           ;  *
+ 0008           ;  * Revision 1.17  2008/05/13 19:31:34  thiagocorrea
+ 0008           ;  * NutHttpSendHeaderBot is marked as deprecated, use NutHttpSendHeaderBottom instead.
+ 0008           ;  *
+ 0008           ;  * Revision 1.16  2007/07/17 18:29:30  haraldkipp
+ 0008           ;  * Server thread names not unique on SAM7X. Fixed by Marti Raudsepp.
+ 0008           ;  *
+ 0008           ;  * Revision 1.15  2006/09/07 09:01:36  haraldkipp
+ 0008           ;  * Discovery registration added.
+ 0008           ;  * Re-arranged network interface setup to exclude DHCP code from ICCAVR
+ 0008           ;  * builds and make it work with the demo compiler. Unfinished.
+ 0008           ;  * Added PHAT file system support. Untested.
+ 0008           ;  *
+ 0008           ;  * Revision 1.14  2006/03/02 19:44:03  haraldkipp
+ 0008           ;  * MMC and PHAT enabled.
+ 0008           ;  *
+ 0008           ;  * Revision 1.13  2006/01/11 08:32:57  hwmaier
+ 0008           ;  * Added explicit type casts to silence a few avr-gcc 3.4.3 warning messages
+ 0008           ;  *
+ 0008           ;  * Revision 1.12  2005/11/22 09:14:13  haraldkipp
+ 0008           ;  * Replaced specific device names by generalized macros.
+ 0008           ;  *
+ 0008           ;  * Revision 1.11  2005/10/16 23:22:20  hwmaier
+ 0008           ;  * Removed unreferenced nutconfig.h include statement
+ 0008           ;  *
+ 0008           ;  * Revision 1.10  2005/08/05 11:32:50  olereinhardt
+ 0008           ;  * Added SSI and ASP sample
+ 0008           ;  *
+ 0008           ;  * Revision 1.9  2005/04/05 18:04:17  haraldkipp
+ 0008           ;  * Support for ARM7 Wolf Board added.
+ 0008           ;  *
+ 0008           ;  * Revision 1.8  2005/02/23 04:39:26  hwmaier
+ 0008           ;  * no message
+ 0008           ;  *
+ 0008           ;  * Revision 1.7  2005/02/22 02:44:34  hwmaier
+ 0008           ;  * Changes to compile as well for AT90CAN128 device.
+ 0008           ;  *
+ 0008           ;  * Revision 1.6  2004/12/16 10:17:18  haraldkipp
+ 0008           ;  * Added Mikael Adolfsson's excellent parameter parsing routines.
+ 0008           ;  *
+ 0008           ;  * Revision 1.5  2004/03/16 16:48:26  haraldkipp
+ 0008           ;  * Added Jan Dubiec's H8/300 port.
+ 0008           ;  *
+ 0008           ;  * Revision 1.4  2003/11/04 17:46:52  haraldkipp
+ 0008           ;  * Adapted to Ethernut 2
+ 0008           ;  *
+ 0008           ;  * Revision 1.3  2003/09/29 16:33:12  haraldkipp
+ 0008           ;  * Using portable strtok and strtok_r
+ 0008           ;  *
+ 0008           ;  * Revision 1.2  2003/08/07 08:27:58  haraldkipp
+ 0008           ;  * Bugfix, remote not displayed in socket list
+ 0008           ;  *
+ 0008           ;  * Revision 1.1  2003/07/20 15:56:14  haraldkipp
+ 0008           ;  * *** empty log message ***
+ 0008           ;  *
+ 0008           ;  */
+ 0008           ; 
+ 0008           ; /*!
+ 0008           ;  * \example httpd/httpserv.c
+ 0008           ;  *
+ 0008           ;  * Simple multithreaded HTTP daemon.
+ 0008           ;  */
+ 0008           ; 
+ 0008           ; /* 
+ 0008           ;  * Unique MAC address of the Ethernut Board. 
+ 0008           ;  *
+ 0008           ;  * Ignored if EEPROM contains a valid configuration.
+ 0008           ;  */
+ 0008           ; #define MY_MAC  "\x00\x06\x98\x30\x00\x35"
+ 0008           ; 
+ 0008           ; /* 
+ 0008           ;  * Unique IP address of the Ethernut Board. 
+ 0008           ;  *
+ 0008           ;  * Ignored if DHCP is used. 
+ 0008           ;  */
+ 0008           ; #define MY_IPADDR "192.168.192.35"
+ 0008           ; 
+ 0008           ; /* 
+ 0008           ;  * IP network mask of the Ethernut Board.
+ 0008           ;  *
+ 0008           ;  * Ignored if DHCP is used. 
+ 0008           ;  */
+ 0008           ; #define MY_IPMASK "255.255.255.0"
+ 0008           ; 
+ 0008           ; /* 
+ 0008           ;  * Gateway IP address for the Ethernut Board.
+ 0008           ;  *
+ 0008           ;  * Ignored if DHCP is used. 
+ 0008           ;  */
+ 0008           ; #define MY_IPGATE "192.168.192.1"
+ 0008           ; 
+ 0008           ; /* ICCAVR Demo is limited. Try to use the bare minimum. */
+ 0008           ; #if !defined(__IMAGECRAFT__)
+ 0008           ; 
+ 0008           ; /* Wether we should use DHCP. */
+ 0008           ; #define USE_DHCP
+ 0008           ; /* Wether we should run a discovery responder. */
+ 0008           ; #define USE_DISCOVERY
+ 0008           ; /* Wether to use PHAT file system. */
+ 0008           ; //#define USE_PHAT
+ 0008           ; 
+ 0008           ; #endif /* __IMAGECRAFT__ */
+ 0008           ; 
+ 0008           ; 
+ 0008           ; #ifdef USE_PHAT
+ 0008           ; 
+ 0008           ; #if defined(ETHERNUT3)
+ 0008           ; 
+ 0008           ; /* Ethernut 3 file system. */
+ 0008           ; #define MY_FSDEV       devPhat0
+ 0008           ; #define MY_FSDEV_NAME  "PHAT0" 
+ 0008           ; 
+ 0008           ; /* Ethernut 3 block device interface. */
+ 0008           ; #define MY_BLKDEV      devNplMmc0
+ 0008           ; #define MY_BLKDEV_NAME "MMC0"
+ 0008           ; 
+ 0008           ; #elif defined(AT91SAM7X_EK)
+ 0008           ; 
+ 0008           ; /* SAM7X-EK file system. */
+ 0008           ; #define MY_FSDEV       devPhat0
+ 0008           ; #define MY_FSDEV_NAME  "PHAT0" 
+ 0008           ; 
+ 0008           ; /* SAM7X-EK block device interface. */
+ 0008           ; #define MY_BLKDEV      devAt91SpiMmc0
+ 0008           ; #define MY_BLKDEV_NAME "MMC0"
+ 0008           ; 
+ 0008           ; #elif defined(AT91SAM9260_EK)
+ 0008           ; 
+ 0008           ; /* SAM9260-EK file system. */
+ 0008           ; #define MY_FSDEV       devPhat0
+ 0008           ; #define MY_FSDEV_NAME  "PHAT0" 
+ 0008           ; 
+ 0008           ; /* SAM9260-EK block device interface. */
+ 0008           ; #define MY_BLKDEV      devAt91Mci0
+ 0008           ; #define MY_BLKDEV_NAME "MCI0"
+ 0008           ; 
+ 0008           ; #endif
+ 0008           ; #endif /* USE_PHAT */
+ 0008           ; 
+ 0008           ; #ifndef MY_FSDEV
+ 0008           ; #define MY_FSDEV        devUrom
+ 0008           ; #endif
+ 0008           ; 
+ 0008           ; #ifdef MY_FSDEV_NAME
+ 0008           ; #define MY_HTTPROOT     MY_FSDEV_NAME ":/" 
+ 0008           ; #endif
+ 0008           ; 
+ 0008           ; 
+ 0008           ; #include <cfg/os.h>
+ 0008           ; 
+ 0008           ; #include <string.h>
+ 0008           ; #include <io.h>
+ 0008           ; #include <fcntl.h>
+ 0008           ; #include <time.h>
+ 0008           ; 
+ 0008           ; #include <dev/board.h>
+ 0008           ; #include <dev/urom.h>
+ 0008           ; #include <dev/nplmmc.h>
+ 0008           ; #include <dev/sbimmc.h>
+ 0008           ; #include <fs/phatfs.h>
+ 0008           ; 
+ 0008           ; #include <sys/version.h>
+ 0008           ; #include <sys/thread.h>
+ 0008           ; #include <sys/timer.h>
+ 0008           ; #include <sys/heap.h>
+ 0008           ; #include <sys/confnet.h>
+ 0008           ; #include <sys/socket.h>
+ 0008           ; 
+ 0008           ; #include <arpa/inet.h>
+ 0008           ; #include <net/route.h>
+ 0008           ; 
+ 0008           ; #include <pro/httpd.h>
+ 0008           ; #include <pro/dhcp.h>
+ 0008           ; #include <pro/ssi.h>
+ 0008           ; #include <pro/asp.h>
+ 0008           ; #include <pro/discover.h>
+ 0008           ; 
+ 0008           ; #ifdef NUTDEBUG
+ 0008           ; #include <sys/osdebug.h>
+ 0008           ; #include <net/netdebug.h>
+ 0008           ; #endif
+ 0008           ; 
+ 0008           ; /* Server thread stack size. */
+ 0008           ; #ifndef HTTPD_SERVICE_STACK
+ 0008           ; #if defined(__AVR__)
+ 0008           ; #define HTTPD_SERVICE_STACK ((580 * NUT_THREAD_STACK_MULT) + NUT_THREAD_STACK_ADD)
+ 0008           ; #elif defined(__arm__)
+ 0008           ; #define HTTPD_SERVICE_STACK ((1024 * NUT_THREAD_STACK_MULT) + NUT_THREAD_STACK_ADD)
+ 0008           ; #else
+ 0008           ; #define HTTPD_SERVICE_STACK  ((2048 * NUT_THREAD_STACK_MULT) + NUT_THREAD_STACK_ADD)
+ 0008           ; #endif
+ 0008           ; #endif
+ 0008           ; 
+ 0008           ; static char *html_mt = "text/html";
+ 0008           ; 
+ 0008           ; 
+ 0008           ; /**************************************************************/
+ 0008           ; /*  ASPCallback                                               */
+ 0008           ; /*                                                            */
+ 0008           ; /* This routine must have been registered by                  */
+ 0008           ; /* NutRegisterAspCallback() and is automatically called by    */
+ 0008           ; /* NutHttpProcessFileRequest() when the server process a page */
+ 0008           ; /* with an asp function.                                      */
+ 0008           ; /*                                                            */
+ 0008           ; /* Return 0 on success, -1 otherwise.                         */
+ 0008           ; /**************************************************************/
+ 0008           ; 
+ 0008           ; 
+ 0008           ; static int ASPCallback (char *pASPFunction, FILE *stream)
+ 0008           ; {
+ 0008                   .dbline 264
+ 0008           ;     if (strcmp(pASPFunction, "usr_date") == 0) {
+ 0008 20E0              ldi R18,<L6
+ 000A 30E0              ldi R19,>L6
+ 000C 8601              movw R16,R12
+ 000E 0E940000          xcall _strcmp
+ 0012 0030              cpi R16,0
+ 0014 0107              cpc R16,R17
+ 0016 41F4              brne L4
+ 0018           X0:
+ 0018                   .dbline 264
+ 0018                   .dbline 265
+ 0018           ;         fprintf(stream, "Dummy example: 01.01.2005");
+ 0018 20E0              ldi R18,<L7
+ 001A 30E0              ldi R19,>L7
+ 001C 8501              movw R16,R10
+ 001E 0E940000          xcall _fprintf
+ 0022                   .dbline 266
+ 0022           ;         return(0);
+ 0022 0027              clr R16
+ 0024 1127              clr R17
+ 0026 12C0              xjmp L3
+ 0028           L4:
+ 0028                   .dbline 269
+ 0028           ;     }
+ 0028           ; 
+ 0028           ;     if (strcmp(pASPFunction, "usr_time") == 0) {
+ 0028 20E0              ldi R18,<L10
+ 002A 30E0              ldi R19,>L10
+ 002C 8601              movw R16,R12
+ 002E 0E940000          xcall _strcmp
+ 0032 0030              cpi R16,0
+ 0034 0107              cpc R16,R17
+ 0036 41F4              brne L8
+ 0038           X1:
+ 0038                   .dbline 269
+ 0038                   .dbline 270
+ 0038           ;         fprintf(stream, "Dummy example: 12:15:02");
+ 0038 20E0              ldi R18,<L11
+ 003A 30E0              ldi R19,>L11
+ 003C 8501              movw R16,R10
+ 003E 0E940000          xcall _fprintf
+ 0042                   .dbline 271
+ 0042           ;         return(0);
+ 0042 0027              clr R16
+ 0044 1127              clr R17
+ 0046 02C0              xjmp L3
+ 0048           L8:
+ 0048                   .dbline 274
+ 0048           ;     }
+ 0048           ; 
+ 0048           ;     return (-1);
+ 0048 0FEF              ldi R16,-1
+ 004A 1FEF              ldi R17,-1
+ 004C                   .dbline -2
+ 004C           L3:
+ 004C                   .dbline 0 ; func end
+ 004C 0C940000          xjmp pop_xgset003C
+ 0050                   .dbsym r stream 10 pS[__iobuf]
+ 0050                   .dbsym r pASPFunction 12 pc
+ 0050                   .dbend
+                        .area lit(rom, con, rel)
+ 0000           L13:
+ 0000 3C48544D4C3E3C484541443E3C544954  .byte 60,'H,'T,'M,'L,62,60,'H,'E,'A,'D,62,60,'T,'I,'T
+ 0010 4C453E506172616D65746572733C2F54  .byte 'L,'E,62,'P,'a,'r,'a,'m,'e,'t,'e,'r,'s,60,47,'T
+ 0020 49544C453E3C2F484541443E3C424F44  .byte 'I,'T,'L,'E,62,60,47,'H,'E,'A,'D,62,60,'B,'O,'D
+ 0030 593E3C48313E506172616D6574657273  .byte 'Y,62,60,'H,49,62,'P,'a,'r,'a,'m,'e,'t,'e,'r,'s
+ 0040 3C2F48313E00      .byte 60,47,'H,49,62,0
+ 0046           L14:
+ 0046 3C2F424F44593E3C2F48544D4C3E00    .byte 60,47,'B,'O,'D,'Y,62,60,47,'H,'T,'M,'L,62,0
+ 0055           L15:
+ 0055 4D6574686F643A2025733C42523E0D0A  .byte 'M,'e,'t,'h,'o,'d,58,32,37,'s,60,'B,'R,62,13,10
+ 0065 56657273696F6E3A20485454502F2564  .byte 'V,'e,'r,'s,'i,'o,'n,58,32,'H,'T,'T,'P,47,37,'d
+ 0075 2E25643C42523E0D0A436F6E74656E74  .byte 46,37,'d,60,'B,'R,62,13,10,'C,'o,'n,'t,'e,'n,'t
+ 0085 206C656E6774683A20256C643C42523E  .byte 32,'l,'e,'n,'g,'t,'h,58,32,37,'l,'d,60,'B,'R,62
+ 0095 0D0A00            .byte 13,10,0
+ 0098           L16:
+ 0098 55524C3A2025733C42523E0D0A00      .byte 'U,'R,'L,58,32,37,'s,60,'B,'R,62,13,10,0
+ 00A6           L17:
+ 00A6 417267756D656E743A2025733C42523E  .byte 'A,'r,'g,'u,'m,'e,'n,'t,58,32,37,'s,60,'B,'R,62
+ 00B6 0D0A00            .byte 13,10,0
+ 00B9           L18:
+ 00B9 436F6E74656E7420747970653A202573  .byte 'C,'o,'n,'t,'e,'n,'t,32,'t,'y,'p,'e,58,32,37,'s
+ 00C9 3C42523E0D0A00    .byte 60,'B,'R,62,13,10,0
+ 00D0           L19:
+ 00D0 436F6F6B69653A2025733C42523E0D0A  .byte 'C,'o,'o,'k,'i,'e,58,32,37,'s,60,'B,'R,62,13,10
+ 00E0 00                .byte 0
+ 00E1           L20:
+ 00E1 4175746820696E666F3A2025733C4252  .byte 'A,'u,'t,'h,32,'i,'n,'f,'o,58,32,37,'s,60,'B,'R
+ 00F1 3E0D0A00          .byte 62,13,10,0
+ 00F5           L21:
+ 00F5 55736572206167656E743A2025733C42  .byte 'U,'s,'e,'r,32,'a,'g,'e,'n,'t,58,32,37,'s,60,'B
+ 0105 523E0D0A00        .byte 'R,62,13,10,0
+                        .area text(rom, con, rel)
+ 0050                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0050                   .dbfunc s ShowQuery _ShowQuery fI
+ 0050                   .dbstruct 0 34 _REQUEST
+ 0050                   .dbfield 0 req_method I
+ 0050                   .dbfield 2 req_version I
+ 0050                   .dbfield 4 req_length L
+ 0050                   .dbfield 8 req_url pc
+ 0050                   .dbfield 10 req_query pc
+ 0050                   .dbfield 12 req_type pc
+ 0050                   .dbfield 14 req_cookie pc
+ 0050                   .dbfield 16 req_auth pc
+ 0050                   .dbfield 18 req_agent pc
+ 0050                   .dbfield 20 req_qptrs ppc
+ 0050                   .dbfield 22 req_numqptrs I
+ 0050                   .dbfield 24 req_ims L
+ 0050                   .dbfield 28 req_referer pc
+ 0050                   .dbfield 30 req_host pc
+ 0050                   .dbfield 32 req_connection I
+ 0050                   .dbend
+ 0050                   .dbsym s agent_fmt L21 A[21:21]kc
+ 0050                   .dbsym s auth_fmt L20 A[20:20]kc
+ 0050                   .dbsym s cookie_fmt L19 A[17:17]kc
+ 0050                   .dbsym s type_fmt L18 A[23:23]kc
+ 0050                   .dbsym s query_fmt L17 A[19:19]kc
+ 0050                   .dbsym s url_fmt L16 A[14:14]kc
+ 0050                   .dbsym s req_fmt L15 A[67:67]kc
+ 0050                   .dbsym s foot L14 A[15:15]kc
+ 0050                   .dbsym s head L13 A[70:70]kc
+ 0050           ;             cp -> R22,R23
+ 0050           ;            req -> R20,R21
+ 0050           ;         stream -> R10,R11
+                        .even
+ 0050           _ShowQuery:
+ 0050 0E940000          xcall push_xgsetF00C
+ 0054 A901              movw R20,R18
+ 0056 5801              movw R10,R16
+ 0058 2A97              sbiw R28,10
+ 005A                   .dbline -1
+ 005A                   .dbline 287
+ 005A           ; }
+ 005A           ; 
+ 005A           ; /*
+ 005A           ;  * CGI Sample: Show request parameters.
+ 005A           ;  *
+ 005A           ;  * See httpd.h for REQUEST structure.
+ 005A           ;  *
+ 005A           ;  * This routine must have been registered by NutRegisterCgi() and is
+ 005A           ;  * automatically called by NutHttpProcessRequest() when the client
+ 005A           ;  * request the URL 'cgi-bin/test.cgi'.
+ 005A           ;  */
+ 005A           ; static int ShowQuery(FILE * stream, REQUEST * req)
+ 005A           ; {
+ 005A                   .dbline 306
+ 005A           ;     char *cp;
+ 005A           ;     /*
+ 005A           ;      * This may look a little bit weird if you are not used to C programming
+ 005A           ;      * for flash microcontrollers. The special type 'prog_char' forces the
+ 005A           ;      * string literals to be placed in flash ROM. This saves us a lot of
+ 005A           ;      * precious RAM.
+ 005A           ;      */
+ 005A           ;     static prog_char head[] = "<HTML><HEAD><TITLE>Parameters</TITLE></HEAD><BODY><H1>Parameters</H1>";
+ 005A           ;     static prog_char foot[] = "</BODY></HTML>";
+ 005A           ;     static prog_char req_fmt[] = "Method: %s<BR>\r\nVersion: HTTP/%d.%d<BR>\r\nContent length: %ld<BR>\r\n";
+ 005A           ;     static prog_char url_fmt[] = "URL: %s<BR>\r\n";
+ 005A           ;     static prog_char query_fmt[] = "Argument: %s<BR>\r\n";
+ 005A           ;     static prog_char type_fmt[] = "Content type: %s<BR>\r\n";
+ 005A           ;     static prog_char cookie_fmt[] = "Cookie: %s<BR>\r\n";
+ 005A           ;     static prog_char auth_fmt[] = "Auth info: %s<BR>\r\n";
+ 005A           ;     static prog_char agent_fmt[] = "User agent: %s<BR>\r\n";
+ 005A           ; 
+ 005A           ;     /* These useful API calls create a HTTP response for us. */
+ 005A           ;     NutHttpSendHeaderTop(stream, req, 200, "Ok");
+ 005A 80E0              ldi R24,<L22
+ 005C 90E0              ldi R25,>L22
+ 005E 9B83              std y+3,R25
+ 0060 8A83              std y+2,R24
+ 0062 88EC              ldi R24,200
+ 0064 90E0              ldi R25,0
+ 0066 9983              std y+1,R25
+ 0068 8883              std y+0,R24
+ 006A 9A01              movw R18,R20
+ 006C 8501              movw R16,R10
+ 006E 0E940000          xcall _NutHttpSendHeaderTop
+ 0072                   .dbline 307
+ 0072           ;     NutHttpSendHeaderBottom(stream, req, html_mt, -1);
+ 0072 8FEF              ldi R24,255
+ 0074 9FEF              ldi R25,255
+ 0076 AFEF              ldi R26,255
+ 0078 BFEF              ldi R27,255
+ 007A 8A83              std y+2,R24
+ 007C 9B83              std y+3,R25
+ 007E AC83              std y+4,R26
+ 0080 BD83              std y+5,R27
+ 0082 20900000          lds R2,_html_mt
+ 0086 30900100          lds R3,_html_mt+1
+ 008A 3982              std y+1,R3
+ 008C 2882              std y+0,R2
+ 008E 9A01              movw R18,R20
+ 0090 8501              movw R16,R10
+ 0092 0E940000          xcall _NutHttpSendHeaderBottom
+ 0096                   .dbline 310
+ 0096           ; 
+ 0096           ;     /* Send HTML header. */
+ 0096           ;     fputs_P(head, stream);
+ 0096 9501              movw R18,R10
+ 0098 00E0              ldi R16,<L13
+ 009A 10E0              ldi R17,>L13
+ 009C 0E940000          xcall _fputs_P
+ 00A0                   .dbline 315
+ 00A0           ; 
+ 00A0           ;     /*
+ 00A0           ;      * Send request parameters.
+ 00A0           ;      */
+ 00A0           ;     switch (req->req_method) {
+ 00A0 FA01              movw R30,R20
+ 00A2 6081              ldd R22,z+0
+ 00A4 7181              ldd R23,z+1
+ 00A6 6130              cpi R22,1
+ 00A8 E0E0              ldi R30,0
+ 00AA 7E07              cpc R23,R30
+ 00AC 49F0              breq L26
+ 00AE           X2:
+ 00AE 6230              cpi R22,2
+ 00B0 E0E0              ldi R30,0
+ 00B2 7E07              cpc R23,R30
+ 00B4 41F0              breq L28
+ 00B6           X3:
+ 00B6 6330              cpi R22,3
+ 00B8 E0E0              ldi R30,0
+ 00BA 7E07              cpc R23,R30
+ 00BC 39F0              breq L30
+ 00BE           X4:
+ 00BE 09C0              xjmp L23
+ 00C0           L26:
+ 00C0                   .dbline 317
+ 00C0           ;     case METHOD_GET:
+ 00C0           ;         cp = "GET";
+ 00C0 60E0              ldi R22,<L27
+ 00C2 70E0              ldi R23,>L27
+ 00C4                   .dbline 318
+ 00C4           ;         break;
+ 00C4 08C0              xjmp L24
+ 00C6           L28:
+ 00C6                   .dbline 320
+ 00C6           ;     case METHOD_POST:
+ 00C6           ;         cp = "POST";
+ 00C6 60E0              ldi R22,<L29
+ 00C8 70E0              ldi R23,>L29
+ 00CA                   .dbline 321
+ 00CA           ;         break;
+ 00CA 05C0              xjmp L24
+ 00CC           L30:
+ 00CC                   .dbline 323
+ 00CC           ;     case METHOD_HEAD:
+ 00CC           ;         cp = "HEAD";
+ 00CC 60E0              ldi R22,<L31
+ 00CE 70E0              ldi R23,>L31
+ 00D0                   .dbline 324
+ 00D0           ;         break;
+ 00D0 02C0              xjmp L24
+ 00D2           L23:
+ 00D2                   .dbline 326
+ 00D2           ;     default:
+ 00D2           ;         cp = "UNKNOWN";
+ 00D2 60E0              ldi R22,<L32
+ 00D4 70E0              ldi R23,>L32
+ 00D6                   .dbline 327
+ 00D6           ;         break;
+ 00D6           L24:
+ 00D6                   .dbline 329
+ 00D6           ;     }
+ 00D6           ;     fprintf_P(stream, req_fmt, cp, req->req_version / 10, req->req_version % 10, req->req_length);
+ 00D6 FA01              movw R30,R20
+ 00D8 2480              ldd R2,z+4
+ 00DA 3580              ldd R3,z+5
+ 00DC 4680              ldd R4,z+6
+ 00DE 5780              ldd R5,z+7
+ 00E0 2E82              std y+6,R2
+ 00E2 3F82              std y+7,R3
+ 00E4 4886              std y+8,R4
+ 00E6 5986              std y+9,R5
+ 00E8 2280              ldd R2,z+2
+ 00EA 3380              ldd R3,z+3
+ 00EC 2AE0              ldi R18,10
+ 00EE 30E0              ldi R19,0
+ 00F0 8101              movw R16,R2
+ 00F2 0E940000          xcall mod16s
+ 00F6 1D83              std y+5,R17
+ 00F8 0C83              std y+4,R16
+ 00FA 2AE0              ldi R18,10
+ 00FC 30E0              ldi R19,0
+ 00FE 8101              movw R16,R2
+ 0100 0E940000          xcall div16s
+ 0104 1B83              std y+3,R17
+ 0106 0A83              std y+2,R16
+ 0108 7983              std y+1,R23
+ 010A 6883              std y+0,R22
+ 010C 20E0              ldi R18,<L15
+ 010E 30E0              ldi R19,>L15
+ 0110 8501              movw R16,R10
+ 0112 0E940000          xcall _fprintf_P
+ 0116                   .dbline 330
+ 0116           ;     if (req->req_url)
+ 0116 FA01              movw R30,R20
+ 0118 2084              ldd R2,z+8
+ 011A 3184              ldd R3,z+9
+ 011C 2220              tst R2
+ 011E 11F4              brne X5
+ 0120 3320              tst R3
+ 0122 39F0              breq L33
+ 0124           X5:
+ 0124                   .dbline 331
+ 0124           ;         fprintf_P(stream, url_fmt, req->req_url);
+ 0124 3982              std y+1,R3
+ 0126 2882              std y+0,R2
+ 0128 20E0              ldi R18,<L16
+ 012A 30E0              ldi R19,>L16
+ 012C 8501              movw R16,R10
+ 012E 0E940000          xcall _fprintf_P
+ 0132           L33:
+ 0132                   .dbline 332
+ 0132           ;     if (req->req_query)
+ 0132 FA01              movw R30,R20
+ 0134 2284              ldd R2,z+10
+ 0136 3384              ldd R3,z+11
+ 0138 2220              tst R2
+ 013A 11F4              brne X6
+ 013C 3320              tst R3
+ 013E 39F0              breq L35
+ 0140           X6:
+ 0140                   .dbline 333
+ 0140           ;         fprintf_P(stream, query_fmt, req->req_query);
+ 0140 3982              std y+1,R3
+ 0142 2882              std y+0,R2
+ 0144 20E0              ldi R18,<L17
+ 0146 30E0              ldi R19,>L17
+ 0148 8501              movw R16,R10
+ 014A 0E940000          xcall _fprintf_P
+ 014E           L35:
+ 014E                   .dbline 334
+ 014E           ;     if (req->req_type)
+ 014E FA01              movw R30,R20
+ 0150 2484              ldd R2,z+12
+ 0152 3584              ldd R3,z+13
+ 0154 2220              tst R2
+ 0156 11F4              brne X7
+ 0158 3320              tst R3
+ 015A 39F0              breq L37
+ 015C           X7:
+ 015C                   .dbline 335
+ 015C           ;         fprintf_P(stream, type_fmt, req->req_type);
+ 015C 3982              std y+1,R3
+ 015E 2882              std y+0,R2
+ 0160 20E0              ldi R18,<L18
+ 0162 30E0              ldi R19,>L18
+ 0164 8501              movw R16,R10
+ 0166 0E940000          xcall _fprintf_P
+ 016A           L37:
+ 016A                   .dbline 336
+ 016A           ;     if (req->req_cookie)
+ 016A FA01              movw R30,R20
+ 016C 2684              ldd R2,z+14
+ 016E 3784              ldd R3,z+15
+ 0170 2220              tst R2
+ 0172 11F4              brne X8
+ 0174 3320              tst R3
+ 0176 39F0              breq L39
+ 0178           X8:
+ 0178                   .dbline 337
+ 0178           ;         fprintf_P(stream, cookie_fmt, req->req_cookie);
+ 0178 3982              std y+1,R3
+ 017A 2882              std y+0,R2
+ 017C 20E0              ldi R18,<L19
+ 017E 30E0              ldi R19,>L19
+ 0180 8501              movw R16,R10
+ 0182 0E940000          xcall _fprintf_P
+ 0186           L39:
+ 0186                   .dbline 338
+ 0186           ;     if (req->req_auth)
+ 0186 FA01              movw R30,R20
+ 0188 2088              ldd R2,z+16
+ 018A 3188              ldd R3,z+17
+ 018C 2220              tst R2
+ 018E 11F4              brne X9
+ 0190 3320              tst R3
+ 0192 39F0              breq L41
+ 0194           X9:
+ 0194                   .dbline 339
+ 0194           ;         fprintf_P(stream, auth_fmt, req->req_auth);
+ 0194 3982              std y+1,R3
+ 0196 2882              std y+0,R2
+ 0198 20E0              ldi R18,<L20
+ 019A 30E0              ldi R19,>L20
+ 019C 8501              movw R16,R10
+ 019E 0E940000          xcall _fprintf_P
+ 01A2           L41:
+ 01A2                   .dbline 340
+ 01A2           ;     if (req->req_agent)
+ 01A2 FA01              movw R30,R20
+ 01A4 2288              ldd R2,z+18
+ 01A6 3388              ldd R3,z+19
+ 01A8 2220              tst R2
+ 01AA 11F4              brne X10
+ 01AC 3320              tst R3
+ 01AE 39F0              breq L43
+ 01B0           X10:
+ 01B0                   .dbline 341
+ 01B0           ;         fprintf_P(stream, agent_fmt, req->req_agent);
+ 01B0 3982              std y+1,R3
+ 01B2 2882              std y+0,R2
+ 01B4 20E0              ldi R18,<L21
+ 01B6 30E0              ldi R19,>L21
+ 01B8 8501              movw R16,R10
+ 01BA 0E940000          xcall _fprintf_P
+ 01BE           L43:
+ 01BE                   .dbline 344
+ 01BE           ; 
+ 01BE           ;     /* Send HTML footer and flush output buffer. */
+ 01BE           ;     fputs_P(foot, stream);
+ 01BE 9501              movw R18,R10
+ 01C0 00E0              ldi R16,<L14
+ 01C2 10E0              ldi R17,>L14
+ 01C4 0E940000          xcall _fputs_P
+ 01C8                   .dbline 345
+ 01C8           ;     fflush(stream);
+ 01C8 8501              movw R16,R10
+ 01CA 0E940000          xcall _fflush
+ 01CE                   .dbline 347
+ 01CE           ; 
+ 01CE           ;     return 0;
+ 01CE 0027              clr R16
+ 01D0 1127              clr R17
+ 01D2                   .dbline -2
+ 01D2           L12:
+ 01D2                   .dbline 0 ; func end
+ 01D2 2A96              adiw R28,10
+ 01D4 0C940000          xjmp pop_xgsetF00C
+ 01D8                   .dbsym r cp 22 pc
+ 01D8                   .dbsym r req 20 pS[_REQUEST]
+ 01D8                   .dbsym r stream 10 pS[__iobuf]
+ 01D8                   .dbend
+                        .area lit(rom, con, rel)
+ 010A           L46:
+ 010A 3C48544D4C3E3C484541443E3C544954  .byte 60,'H,'T,'M,'L,62,60,'H,'E,'A,'D,62,60,'T,'I,'T
+ 011A 4C453E546872656164733C2F5449544C  .byte 'L,'E,62,'T,'h,'r,'e,'a,'d,'s,60,47,'T,'I,'T,'L
+ 012A 453E3C2F484541443E3C424F44593E3C  .byte 'E,62,60,47,'H,'E,'A,'D,62,60,'B,'O,'D,'Y,62,60
+ 013A 48313E546872656164733C2F48313E0D  .byte 'H,49,62,'T,'h,'r,'e,'a,'d,'s,60,47,'H,49,62,13
+ 014A 0A3C5441424C4520424F524445523E3C  .byte 10,60,'T,'A,'B,'L,'E,32,'B,'O,'R,'D,'E,'R,62,60
+ 015A 54523E3C54483E48616E646C653C2F54  .byte 'T,'R,62,60,'T,'H,62,'H,'a,'n,'d,'l,'e,60,47,'T
+ 016A 483E3C54483E4E616D653C2F54483E3C  .byte 'H,62,60,'T,'H,62,'N,'a,'m,'e,60,47,'T,'H,62,60
+ 017A 54483E5072696F726974793C2F54483E  .byte 'T,'H,62,'P,'r,'i,'o,'r,'i,'t,'y,60,47,'T,'H,62
+ 018A 3C54483E5374617475733C2F54483E3C  .byte 60,'T,'H,62,'S,'t,'a,'t,'u,'s,60,47,'T,'H,62,60
+ 019A 54483E4576656E743C42523E51756575  .byte 'T,'H,62,'E,'v,'e,'n,'t,60,'B,'R,62,'Q,'u,'e,'u
+ 01AA 653C2F54483E3C54483E54696D65723C  .byte 'e,60,47,'T,'H,62,60,'T,'H,62,'T,'i,'m,'e,'r,60
+ 01BA 2F54483E3C54483E537461636B2D3C42  .byte 47,'T,'H,62,60,'T,'H,62,'S,'t,'a,'c,'k,45,60,'B
+ 01CA 523E706F696E7465723C2F54483E3C54  .byte 'R,62,'p,'o,'i,'n,'t,'e,'r,60,47,'T,'H,62,60,'T
+ 01DA 483E467265653C42523E537461636B3C  .byte 'H,62,'F,'r,'e,'e,60,'B,'R,62,'S,'t,'a,'c,'k,60
+ 01EA 2F54483E3C2F54523E0D0A00  .byte 47,'T,'H,62,60,47,'T,'R,62,13,10,0
+ 01F6           L47:
+ 01F6 3C54523E3C54443E253034583C2F5444  .byte 60,'T,'R,62,60,'T,'D,62,37,48,52,'X,60,47,'T,'D
+ 0206 3E3C54443E25733C2F54443E3C54443E  .byte 62,60,'T,'D,62,37,'s,60,47,'T,'D,62,60,'T,'D,62
+ 0216 25753C2F54443E3C54443E25733C2F54  .byte 37,'u,60,47,'T,'D,62,60,'T,'D,62,37,'s,60,47,'T
+ 0226 443E3C54443E253034583C2F54443E3C  .byte 'D,62,60,'T,'D,62,37,48,52,'X,60,47,'T,'D,62,60
+ 0236 54443E253034583C2F54443E3C54443E  .byte 'T,'D,62,37,48,52,'X,60,47,'T,'D,62,60,'T,'D,62
+ 0246 253034583C2F54443E3C54443E25753C  .byte 37,48,52,'X,60,47,'T,'D,62,60,'T,'D,62,37,'u,60
+ 0256 2F54443E3C54443E25733C2F54443E3C  .byte 47,'T,'D,62,60,'T,'D,62,37,'s,60,47,'T,'D,62,60
+ 0266 2F54523E0D0A00    .byte 47,'T,'R,62,13,10,0
+ 026D           L48:
+ 026D 3C2F5441424C453E3C2F424F44593E3C  .byte 60,47,'T,'A,'B,'L,'E,62,60,47,'B,'O,'D,'Y,62,60
+ 027D 2F48544D4C3E00    .byte 47,'H,'T,'M,'L,62,0
+                        .area data(ram, con, rel)
+ 0002                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0002           L49:
+ 0002                   .blkw 1
+                        .area idata
+ 0002 EB02              .word L50
+                        .area data(ram, con, rel)
+ 0004                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0004                   .blkw 1
+                        .area idata
+ 0004 CC02              .word L51
+                        .area data(ram, con, rel)
+ 0006                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0006                   .blkw 1
+                        .area idata
+ 0006 AD02              .word L52
+                        .area data(ram, con, rel)
+ 0008                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0008                   .blkw 1
+                        .area idata
+ 0008 A902              .word L53
+                        .area data(ram, con, rel)
+ 000A                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+                        .area text(rom, con, rel)
+ 01D8                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 01D8                   .dbfunc s ShowThreads _ShowThreads fI
+ 01D8                   .dbstruct 0 25 _NUTTHREADINFO
+ 01D8                   .dbfield 0 td_next pS[_NUTTHREADINFO]
+ 01D8                   .dbfield 2 td_qnxt pS[_NUTTHREADINFO]
+ 01D8                   .dbfield 4 td_qpec i
+ 01D8                   .dbfield 6 td_name A[9:9]c
+ 01D8                   .dbfield 15 td_state c
+ 01D8                   .dbfield 16 td_sp i
+ 01D8                   .dbfield 18 td_priority c
+ 01D8                   .dbfield 19 td_memory pc
+ 01D8                   .dbfield 21 td_timer pV
+ 01D8                   .dbfield 23 td_queue pV
+ 01D8                   .dbend
+ 01D8                   .dbsym s thread_states L49 A[8:4]pc
+ 01D8                   .dbsym s foot L48 A[23:23]kc
+ 01D8                   .dbsym s tfmt L47 A[119:119]kc
+ 01D8                   .dbsym s head L46 A[236:236]kc
+ 01D8           ;            tdp -> R20,R21
+ 01D8           ;            req -> R12,R13
+ 01D8           ;         stream -> R10,R11
+                        .even
+ 01D8           _ShowThreads:
+ 01D8 0E940000          xcall push_xgsetF03C
+ 01DC 6901              movw R12,R18
+ 01DE 5801              movw R10,R16
+ 01E0 6297              sbiw R28,18
+ 01E2                   .dbline -1
+ 01E2                   .dbline 358
+ 01E2           ; }
+ 01E2           ; 
+ 01E2           ; /*
+ 01E2           ;  * CGI Sample: Show list of threads.
+ 01E2           ;  *
+ 01E2           ;  * This routine must have been registered by NutRegisterCgi() and is
+ 01E2           ;  * automatically called by NutHttpProcessRequest() when the client
+ 01E2           ;  * request the URL 'cgi-bin/threads.cgi'.
+ 01E2           ;  */
+ 01E2           ; static int ShowThreads(FILE * stream, REQUEST * req)
+ 01E2           ; {
+ 01E2                   .dbline 370
+ 01E2           ;     static prog_char head[] = "<HTML><HEAD><TITLE>Threads</TITLE></HEAD><BODY><H1>Threads</H1>\r\n"
+ 01E2           ;         "<TABLE BORDER><TR><TH>Handle</TH><TH>Name</TH><TH>Priority</TH><TH>Status</TH><TH>Event<BR>Queue</TH><TH>Timer</TH><TH>Stack-<BR>pointer</TH><TH>Free<BR>Stack</TH></TR>\r\n";
+ 01E2           ; #if defined(__AVR__)
+ 01E2           ;     static prog_char tfmt[] =
+ 01E2           ;         "<TR><TD>%04X</TD><TD>%s</TD><TD>%u</TD><TD>%s</TD><TD>%04X</TD><TD>%04X</TD><TD>%04X</TD><TD>%u</TD><TD>%s</TD></TR>\r\n";
+ 01E2           ; #else
+ 01E2           ;     static prog_char tfmt[] =
+ 01E2           ;         "<TR><TD>%08lX</TD><TD>%s</TD><TD>%u</TD><TD>%s</TD><TD>%08lX</TD><TD>%08lX</TD><TD>%08lX</TD><TD>%lu</TD><TD>%s</TD></TR>\r\n";
+ 01E2           ; #endif
+ 01E2           ;     static prog_char foot[] = "</TABLE></BODY></HTML>";
+ 01E2           ;     static char *thread_states[] = { "TRM", "<FONT COLOR=#CC0000>RUN</FONT>", "<FONT COLOR=#339966>RDY</FONT>", "SLP" };
+ 01E2           ;     NUTTHREADINFO *tdp = nutThreadList;
+ 01E2                   .dbline 373
+ 01E2           ; 
+ 01E2           ;     /* Send HTTP response. */
+ 01E2           ;     NutHttpSendHeaderTop(stream, req, 200, "Ok");
+ 01E2 80E0              ldi R24,<L22
+ 01E4 90E0              ldi R25,>L22
+ 01E6 9B83              std y+3,R25
+ 01E8 8A83              std y+2,R24
+ 01EA 88EC              ldi R24,200
+ 01EC 90E0              ldi R25,0
+ 01EE 9983              std y+1,R25
+ 01F0 8883              std y+0,R24
+ 01F2 9601              movw R18,R12
+ 01F4 8501              movw R16,R10
+ 01F6 0E940000          xcall _NutHttpSendHeaderTop
+ 01FA                   .dbline 374
+ 01FA           ;     NutHttpSendHeaderBottom(stream, req, html_mt, -1);
+ 01FA 8FEF              ldi R24,255
+ 01FC 9FEF              ldi R25,255
+ 01FE AFEF              ldi R26,255
+ 0200 BFEF              ldi R27,255
+ 0202 8A83              std y+2,R24
+ 0204 9B83              std y+3,R25
+ 0206 AC83              std y+4,R26
+ 0208 BD83              std y+5,R27
+ 020A 20900000          lds R2,_html_mt
+ 020E 30900100          lds R3,_html_mt+1
+ 0212 3982              std y+1,R3
+ 0214 2882              std y+0,R2
+ 0216 9601              movw R18,R12
+ 0218 8501              movw R16,R10
+ 021A 0E940000          xcall _NutHttpSendHeaderBottom
+ 021E                   .dbline 377
+ 021E           ; 
+ 021E           ;     /* Send HTML header. */
+ 021E           ;     fputs_P(head, stream);
+ 021E 9501              movw R18,R10
+ 0220 00E0              ldi R16,<L46
+ 0222 10E0              ldi R17,>L46
+ 0224 0E940000          xcall _fputs_P
+ 0228                   .dbline 378
+ 0228           ;     for (tdp = nutThreadList; tdp; tdp = tdp->td_next) {
+ 0228 40910000          lds R20,_nutThreadList
+ 022C 50910100          lds R21,_nutThreadList+1
+ 0230 50C0              xjmp L57
+ 0232           L54:
+ 0232                   .dbline 378
+ 0232                   .dbline 379
+ 0232           ;         fprintf_P(stream, tfmt, (uptr_t) tdp, tdp->td_name, tdp->td_priority,
+ 0232 8FEE              ldi R24,239
+ 0234 9EEB              ldi R25,190
+ 0236 ADEA              ldi R26,173
+ 0238 BEED              ldi R27,222
+ 023A FA01              movw R30,R20
+ 023C 7396              adiw R30,19
+ 023E AF93              push R26
+ 0240 BF93              push R27
+ 0242 A081              ldd R26,z+0
+ 0244 B181              ldd R27,z+1
+ 0246 FD01              movw R30,R26
+ 0248 BF91              pop R27
+ 024A AF91              pop R26
+ 024C 2080              ldd R2,z+0
+ 024E 3180              ldd R3,z+1
+ 0250 4280              ldd R4,z+2
+ 0252 5380              ldd R5,z+3
+ 0254 2816              cp R2,R24
+ 0256 3906              cpc R3,R25
+ 0258 4A06              cpc R4,R26
+ 025A 5B06              cpc R5,R27
+ 025C 19F0              breq L60
+ 025E           X11:
+ 025E 60E0              ldi R22,<L58
+ 0260 70E0              ldi R23,>L58
+ 0262 02C0              xjmp L61
+ 0264           L60:
+ 0264 60E0              ldi R22,<L59
+ 0266 70E0              ldi R23,>L59
+ 0268           L61:
+ 0268 798B              std y+17,R23
+ 026A 688B              std y+16,R22
+ 026C FA01              movw R30,R20
+ 026E 6088              ldd R6,z+16
+ 0270 7188              ldd R7,z+17
+ 0272 2388              ldd R2,z+19
+ 0274 3488              ldd R3,z+20
+ 0276 2301              movw R4,R6
+ 0278 4218              sub R4,R2
+ 027A 5308              sbc R5,R3
+ 027C 5F86              std y+15,R5
+ 027E 4E86              std y+14,R4
+ 0280 7D86              std y+13,R7
+ 0282 6C86              std y+12,R6
+ 0284 2588              ldd R2,z+21
+ 0286 3688              ldd R3,z+22
+ 0288 3B86              std y+11,R3
+ 028A 2A86              std y+10,R2
+ 028C 2788              ldd R2,z+23
+ 028E 308C              ldd R3,z+24
+ 0290 3986              std y+9,R3
+ 0292 2886              std y+8,R2
+ 0294 80E0              ldi R24,<L49
+ 0296 90E0              ldi R25,>L49
+ 0298 E785              ldd R30,z+15
+ 029A FF27              clr R31
+ 029C EE0F              lsl R30
+ 029E FF1F              rol R31
+ 02A0 E80F              add R30,R24
+ 02A2 F91F              adc R31,R25
+ 02A4 2080              ldd R2,z+0
+ 02A6 3180              ldd R3,z+1
+ 02A8 3F82              std y+7,R3
+ 02AA 2E82              std y+6,R2
+ 02AC FA01              movw R30,R20
+ 02AE 2288              ldd R2,z+18
+ 02B0 3324              clr R3
+ 02B2 3D82              std y+5,R3
+ 02B4 2C82              std y+4,R2
+ 02B6 CF01              movw R24,R30
+ 02B8 0696              adiw R24,6
+ 02BA 9B83              std y+3,R25
+ 02BC 8A83              std y+2,R24
+ 02BE 5983              std y+1,R21
+ 02C0 4883              std y+0,R20
+ 02C2 20E0              ldi R18,<L47
+ 02C4 30E0              ldi R19,>L47
+ 02C6 8501              movw R16,R10
+ 02C8 0E940000          xcall _fprintf_P
+ 02CC                   .dbline 383
+ 02CC           ;                   thread_states[tdp->td_state], (uptr_t) tdp->td_queue, (uptr_t) tdp->td_timer,
+ 02CC           ;                   (uptr_t) tdp->td_sp, (uptr_t) tdp->td_sp - (uptr_t) tdp->td_memory,
+ 02CC           ;                   *((u_long *) tdp->td_memory) != DEADBEEF ? "Corr" : "OK");
+ 02CC           ;     }
+ 02CC           L55:
+ 02CC                   .dbline 378
+ 02CC FA01              movw R30,R20
+ 02CE 4081              ldd R20,z+0
+ 02D0 5181              ldd R21,z+1
+ 02D2           L57:
+ 02D2                   .dbline 378
+ 02D2 4030              cpi R20,0
+ 02D4 4507              cpc R20,R21
+ 02D6 09F0              breq X13
+ 02D8 ACCF              xjmp L54
+ 02DA           X13:
+ 02DA           X12:
+ 02DA                   .dbline 384
+ 02DA           ;     fputs_P(foot, stream);
+ 02DA 9501              movw R18,R10
+ 02DC 00E0              ldi R16,<L48
+ 02DE 10E0              ldi R17,>L48
+ 02E0 0E940000          xcall _fputs_P
+ 02E4                   .dbline 385
+ 02E4           ;     fflush(stream);
+ 02E4 8501              movw R16,R10
+ 02E6 0E940000          xcall _fflush
+ 02EA                   .dbline 387
+ 02EA           ; 
+ 02EA           ;     return 0;
+ 02EA 0027              clr R16
+ 02EC 1127              clr R17
+ 02EE                   .dbline -2
+ 02EE           L45:
+ 02EE                   .dbline 0 ; func end
+ 02EE 6296              adiw R28,18
+ 02F0 0C940000          xjmp pop_xgsetF03C
+ 02F4                   .dbsym r tdp 20 pS[_NUTTHREADINFO]
+ 02F4                   .dbsym r req 12 pS[_REQUEST]
+ 02F4                   .dbsym r stream 10 pS[__iobuf]
+ 02F4                   .dbend
+                        .area lit(rom, con, rel)
+ 0284           L63:
+ 0284 3C48544D4C3E3C484541443E3C544954  .byte 60,'H,'T,'M,'L,62,60,'H,'E,'A,'D,62,60,'T,'I,'T
+ 0294 4C453E54696D6572733C2F5449544C45  .byte 'L,'E,62,'T,'i,'m,'e,'r,'s,60,47,'T,'I,'T,'L,'E
+ 02A4 3E3C2F484541443E3C424F44593E3C48  .byte 62,60,47,'H,'E,'A,'D,62,60,'B,'O,'D,'Y,62,60,'H
+ 02B4 313E54696D6572733C2F48313E0D0A00  .byte 49,62,'T,'i,'m,'e,'r,'s,60,47,'H,49,62,13,10,0
+ 02C4           L64:
+ 02C4 3C5441424C4520424F524445523E3C54  .byte 60,'T,'A,'B,'L,'E,32,'B,'O,'R,'D,'E,'R,62,60,'T
+ 02D4 523E3C54483E48616E646C653C2F5448  .byte 'R,62,60,'T,'H,62,'H,'a,'n,'d,'l,'e,60,47,'T,'H
+ 02E4 3E3C54483E436F756E74646F776E3C2F  .byte 62,60,'T,'H,62,'C,'o,'u,'n,'t,'d,'o,'w,'n,60,47
+ 02F4 54483E3C54483E5469636B2052656C6F  .byte 'T,'H,62,60,'T,'H,62,'T,'i,'c,'k,32,'R,'e,'l,'o
+ 0304 61643C2F54483E3C54483E43616C6C62  .byte 'a,'d,60,47,'T,'H,62,60,'T,'H,62,'C,'a,'l,'l,'b
+ 0314 61636B3C42523E416464726573733C2F  .byte 'a,'c,'k,60,'B,'R,62,'A,'d,'d,'r,'e,'s,'s,60,47
+ 0324 54483E3C54483E43616C6C6261636B3C  .byte 'T,'H,62,60,'T,'H,62,'C,'a,'l,'l,'b,'a,'c,'k,60
+ 0334 42523E417267756D656E743C2F54483E  .byte 'B,'R,62,'A,'r,'g,'u,'m,'e,'n,'t,60,47,'T,'H,62
+ 0344 3C2F54523E0D0A00  .byte 60,47,'T,'R,62,13,10,0
+ 034C           L65:
+ 034C 3C54523E3C54443E253034583C2F5444  .byte 60,'T,'R,62,60,'T,'D,62,37,48,52,'X,60,47,'T,'D
+ 035C 3E3C54443E256C753C2F54443E3C5444  .byte 62,60,'T,'D,62,37,'l,'u,60,47,'T,'D,62,60,'T,'D
+ 036C 3E256C753C2F54443E3C54443E253034  .byte 62,37,'l,'u,60,47,'T,'D,62,60,'T,'D,62,37,48,52
+ 037C 583C2F54443E3C54443E253034583C2F  .byte 'X,60,47,'T,'D,62,60,'T,'D,62,37,48,52,'X,60,47
+ 038C 54443E3C2F54523E0D0A00    .byte 'T,'D,62,60,47,'T,'R,62,13,10,0
+ 0397           L66:
+ 0397 3C2F5441424C453E3C2F424F44593E3C  .byte 60,47,'T,'A,'B,'L,'E,62,60,47,'B,'O,'D,'Y,62,60
+ 03A7 2F48544D4C3E00    .byte 47,'H,'T,'M,'L,62,0
+                        .area text(rom, con, rel)
+ 02F4                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 02F4                   .dbfunc s ShowTimers _ShowTimers fI
+ 02F4                   .dbstruct 0 16 _NUTTIMERINFO
+ 02F4                   .dbfield 0 tn_next pS[_NUTTIMERINFO]
+ 02F4                   .dbfield 2 tn_prev pS[_NUTTIMERINFO]
+ 02F4                   .dbfield 4 tn_ticks l
+ 02F4                   .dbfield 8 tn_ticks_left l
+ 02F4                   .dbfield 12 tn_callback pfV
+ 02F4                   .dbfield 14 tn_arg pV
+ 02F4                   .dbend
+ 02F4                   .dbsym s foot L66 A[23:23]kc
+ 02F4                   .dbsym s tfmt L65 A[75:75]kc
+ 02F4                   .dbsym s thead L64 A[136:136]kc
+ 02F4                   .dbsym s head L63 A[64:64]kc
+ 02F4           ;     ticks_left -> y+14
+ 02F4           ;            tnp -> R12,R13
+ 02F4           ;            req -> R12,R13
+ 02F4           ;         stream -> R10,R11
+                        .even
+ 02F4           _ShowTimers:
+ 02F4 0E940000          xcall push_xgsetF03C
+ 02F8 6901              movw R12,R18
+ 02FA 5801              movw R10,R16
+ 02FC 6297              sbiw R28,18
+ 02FE                   .dbline -1
+ 02FE                   .dbline 398
+ 02FE           ; }
+ 02FE           ; 
+ 02FE           ; /*
+ 02FE           ;  * CGI Sample: Show list of timers.
+ 02FE           ;  *
+ 02FE           ;  * This routine must have been registered by NutRegisterCgi() and is
+ 02FE           ;  * automatically called by NutHttpProcessRequest() when the client
+ 02FE           ;  * request the URL 'cgi-bin/timers.cgi'.
+ 02FE           ;  */
+ 02FE           ; static int ShowTimers(FILE * stream, REQUEST * req)
+ 02FE           ; {
+ 02FE                   .dbline 411
+ 02FE           ;     static prog_char head[] = "<HTML><HEAD><TITLE>Timers</TITLE></HEAD><BODY><H1>Timers</H1>\r\n";
+ 02FE           ;     static prog_char thead[] =
+ 02FE           ;         "<TABLE BORDER><TR><TH>Handle</TH><TH>Countdown</TH><TH>Tick Reload</TH><TH>Callback<BR>Address</TH><TH>Callback<BR>Argument</TH></TR>\r\n";
+ 02FE           ; #if defined(__AVR__)
+ 02FE           ;     static prog_char tfmt[] = "<TR><TD>%04X</TD><TD>%lu</TD><TD>%lu</TD><TD>%04X</TD><TD>%04X</TD></TR>\r\n";
+ 02FE           ; #else
+ 02FE           ;     static prog_char tfmt[] = "<TR><TD>%08lX</TD><TD>%lu</TD><TD>%lu</TD><TD>%08lX</TD><TD>%08lX</TD></TR>\r\n";
+ 02FE           ; #endif
+ 02FE           ;     static prog_char foot[] = "</TABLE></BODY></HTML>";
+ 02FE           ;     NUTTIMERINFO *tnp;
+ 02FE           ;     u_long ticks_left;
+ 02FE           ; 
+ 02FE           ;     NutHttpSendHeaderTop(stream, req, 200, "Ok");
+ 02FE 80E0              ldi R24,<L22
+ 0300 90E0              ldi R25,>L22
+ 0302 9B83              std y+3,R25
+ 0304 8A83              std y+2,R24
+ 0306 88EC              ldi R24,200
+ 0308 90E0              ldi R25,0
+ 030A 9983              std y+1,R25
+ 030C 8883              std y+0,R24
+ 030E 9601              movw R18,R12
+ 0310 8501              movw R16,R10
+ 0312 0E940000          xcall _NutHttpSendHeaderTop
+ 0316                   .dbline 412
+ 0316           ;     NutHttpSendHeaderBottom(stream, req, html_mt, -1);
+ 0316 4FEF              ldi R20,255
+ 0318 5FEF              ldi R21,255
+ 031A 6FEF              ldi R22,255
+ 031C 7FEF              ldi R23,255
+ 031E 4A83              std y+2,R20
+ 0320 5B83              std y+3,R21
+ 0322 6C83              std y+4,R22
+ 0324 7D83              std y+5,R23
+ 0326 20900000          lds R2,_html_mt
+ 032A 30900100          lds R3,_html_mt+1
+ 032E 3982              std y+1,R3
+ 0330 2882              std y+0,R2
+ 0332 9601              movw R18,R12
+ 0334 8501              movw R16,R10
+ 0336 0E940000          xcall _NutHttpSendHeaderBottom
+ 033A                   .dbline 415
+ 033A           ; 
+ 033A           ;     /* Send HTML header. */
+ 033A           ;     fputs_P(head, stream);
+ 033A 9501              movw R18,R10
+ 033C 00E0              ldi R16,<L63
+ 033E 10E0              ldi R17,>L63
+ 0340 0E940000          xcall _fputs_P
+ 0344                   .dbline 416
+ 0344           ;     if ((tnp = nutTimerList) != 0) {
+ 0344 20900000          lds R2,_nutTimerList
+ 0348 30900100          lds R3,_nutTimerList+1
+ 034C 6101              movw R12,R2
+ 034E CC20              tst R12
+ 0350 19F4              brne X14
+ 0352 DD20              tst R13
+ 0354 09F4              brne X16
+ 0356 4AC0              xjmp L67
+ 0358           X16:
+ 0358           X14:
+ 0358                   .dbline 416
+ 0358                   .dbline 417
+ 0358           ;         fputs_P(thead, stream);
+ 0358 9501              movw R18,R10
+ 035A 00E0              ldi R16,<L64
+ 035C 10E0              ldi R17,>L64
+ 035E 0E940000          xcall _fputs_P
+ 0362                   .dbline 418
+ 0362           ;         ticks_left = 0;
+ 0362 40E0              ldi R20,0
+ 0364 50E0              ldi R21,0
+ 0366 60E0              ldi R22,0
+ 0368 70E0              ldi R23,0
+ 036A 4E87              std y+14,R20
+ 036C 5F87              std y+15,R21
+ 036E 688B              std y+16,R22
+ 0370 798B              std y+17,R23
+ 0372 36C0              xjmp L70
+ 0374           L69:
+ 0374                   .dbline 419
+ 0374           ;         while (tnp) {
+ 0374                   .dbline 420
+ 0374           ;             ticks_left += tnp->tn_ticks_left;
+ 0374 F601              movw R30,R12
+ 0376 3896              adiw R30,8
+ 0378 2080              ldd R2,z+0
+ 037A 3180              ldd R3,z+1
+ 037C 4280              ldd R4,z+2
+ 037E 5380              ldd R5,z+3
+ 0380 6E84              ldd R6,y+14
+ 0382 7F84              ldd R7,y+15
+ 0384 8888              ldd R8,y+16
+ 0386 9988              ldd R9,y+17
+ 0388 620C              add R6,R2
+ 038A 731C              adc R7,R3
+ 038C 841C              adc R8,R4
+ 038E 951C              adc R9,R5
+ 0390 6E86              std y+14,R6
+ 0392 7F86              std y+15,R7
+ 0394 888A              std y+16,R8
+ 0396 998A              std y+17,R9
+ 0398                   .dbline 421
+ 0398           ;             fprintf_P(stream, tfmt, (uptr_t) tnp, ticks_left, tnp->tn_ticks, (uptr_t) tnp->tn_callback, (uptr_t) tnp->tn_arg);
+ 0398 F601              movw R30,R12
+ 039A 2684              ldd R2,z+14
+ 039C 3784              ldd R3,z+15
+ 039E 3D86              std y+13,R3
+ 03A0 2C86              std y+12,R2
+ 03A2 2484              ldd R2,z+12
+ 03A4 3584              ldd R3,z+13
+ 03A6 3B86              std y+11,R3
+ 03A8 2A86              std y+10,R2
+ 03AA 3496              adiw R30,4
+ 03AC 2080              ldd R2,z+0
+ 03AE 3180              ldd R3,z+1
+ 03B0 4280              ldd R4,z+2
+ 03B2 5380              ldd R5,z+3
+ 03B4 2E82              std y+6,R2
+ 03B6 3F82              std y+7,R3
+ 03B8 4886              std y+8,R4
+ 03BA 5986              std y+9,R5
+ 03BC 2E84              ldd R2,y+14
+ 03BE 3F84              ldd R3,y+15
+ 03C0 4888              ldd R4,y+16
+ 03C2 5988              ldd R5,y+17
+ 03C4 2A82              std y+2,R2
+ 03C6 3B82              std y+3,R3
+ 03C8 4C82              std y+4,R4
+ 03CA 5D82              std y+5,R5
+ 03CC D982              std y+1,R13
+ 03CE C882              std y+0,R12
+ 03D0 20E0              ldi R18,<L65
+ 03D2 30E0              ldi R19,>L65
+ 03D4 8501              movw R16,R10
+ 03D6 0E940000          xcall _fprintf_P
+ 03DA                   .dbline 422
+ 03DA           ;             tnp = tnp->tn_next;
+ 03DA F601              movw R30,R12
+ 03DC C080              ldd R12,z+0
+ 03DE D180              ldd R13,z+1
+ 03E0                   .dbline 423
+ 03E0           ;         }
+ 03E0           L70:
+ 03E0                   .dbline 419
+ 03E0 CC20              tst R12
+ 03E2 09F0              breq X17
+ 03E4 C7CF              xjmp L69
+ 03E6           X17:
+ 03E6 DD20              tst R13
+ 03E8 09F0              breq X18
+ 03EA C4CF              xjmp L69
+ 03EC           X18:
+ 03EC           X15:
+ 03EC                   .dbline 424
+ 03EC           ;     }
+ 03EC           L67:
+ 03EC                   .dbline 426
+ 03EC           ; 
+ 03EC           ;     fputs_P(foot, stream);
+ 03EC 9501              movw R18,R10
+ 03EE 00E0              ldi R16,<L66
+ 03F0 10E0              ldi R17,>L66
+ 03F2 0E940000          xcall _fputs_P
+ 03F6                   .dbline 427
+ 03F6           ;     fflush(stream);
+ 03F6 8501              movw R16,R10
+ 03F8 0E940000          xcall _fflush
+ 03FC                   .dbline 429
+ 03FC           ; 
+ 03FC           ;     return 0;
+ 03FC 0027              clr R16
+ 03FE 1127              clr R17
+ 0400                   .dbline -2
+ 0400           L62:
+ 0400                   .dbline 0 ; func end
+ 0400 6296              adiw R28,18
+ 0402 0C940000          xjmp pop_xgsetF03C
+ 0406                   .dbsym l ticks_left 14 l
+ 0406                   .dbsym r tnp 12 pS[_NUTTIMERINFO]
+ 0406                   .dbsym r req 12 pS[_REQUEST]
+ 0406                   .dbsym r stream 10 pS[__iobuf]
+ 0406                   .dbend
+                        .area lit(rom, con, rel)
+ 03AE           L73:
+ 03AE 3C48544D4C3E3C484541443E3C544954  .byte 60,'H,'T,'M,'L,62,60,'H,'E,'A,'D,62,60,'T,'I,'T
+ 03BE 4C453E536F636B6574733C2F5449544C  .byte 'L,'E,62,'S,'o,'c,'k,'e,'t,'s,60,47,'T,'I,'T,'L
+ 03CE 453E3C2F484541443E3C424F44593E3C  .byte 'E,62,60,47,'H,'E,'A,'D,62,60,'B,'O,'D,'Y,62,60
+ 03DE 48313E536F636B6574733C2F48313E0D  .byte 'H,49,62,'S,'o,'c,'k,'e,'t,'s,60,47,'H,49,62,13
+ 03EE 0A3C5441424C4520424F524445523E3C  .byte 10,60,'T,'A,'B,'L,'E,32,'B,'O,'R,'D,'E,'R,62,60
+ 03FE 54523E3C54483E48616E646C653C2F54  .byte 'T,'R,62,60,'T,'H,62,'H,'a,'n,'d,'l,'e,60,47,'T
+ 040E 483E3C54483E547970653C2F54483E3C  .byte 'H,62,60,'T,'H,62,'T,'y,'p,'e,60,47,'T,'H,62,60
+ 041E 54483E4C6F63616C3C2F54483E3C5448  .byte 'T,'H,62,'L,'o,'c,'a,'l,60,47,'T,'H,62,60,'T,'H
+ 042E 3E52656D6F74653C2F54483E3C54483E  .byte 62,'R,'e,'m,'o,'t,'e,60,47,'T,'H,62,60,'T,'H,62
+ 043E 5374617475733C2F54483E3C2F54523E  .byte 'S,'t,'a,'t,'u,'s,60,47,'T,'H,62,60,47,'T,'R,62
+ 044E 0D0A00            .byte 13,10,0
+ 0451           L74:
+ 0451 3C54523E3C54443E253034583C2F5444  .byte 60,'T,'R,62,60,'T,'D,62,37,48,52,'X,60,47,'T,'D
+ 0461 3E3C54443E5443503C2F54443E3C5444  .byte 62,60,'T,'D,62,'T,'C,'P,60,47,'T,'D,62,60,'T,'D
+ 0471 3E25733A25753C2F54443E00  .byte 62,37,'s,58,37,'u,60,47,'T,'D,62,0
+ 047D           L75:
+ 047D 3C54443E25733A25753C2F54443E3C54  .byte 60,'T,'D,62,37,'s,58,37,'u,60,47,'T,'D,62,60,'T
+ 048D 443E00            .byte 'D,62,0
+ 0490           L76:
+ 0490 3C2F5441424C453E3C2F424F44593E3C  .byte 60,47,'T,'A,'B,'L,'E,62,60,47,'B,'O,'D,'Y,62,60
+ 04A0 2F48544D4C3E00    .byte 47,'H,'T,'M,'L,62,0
+ 04A7           L77:
+ 04A7 4C495354454E00    .byte 'L,'I,'S,'T,'E,'N,0
+ 04AE           L78:
+ 04AE 53594E53454E5400  .byte 'S,'Y,'N,'S,'E,'N,'T,0
+ 04B6           L79:
+ 04B6 53594E5243564400  .byte 'S,'Y,'N,'R,'C,'V,'D,0
+ 04BE           L80:
+ 04BE 3C464F4E5420434F4C4F523D23434330  .byte 60,'F,'O,'N,'T,32,'C,'O,'L,'O,'R,61,35,'C,'C,48
+ 04CE 3030303E45535441424C3C2F464F4E54  .byte 48,48,48,62,'E,'S,'T,'A,'B,'L,60,47,'F,'O,'N,'T
+ 04DE 3E00              .byte 62,0
+ 04E0           L81:
+ 04E0 46494E574149543100        .byte 'F,'I,'N,'W,'A,'I,'T,49,0
+ 04E9           L82:
+ 04E9 46494E574149543200        .byte 'F,'I,'N,'W,'A,'I,'T,50,0
+ 04F2           L83:
+ 04F2 434C4F53455741495400      .byte 'C,'L,'O,'S,'E,'W,'A,'I,'T,0
+ 04FC           L84:
+ 04FC 434C4F53494E4700  .byte 'C,'L,'O,'S,'I,'N,'G,0
+ 0504           L85:
+ 0504 4C41535441434B00  .byte 'L,'A,'S,'T,'A,'C,'K,0
+ 050C           L86:
+ 050C 54494D455741495400        .byte 'T,'I,'M,'E,'W,'A,'I,'T,0
+ 0515           L87:
+ 0515 434C4F53454400    .byte 'C,'L,'O,'S,'E,'D,0
+ 051C           L88:
+ 051C 554E4B4E4F574E00  .byte 'U,'N,'K,'N,'O,'W,'N,0
+                        .area text(rom, con, rel)
+ 0406                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0406                   .dbfunc s ShowSockets _ShowSockets fI
+ 0406                   .dbstruct 0 4 _NBDATA
+ 0406                   .dbfield 0 vp pV
+ 0406                   .dbfield 2 sz I
+ 0406                   .dbend
+ 0406                   .dbstruct 0 19 _NETBUF
+ 0406                   .dbfield 0 nb_next pS[_NETBUF]
+ 0406                   .dbfield 2 nb_flags c
+ 0406                   .dbfield 3 nb_dl S[_NBDATA]
+ 0406                   .dbfield 7 nb_nw S[_NBDATA]
+ 0406                   .dbfield 11 nb_tp S[_NBDATA]
+ 0406                   .dbfield 15 nb_ap S[_NBDATA]
+ 0406                   .dbend
+ 0406                   .dbstruct 0 115 tcp_socket
+ 0406                   .dbfield 0 so_next pS[tcp_socket]
+ 0406                   .dbfield 2 so_device pV
+ 0406                   .dbfield 4 so_devtype c
+ 0406                   .dbfield 5 so_devread pfI
+ 0406                   .dbfield 7 so_devwrite pfI
+ 0406                   .dbfield 9 so_devwrite_P pfI
+ 0406                   .dbfield 11 so_devioctl pfI
+ 0406                   .dbfield 13 so_devocnt i
+ 0406                   .dbfield 15 so_devobuf pc
+ 0406                   .dbfield 17 so_devobsz i
+ 0406                   .dbfield 19 so_state c
+ 0406                   .dbfield 20 so_local_addr l
+ 0406                   .dbfield 24 so_local_port i
+ 0406                   .dbfield 26 so_remote_addr l
+ 0406                   .dbfield 30 so_remote_port i
+ 0406                   .dbfield 32 so_tx_flags c
+ 0406                   .dbfield 33 so_tx_isn l
+ 0406                   .dbfield 37 so_tx_una l
+ 0406                   .dbfield 41 so_tx_nxt l
+ 0406                   .dbfield 45 so_tx_wl1 l
+ 0406                   .dbfield 49 so_tx_wl2 l
+ 0406                   .dbfield 53 so_tx_win i
+ 0406                   .dbfield 55 so_tx_dup c
+ 0406                   .dbfield 56 so_tx_nbq pS[_NETBUF]
+ 0406                   .dbfield 58 so_tx_tq pV
+ 0406                   .dbfield 60 so_rx_isn l
+ 0406                   .dbfield 64 so_rx_nxt l
+ 0406                   .dbfield 68 so_rx_win i
+ 0406                   .dbfield 70 so_rx_cnt I
+ 0406                   .dbfield 72 so_rx_bsz I
+ 0406                   .dbfield 74 so_rd_cnt I
+ 0406                   .dbfield 76 so_rx_apc C
+ 0406                   .dbfield 77 so_rx_buf pS[_NETBUF]
+ 0406                   .dbfield 79 so_rx_tq pV
+ 0406                   .dbfield 81 so_rx_nbq pS[_NETBUF]
+ 0406                   .dbfield 83 so_mss i
+ 0406                   .dbfield 85 so_rtt_seq l
+ 0406                   .dbfield 89 so_rtto i
+ 0406                   .dbfield 91 so_retransmits i
+ 0406                   .dbfield 93 so_time_wait i
+ 0406                   .dbfield 95 so_retran_time i
+ 0406                   .dbfield 97 so_last_error i
+ 0406                   .dbfield 99 so_pc_tq pV
+ 0406                   .dbfield 101 so_ac_tq pV
+ 0406                   .dbfield 103 so_read_to l
+ 0406                   .dbfield 107 so_write_to l
+ 0406                   .dbfield 111 so_oos_drop l
+ 0406                   .dbend
+ 0406                   .dbsym s st_unknown L88 A[8:8]kc
+ 0406                   .dbsym s st_closed L87 A[7:7]kc
+ 0406                   .dbsym s st_timewait L86 A[9:9]kc
+ 0406                   .dbsym s st_lastack L85 A[8:8]kc
+ 0406                   .dbsym s st_closing L84 A[8:8]kc
+ 0406                   .dbsym s st_closewait L83 A[10:10]kc
+ 0406                   .dbsym s st_finwait2 L82 A[9:9]kc
+ 0406                   .dbsym s st_finwait1 L81 A[9:9]kc
+ 0406                   .dbsym s st_estab L80 A[34:34]kc
+ 0406                   .dbsym s st_synrcvd L79 A[8:8]kc
+ 0406                   .dbsym s st_synsent L78 A[8:8]kc
+ 0406                   .dbsym s st_listen L77 A[7:7]kc
+ 0406                   .dbsym s foot L76 A[23:23]kc
+ 0406                   .dbsym s tfmt2 L75 A[19:19]kc
+ 0406                   .dbsym s tfmt1 L74 A[44:44]kc
+ 0406                   .dbsym s head L73 A[163:163]kc
+ 0406           ;           st_P -> R22,R23
+ 0406           ;             ts -> R20,R21
+ 0406           ;            req -> R12,R13
+ 0406           ;         stream -> R10,R11
+                        .even
+ 0406           _ShowSockets:
+ 0406 0E940000          xcall push_xgsetF0FC
+ 040A 6901              movw R12,R18
+ 040C 5801              movw R10,R16
+ 040E 2697              sbiw R28,6
+ 0410                   .dbline -1
+ 0410                   .dbline 440
+ 0410           ; }
+ 0410           ; 
+ 0410           ; /*
+ 0410           ;  * CGI Sample: Show list of sockets.
+ 0410           ;  *
+ 0410           ;  * This routine must have been registered by NutRegisterCgi() and is
+ 0410           ;  * automatically called by NutHttpProcessRequest() when the client
+ 0410           ;  * request the URL 'cgi-bin/sockets.cgi'.
+ 0410           ;  */
+ 0410           ; static int ShowSockets(FILE * stream, REQUEST * req)
+ 0410           ; {
+ 0410                   .dbline 468
+ 0410           ;     /* String literals are kept in flash ROM. */
+ 0410           ;     static prog_char head[] = "<HTML><HEAD><TITLE>Sockets</TITLE></HEAD>"
+ 0410           ;         "<BODY><H1>Sockets</H1>\r\n"
+ 0410           ;         "<TABLE BORDER><TR><TH>Handle</TH><TH>Type</TH><TH>Local</TH><TH>Remote</TH><TH>Status</TH></TR>\r\n";
+ 0410           ; #if defined(__AVR__)
+ 0410           ;     static prog_char tfmt1[] = "<TR><TD>%04X</TD><TD>TCP</TD><TD>%s:%u</TD>";
+ 0410           ; #else
+ 0410           ;     static prog_char tfmt1[] = "<TR><TD>%08lX</TD><TD>TCP</TD><TD>%s:%u</TD>";
+ 0410           ; #endif
+ 0410           ;     static prog_char tfmt2[] = "<TD>%s:%u</TD><TD>";
+ 0410           ;     static prog_char foot[] = "</TABLE></BODY></HTML>";
+ 0410           ;     static prog_char st_listen[] = "LISTEN";
+ 0410           ;     static prog_char st_synsent[] = "SYNSENT";
+ 0410           ;     static prog_char st_synrcvd[] = "SYNRCVD";
+ 0410           ;     static prog_char st_estab[] = "<FONT COLOR=#CC0000>ESTABL</FONT>";
+ 0410           ;     static prog_char st_finwait1[] = "FINWAIT1";
+ 0410           ;     static prog_char st_finwait2[] = "FINWAIT2";
+ 0410           ;     static prog_char st_closewait[] = "CLOSEWAIT";
+ 0410           ;     static prog_char st_closing[] = "CLOSING";
+ 0410           ;     static prog_char st_lastack[] = "LASTACK";
+ 0410           ;     static prog_char st_timewait[] = "TIMEWAIT";
+ 0410           ;     static prog_char st_closed[] = "CLOSED";
+ 0410           ;     static prog_char st_unknown[] = "UNKNOWN";
+ 0410           ;     prog_char *st_P;
+ 0410           ;     extern TCPSOCKET *tcpSocketList;
+ 0410           ;     TCPSOCKET *ts;
+ 0410           ; 
+ 0410           ;     NutHttpSendHeaderTop(stream, req, 200, "Ok");
+ 0410 80E0              ldi R24,<L22
+ 0412 90E0              ldi R25,>L22
+ 0414 9B83              std y+3,R25
+ 0416 8A83              std y+2,R24
+ 0418 88EC              ldi R24,200
+ 041A 90E0              ldi R25,0
+ 041C 9983              std y+1,R25
+ 041E 8883              std y+0,R24
+ 0420 9601              movw R18,R12
+ 0422 8501              movw R16,R10
+ 0424 0E940000          xcall _NutHttpSendHeaderTop
+ 0428                   .dbline 469
+ 0428           ;     NutHttpSendHeaderBottom(stream, req, html_mt, -1);
+ 0428 8FEF              ldi R24,255
+ 042A 9FEF              ldi R25,255
+ 042C AFEF              ldi R26,255
+ 042E BFEF              ldi R27,255
+ 0430 8A83              std y+2,R24
+ 0432 9B83              std y+3,R25
+ 0434 AC83              std y+4,R26
+ 0436 BD83              std y+5,R27
+ 0438 20900000          lds R2,_html_mt
+ 043C 30900100          lds R3,_html_mt+1
+ 0440 3982              std y+1,R3
+ 0442 2882              std y+0,R2
+ 0444 9601              movw R18,R12
+ 0446 8501              movw R16,R10
+ 0448 0E940000          xcall _NutHttpSendHeaderBottom
+ 044C                   .dbline 472
+ 044C           ; 
+ 044C           ;     /* Send HTML header. */
+ 044C           ;     fputs_P(head, stream);
+ 044C 9501              movw R18,R10
+ 044E 00E0              ldi R16,<L73
+ 0450 10E0              ldi R17,>L73
+ 0452 0E940000          xcall _fputs_P
+ 0456                   .dbline 473
+ 0456           ;     for (ts = tcpSocketList; ts; ts = ts->so_next) {
+ 0456 40910000          lds R20,_tcpSocketList
+ 045A 50910100          lds R21,_tcpSocketList+1
+ 045E A1C0              xjmp L92
+ 0460           L89:
+ 0460                   .dbline 473
+ 0460                   .dbline 474
+ 0460           ;         switch (ts->so_state) {
+ 0460 FA01              movw R30,R20
+ 0462 6389              ldd R22,z+19
+ 0464 7727              clr R23
+ 0466 6030              cpi R22,0
+ 0468 6707              cpc R22,R23
+ 046A 09F4              brne X31
+ 046C 47C0              xjmp L106
+ 046E           X31:
+ 046E           X19:
+ 046E 6130              cpi R22,1
+ 0470 E0E0              ldi R30,0
+ 0472 7E07              cpc R23,R30
+ 0474 29F1              breq L96
+ 0476           X20:
+ 0476 6230              cpi R22,2
+ 0478 E0E0              ldi R30,0
+ 047A 7E07              cpc R23,R30
+ 047C 21F1              breq L97
+ 047E           X21:
+ 047E 6330              cpi R22,3
+ 0480 E0E0              ldi R30,0
+ 0482 7E07              cpc R23,R30
+ 0484 19F1              breq L98
+ 0486           X22:
+ 0486 6430              cpi R22,4
+ 0488 E0E0              ldi R30,0
+ 048A 7E07              cpc R23,R30
+ 048C 11F1              breq L99
+ 048E           X23:
+ 048E 6530              cpi R22,5
+ 0490 E0E0              ldi R30,0
+ 0492 7E07              cpc R23,R30
+ 0494 39F1              breq L102
+ 0496           X24:
+ 0496 6630              cpi R22,6
+ 0498 E0E0              ldi R30,0
+ 049A 7E07              cpc R23,R30
+ 049C E9F0              breq L100
+ 049E           X25:
+ 049E 6730              cpi R22,7
+ 04A0 E0E0              ldi R30,0
+ 04A2 7E07              cpc R23,R30
+ 04A4 11F1              breq L103
+ 04A6           X26:
+ 04A6 6830              cpi R22,8
+ 04A8 E0E0              ldi R30,0
+ 04AA 7E07              cpc R23,R30
+ 04AC 09F1              breq L104
+ 04AE           X27:
+ 04AE 6930              cpi R22,9
+ 04B0 E0E0              ldi R30,0
+ 04B2 7E07              cpc R23,R30
+ 04B4 A1F0              breq L101
+ 04B6           X28:
+ 04B6 6A30              cpi R22,10
+ 04B8 E0E0              ldi R30,0
+ 04BA 7E07              cpc R23,R30
+ 04BC E1F0              breq L105
+ 04BE           X29:
+ 04BE 21C0              xjmp L93
+ 04C0           L96:
+ 04C0                   .dbline 476
+ 04C0           ;         case TCPS_LISTEN:
+ 04C0           ;             st_P = (prog_char *) st_listen;
+ 04C0 60E0              ldi R22,<L77
+ 04C2 70E0              ldi R23,>L77
+ 04C4                   .dbline 477
+ 04C4           ;             break;
+ 04C4 20C0              xjmp L94
+ 04C6           L97:
+ 04C6                   .dbline 479
+ 04C6           ;         case TCPS_SYN_SENT:
+ 04C6           ;             st_P = (prog_char *) st_synsent;
+ 04C6 60E0              ldi R22,<L78
+ 04C8 70E0              ldi R23,>L78
+ 04CA                   .dbline 480
+ 04CA           ;             break;
+ 04CA 1DC0              xjmp L94
+ 04CC           L98:
+ 04CC                   .dbline 482
+ 04CC           ;         case TCPS_SYN_RECEIVED:
+ 04CC           ;             st_P = (prog_char *) st_synrcvd;
+ 04CC 60E0              ldi R22,<L79
+ 04CE 70E0              ldi R23,>L79
+ 04D0                   .dbline 483
+ 04D0           ;             break;
+ 04D0 1AC0              xjmp L94
+ 04D2           L99:
+ 04D2                   .dbline 485
+ 04D2           ;         case TCPS_ESTABLISHED:
+ 04D2           ;             st_P = (prog_char *) st_estab;
+ 04D2 60E0              ldi R22,<L80
+ 04D4 70E0              ldi R23,>L80
+ 04D6                   .dbline 486
+ 04D6           ;             break;
+ 04D6 17C0              xjmp L94
+ 04D8           L100:
+ 04D8                   .dbline 488
+ 04D8           ;         case TCPS_FIN_WAIT_1:
+ 04D8           ;             st_P = (prog_char *) st_finwait1;
+ 04D8 60E0              ldi R22,<L81
+ 04DA 70E0              ldi R23,>L81
+ 04DC                   .dbline 489
+ 04DC           ;             break;
+ 04DC 14C0              xjmp L94
+ 04DE           L101:
+ 04DE                   .dbline 491
+ 04DE           ;         case TCPS_FIN_WAIT_2:
+ 04DE           ;             st_P = (prog_char *) st_finwait2;
+ 04DE 60E0              ldi R22,<L82
+ 04E0 70E0              ldi R23,>L82
+ 04E2                   .dbline 492
+ 04E2           ;             break;
+ 04E2 11C0              xjmp L94
+ 04E4           L102:
+ 04E4                   .dbline 494
+ 04E4           ;         case TCPS_CLOSE_WAIT:
+ 04E4           ;             st_P = (prog_char *) st_closewait;
+ 04E4 60E0              ldi R22,<L83
+ 04E6 70E0              ldi R23,>L83
+ 04E8                   .dbline 495
+ 04E8           ;             break;
+ 04E8 0EC0              xjmp L94
+ 04EA           L103:
+ 04EA                   .dbline 497
+ 04EA           ;         case TCPS_CLOSING:
+ 04EA           ;             st_P = (prog_char *) st_closing;
+ 04EA 60E0              ldi R22,<L84
+ 04EC 70E0              ldi R23,>L84
+ 04EE                   .dbline 498
+ 04EE           ;             break;
+ 04EE 0BC0              xjmp L94
+ 04F0           L104:
+ 04F0                   .dbline 500
+ 04F0           ;         case TCPS_LAST_ACK:
+ 04F0           ;             st_P = (prog_char *) st_lastack;
+ 04F0 60E0              ldi R22,<L85
+ 04F2 70E0              ldi R23,>L85
+ 04F4                   .dbline 501
+ 04F4           ;             break;
+ 04F4 08C0              xjmp L94
+ 04F6           L105:
+ 04F6                   .dbline 503
+ 04F6           ;         case TCPS_TIME_WAIT:
+ 04F6           ;             st_P = (prog_char *) st_timewait;
+ 04F6 60E0              ldi R22,<L86
+ 04F8 70E0              ldi R23,>L86
+ 04FA                   .dbline 504
+ 04FA           ;             break;
+ 04FA 05C0              xjmp L94
+ 04FC           L106:
+ 04FC                   .dbline 506
+ 04FC           ;         case TCPS_CLOSED:
+ 04FC           ;             st_P = (prog_char *) st_closed;
+ 04FC 60E0              ldi R22,<L87
+ 04FE 70E0              ldi R23,>L87
+ 0500                   .dbline 507
+ 0500           ;             break;
+ 0500 02C0              xjmp L94
+ 0502           L93:
+ 0502                   .dbline 509
+ 0502           ;         default:
+ 0502           ;             st_P = (prog_char *) st_unknown;
+ 0502 60E0              ldi R22,<L88
+ 0504 70E0              ldi R23,>L88
+ 0506                   .dbline 510
+ 0506           ;             break;
+ 0506           L94:
+ 0506                   .dbline 515
+ 0506           ;         }
+ 0506           ;         /*
+ 0506           ;          * Fixed a bug reported by Zhao Weigang.
+ 0506           ;          */
+ 0506           ;         fprintf_P(stream, tfmt1, (uptr_t) ts, inet_ntoa(ts->so_local_addr), ntohs(ts->so_local_port));
+ 0506 FA01              movw R30,R20
+ 0508 0489              ldd R16,z+20
+ 050A 1589              ldd R17,z+21
+ 050C 2689              ldd R18,z+22
+ 050E 3789              ldd R19,z+23
+ 0510 0E940000          xcall _inet_ntoa
+ 0514 FA01              movw R30,R20
+ 0516 408C              ldd R4,z+24
+ 0518 518C              ldd R5,z+25
+ 051A C201              movw R24,R4
+ 051C 8070              andi R24,0
+ 051E 1C01              movw R2,R24
+ 0520 232C              mov R2,R3
+ 0522 3324              clr R3
+ 0524 C201              movw R24,R4
+ 0526 9070              andi R25,0
+ 0528 982F              mov R25,R24
+ 052A 8827              clr R24
+ 052C 8229              or R24,R2
+ 052E 9329              or R25,R3
+ 0530 9D83              std y+5,R25
+ 0532 8C83              std y+4,R24
+ 0534 1B83              std y+3,R17
+ 0536 0A83              std y+2,R16
+ 0538 5983              std y+1,R21
+ 053A 4883              std y+0,R20
+ 053C 20E0              ldi R18,<L74
+ 053E 30E0              ldi R19,>L74
+ 0540 8501              movw R16,R10
+ 0542 0E940000          xcall _fprintf_P
+ 0546                   .dbline 516
+ 0546           ;         fprintf_P(stream, tfmt2, inet_ntoa(ts->so_remote_addr), ntohs(ts->so_remote_port));
+ 0546 FA01              movw R30,R20
+ 0548 028D              ldd R16,z+26
+ 054A 138D              ldd R17,z+27
+ 054C 248D              ldd R18,z+28
+ 054E 358D              ldd R19,z+29
+ 0550 0E940000          xcall _inet_ntoa
+ 0554 6801              movw R12,R16
+ 0556 FA01              movw R30,R20
+ 0558 E68C              ldd R14,z+30
+ 055A F78C              ldd R15,z+31
+ 055C C701              movw R24,R14
+ 055E 8070              andi R24,0
+ 0560 1C01              movw R2,R24
+ 0562 232C              mov R2,R3
+ 0564 3324              clr R3
+ 0566 C701              movw R24,R14
+ 0568 9070              andi R25,0
+ 056A 982F              mov R25,R24
+ 056C 8827              clr R24
+ 056E 8229              or R24,R2
+ 0570 9329              or R25,R3
+ 0572 9B83              std y+3,R25
+ 0574 8A83              std y+2,R24
+ 0576 D982              std y+1,R13
+ 0578 C882              std y+0,R12
+ 057A 20E0              ldi R18,<L75
+ 057C 30E0              ldi R19,>L75
+ 057E 8501              movw R16,R10
+ 0580 0E940000          xcall _fprintf_P
+ 0584                   .dbline 517
+ 0584           ;         fputs_P(st_P, stream);
+ 0584 9501              movw R18,R10
+ 0586 8B01              movw R16,R22
+ 0588 0E940000          xcall _fputs_P
+ 058C                   .dbline 518
+ 058C           ;         fputs("</TD></TR>\r\n", stream);
+ 058C 9501              movw R18,R10
+ 058E 00E0              ldi R16,<L107
+ 0590 10E0              ldi R17,>L107
+ 0592 0E940000          xcall _fputs
+ 0596                   .dbline 519
+ 0596           ;         fflush(stream);
+ 0596 8501              movw R16,R10
+ 0598 0E940000          xcall _fflush
+ 059C                   .dbline 520
+ 059C           ;     }
+ 059C           L90:
+ 059C                   .dbline 473
+ 059C FA01              movw R30,R20
+ 059E 4081              ldd R20,z+0
+ 05A0 5181              ldd R21,z+1
+ 05A2           L92:
+ 05A2                   .dbline 473
+ 05A2 4030              cpi R20,0
+ 05A4 4507              cpc R20,R21
+ 05A6 09F0              breq X32
+ 05A8 5BCF              xjmp L89
+ 05AA           X32:
+ 05AA           X30:
+ 05AA                   .dbline 522
+ 05AA           ; 
+ 05AA           ;     fputs_P(foot, stream);
+ 05AA 9501              movw R18,R10
+ 05AC 00E0              ldi R16,<L76
+ 05AE 10E0              ldi R17,>L76
+ 05B0 0E940000          xcall _fputs_P
+ 05B4                   .dbline 523
+ 05B4           ;     fflush(stream);
+ 05B4 8501              movw R16,R10
+ 05B6 0E940000          xcall _fflush
+ 05BA                   .dbline 525
+ 05BA           ; 
+ 05BA           ;     return 0;
+ 05BA 0027              clr R16
+ 05BC 1127              clr R17
+ 05BE                   .dbline -2
+ 05BE           L72:
+ 05BE                   .dbline 0 ; func end
+ 05BE 2696              adiw R28,6
+ 05C0 0C940000          xjmp pop_xgsetF0FC
+ 05C4                   .dbsym r st_P 22 pkc
+ 05C4                   .dbsym r ts 20 pS[tcp_socket]
+ 05C4                   .dbsym r req 12 pS[_REQUEST]
+ 05C4                   .dbsym r stream 10 pS[__iobuf]
+ 05C4                   .dbend
+                        .area lit(rom, con, rel)
+ 0524           L109:
+ 0524 3C48544D4C3E3C424F44593E3C42523E  .byte 60,'H,'T,'M,'L,62,60,'B,'O,'D,'Y,62,60,'B,'R,62
+ 0534 3C48313E466F726D20526573756C743C  .byte 60,'H,49,62,'F,'o,'r,'m,32,'R,'e,'s,'u,'l,'t,60
+ 0544 2F48313E3C42523E3C42523E00        .byte 47,'H,49,62,60,'B,'R,62,60,'B,'R,62,0
+ 0551           L110:
+ 0551 3C42523E3C42523E3C703E3C61206872  .byte 60,'B,'R,62,60,'B,'R,62,60,'p,62,60,'a,32,'h,'r
+ 0561 65663D222E2E2F696E6465782E68746D  .byte 'e,'f,61,34,46,46,47,'i,'n,'d,'e,'x,46,'h,'t,'m
+ 0571 6C223E72657475726E20746F206D6169  .byte 'l,34,62,'r,'e,'t,'u,'r,'n,32,'t,'o,32,'m,'a,'i
+ 0581 6E3C2F613E3C2F424F44593E3C2F4854  .byte 'n,60,47,'a,62,60,47,'B,'O,'D,'Y,62,60,47,'H,'T
+ 0591 4D4C3E3C2F703E00  .byte 'M,'L,62,60,47,'p,62,0
+                        .area text(rom, con, rel)
+ 05C4                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 05C4                   .dbfunc e ShowForm _ShowForm fI
+ 05C4                   .dbsym s html_body L110 A[72:72]kc
+ 05C4                   .dbsym s html_head L109 A[45:45]kc
+ 05C4           ;          count -> R12,R13
+ 05C4           ;          value -> R10,R11
+ 05C4           ;           name -> R14,R15
+ 05C4           ;              i -> R22,R23
+ 05C4           ;            req -> R20,R21
+ 05C4           ;         stream -> y+16
+                        .even
+ 05C4           _ShowForm::
+ 05C4 0E940000          xcall push_arg4
+ 05C8 0E940000          xcall push_xgsetF0FC
+ 05CC A901              movw R20,R18
+ 05CE 2697              sbiw R28,6
+ 05D0                   .dbline -1
+ 05D0                   .dbline 538
+ 05D0           ; }
+ 05D0           ; 
+ 05D0           ; /*
+ 05D0           ;  * CGI Sample: Proccessing a form.
+ 05D0           ;  *
+ 05D0           ;  * This routine must have been registered by NutRegisterCgi() and is
+ 05D0           ;  * automatically called by NutHttpProcessRequest() when the client
+ 05D0           ;  * request the URL 'cgi-bin/form.cgi'.
+ 05D0           ;  *
+ 05D0           ;  * Thanks to Tom Boettger, who provided this sample for ICCAVR.
+ 05D0           ;  */
+ 05D0           ; int ShowForm(FILE * stream, REQUEST * req)
+ 05D0           ; {
+ 05D0                   .dbline 542
+ 05D0           ;     static prog_char html_head[] = "<HTML><BODY><BR><H1>Form Result</H1><BR><BR>";
+ 05D0           ;     static prog_char html_body[] = "<BR><BR><p><a href=\"../index.html\">return to main</a></BODY></HTML></p>";
+ 05D0           ; 
+ 05D0           ;     NutHttpSendHeaderTop(stream, req, 200, "Ok");
+ 05D0 80E0              ldi R24,<L22
+ 05D2 90E0              ldi R25,>L22
+ 05D4 9B83              std y+3,R25
+ 05D6 8A83              std y+2,R24
+ 05D8 88EC              ldi R24,200
+ 05DA 90E0              ldi R25,0
+ 05DC 9983              std y+1,R25
+ 05DE 8883              std y+0,R24
+ 05E0 9A01              movw R18,R20
+ 05E2 0889              ldd R16,y+16
+ 05E4 1989              ldd R17,y+17
+ 05E6 0E940000          xcall _NutHttpSendHeaderTop
+ 05EA                   .dbline 543
+ 05EA           ;     NutHttpSendHeaderBottom(stream, req, html_mt, -1);
+ 05EA 8FEF              ldi R24,255
+ 05EC 9FEF              ldi R25,255
+ 05EE AFEF              ldi R26,255
+ 05F0 BFEF              ldi R27,255
+ 05F2 8A83              std y+2,R24
+ 05F4 9B83              std y+3,R25
+ 05F6 AC83              std y+4,R26
+ 05F8 BD83              std y+5,R27
+ 05FA 20900000          lds R2,_html_mt
+ 05FE 30900100          lds R3,_html_mt+1
+ 0602 3982              std y+1,R3
+ 0604 2882              std y+0,R2
+ 0606 9A01              movw R18,R20
+ 0608 0889              ldd R16,y+16
+ 060A 1989              ldd R17,y+17
+ 060C 0E940000          xcall _NutHttpSendHeaderBottom
+ 0610                   .dbline 546
+ 0610           ; 
+ 0610           ;     /* Send HTML header. */
+ 0610           ;     fputs_P(html_head, stream);
+ 0610 2889              ldd R18,y+16
+ 0612 3989              ldd R19,y+17
+ 0614 00E0              ldi R16,<L109
+ 0616 10E0              ldi R17,>L109
+ 0618 0E940000          xcall _fputs_P
+ 061C                   .dbline 548
+ 061C           ; 
+ 061C           ;     if (req->req_query) {
+ 061C FA01              movw R30,R20
+ 061E 2284              ldd R2,z+10
+ 0620 3384              ldd R3,z+11
+ 0622 2220              tst R2
+ 0624 11F4              brne X33
+ 0626 3320              tst R3
+ 0628 01F1              breq L111
+ 062A           X33:
+ 062A                   .dbline 548
+ 062A                   .dbline 554
+ 062A           ;         char *name;
+ 062A           ;         char *value;
+ 062A           ;         int i;
+ 062A           ;         int count;
+ 062A           ; 
+ 062A           ;         count = NutHttpGetParameterCount(req);
+ 062A 8F01              movw R16,R30
+ 062C 0E940000          xcall _NutHttpGetParameterCount
+ 0630 6801              movw R12,R16
+ 0632                   .dbline 556
+ 0632           ;         /* Extract count parameters. */
+ 0632           ;         for (i = 0; i < count; i++) {
+ 0632 6627              clr R22
+ 0634 7727              clr R23
+ 0636 16C0              xjmp L116
+ 0638           L113:
+ 0638                   .dbline 556
+ 0638                   .dbline 557
+ 0638           ;             name = NutHttpGetParameterName(req, i);
+ 0638 9B01              movw R18,R22
+ 063A 8A01              movw R16,R20
+ 063C 0E940000          xcall _NutHttpGetParameterName
+ 0640 7801              movw R14,R16
+ 0642                   .dbline 558
+ 0642           ;             value = NutHttpGetParameterValue(req, i);
+ 0642 9B01              movw R18,R22
+ 0644 8A01              movw R16,R20
+ 0646 0E940000          xcall _NutHttpGetParameterValue
+ 064A 5801              movw R10,R16
+ 064C                   .dbline 563
+ 064C           ; 
+ 064C           ;             /* Send the parameters back to the client. */
+ 064C           ; 
+ 064C           ; #ifdef __IMAGECRAFT__
+ 064C           ;             fprintf(stream, "%s: %s<BR>\r\n", name, value);
+ 064C BB82              std y+3,R11
+ 064E AA82              std y+2,R10
+ 0650 F982              std y+1,R15
+ 0652 E882              std y+0,R14
+ 0654 20E0              ldi R18,<L117
+ 0656 30E0              ldi R19,>L117
+ 0658 0889              ldd R16,y+16
+ 065A 1989              ldd R17,y+17
+ 065C 0E940000          xcall _fprintf
+ 0660                   .dbline 567
+ 0660           ; #else
+ 0660           ;             fprintf_P(stream, PSTR("%s: %s<BR>\r\n"), name, value);
+ 0660           ; #endif
+ 0660           ;         }
+ 0660           L114:
+ 0660                   .dbline 556
+ 0660 6F5F              subi R22,255  ; offset = 1
+ 0662 7F4F              sbci R23,255
+ 0664           L116:
+ 0664                   .dbline 556
+ 0664 6C15              cp R22,R12
+ 0666 7D05              cpc R23,R13
+ 0668 3CF3              brlt L113
+ 066A           X34:
+ 066A                   .dbline 568
+ 066A           ;     }
+ 066A           L111:
+ 066A                   .dbline 570
+ 066A           ; 
+ 066A           ;     fputs_P(html_body, stream);
+ 066A 2889              ldd R18,y+16
+ 066C 3989              ldd R19,y+17
+ 066E 00E0              ldi R16,<L110
+ 0670 10E0              ldi R17,>L110
+ 0672 0E940000          xcall _fputs_P
+ 0676                   .dbline 571
+ 0676           ;     fflush(stream);
+ 0676 0889              ldd R16,y+16
+ 0678 1989              ldd R17,y+17
+ 067A 0E940000          xcall _fflush
+ 067E                   .dbline 573
+ 067E           ; 
+ 067E           ;     return 0;
+ 067E 0027              clr R16
+ 0680 1127              clr R17
+ 0682                   .dbline -2
+ 0682           L108:
+ 0682                   .dbline 0 ; func end
+ 0682 2696              adiw R28,6
+ 0684 0E940000          xcall pop_xgsetF0FC
+ 0688 2496              adiw R28,4
+ 068A 0895              ret
+ 068C                   .dbsym r count 12 I
+ 068C                   .dbsym r value 10 pc
+ 068C                   .dbsym r name 14 pc
+ 068C                   .dbsym r i 22 I
+ 068C                   .dbsym r req 20 pS[_REQUEST]
+ 068C                   .dbsym l stream 16 pS[__iobuf]
+ 068C                   .dbend
+ 068C                   .dbfunc e SSIDemoCGI _SSIDemoCGI fI
+ 068C                   .dbstruct 0 18 _tm
+ 068C                   .dbfield 0 tm_sec I
+ 068C                   .dbfield 2 tm_min I
+ 068C                   .dbfield 4 tm_hour I
+ 068C                   .dbfield 6 tm_mday I
+ 068C                   .dbfield 8 tm_mon I
+ 068C                   .dbfield 10 tm_year I
+ 068C                   .dbfield 12 tm_wday I
+ 068C                   .dbfield 14 tm_yday I
+ 068C                   .dbfield 16 tm_isdst I
+ 068C                   .dbend
+ 068C           ;            now -> y+30
+ 068C           ;       loc_time -> y+12
+ 068C           ;          count -> R12,R13
+ 068C           ;          value -> R10,R11
+ 068C           ;           name -> R14,R15
+ 068C           ;              i -> R20,R21
+ 068C           ;            req -> R22,R23
+ 068C           ;         stream -> y+44
+                        .even
+ 068C           _SSIDemoCGI::
+ 068C 0E940000          xcall push_arg4
+ 0690 0E940000          xcall push_xgsetF0FC
+ 0694 B901              movw R22,R18
+ 0696 A297              sbiw R28,34
+ 0698                   .dbline -1
+ 0698                   .dbline 586
+ 0698           ; }
+ 0698           ; 
+ 0698           ; /*
+ 0698           ;  * CGI Sample: Dynamic output cgi included by ssi.shtml file
+ 0698           ;  *
+ 0698           ;  * This routine must have been registered by NutRegisterCgi() and is
+ 0698           ;  * automatically called by NutHttpProcessRequest() when the client
+ 0698           ;  * request the URL 'cgi-bin/form.cgi'.
+ 0698           ;  *
+ 0698           ;  * Thanks to Tom Boettger, who provided this sample for ICCAVR.
+ 0698           ;  */
+ 0698           ; int SSIDemoCGI(FILE * stream, REQUEST * req)
+ 0698           ; {
+ 0698                   .dbline 587
+ 0698           ;     if (req->req_query) {
+ 0698 FB01              movw R30,R22
+ 069A 2284              ldd R2,z+10
+ 069C 3384              ldd R3,z+11
+ 069E 2220              tst R2
+ 06A0 11F4              brne X35
+ 06A2 3320              tst R3
+ 06A4 39F1              breq L119
+ 06A6           X35:
+ 06A6                   .dbline 587
+ 06A6                   .dbline 593
+ 06A6           ;         char *name;
+ 06A6           ;         char *value;
+ 06A6           ;         int i;
+ 06A6           ;         int count;
+ 06A6           ; 
+ 06A6           ;         count = NutHttpGetParameterCount(req);
+ 06A6 8F01              movw R16,R30
+ 06A8 0E940000          xcall _NutHttpGetParameterCount
+ 06AC 6801              movw R12,R16
+ 06AE                   .dbline 597
+ 06AE           ;         
+ 06AE           ;         /* Extract count parameters. */
+ 06AE           ; #ifdef __IMAGECRAFT__        
+ 06AE           ;         fprintf(stream, "CGI ssi-demo.cgi called with parameters: These are the parameters\r\n<p>");
+ 06AE 20E0              ldi R18,<L121
+ 06B0 30E0              ldi R19,>L121
+ 06B2 0CA5              ldd R16,y+44
+ 06B4 1DA5              ldd R17,y+45
+ 06B6 0E940000          xcall _fprintf
+ 06BA                   .dbline 601
+ 06BA           ; #else
+ 06BA           ;         fprintf_P(stream, PSTR("CGI ssi-demo.cgi called with parameters: These are the parameters\r\n<p>"));
+ 06BA           ; #endif
+ 06BA           ;         for (i = 0; i < count; i++) {
+ 06BA 4427              clr R20
+ 06BC 5527              clr R21
+ 06BE 16C0              xjmp L125
+ 06C0           L122:
+ 06C0                   .dbline 601
+ 06C0                   .dbline 602
+ 06C0           ;             name = NutHttpGetParameterName(req, i);
+ 06C0 9A01              movw R18,R20
+ 06C2 8B01              movw R16,R22
+ 06C4 0E940000          xcall _NutHttpGetParameterName
+ 06C8 7801              movw R14,R16
+ 06CA                   .dbline 603
+ 06CA           ;             value = NutHttpGetParameterValue(req, i);
+ 06CA 9A01              movw R18,R20
+ 06CC 8B01              movw R16,R22
+ 06CE 0E940000          xcall _NutHttpGetParameterValue
+ 06D2 5801              movw R10,R16
+ 06D4                   .dbline 608
+ 06D4           ; 
+ 06D4           ;             /* Send the parameters back to the client. */
+ 06D4           ; 
+ 06D4           ; #ifdef __IMAGECRAFT__
+ 06D4           ;             fprintf(stream, "%s: %s<BR>\r\n", name, value);
+ 06D4 BB82              std y+3,R11
+ 06D6 AA82              std y+2,R10
+ 06D8 F982              std y+1,R15
+ 06DA E882              std y+0,R14
+ 06DC 20E0              ldi R18,<L117
+ 06DE 30E0              ldi R19,>L117
+ 06E0 0CA5              ldd R16,y+44
+ 06E2 1DA5              ldd R17,y+45
+ 06E4 0E940000          xcall _fprintf
+ 06E8                   .dbline 612
+ 06E8           ; #else
+ 06E8           ;             fprintf_P(stream, PSTR("%s: %s<BR>\r\n"), name, value);
+ 06E8           ; #endif
+ 06E8           ;         }
+ 06E8           L123:
+ 06E8                   .dbline 601
+ 06E8 4F5F              subi R20,255  ; offset = 1
+ 06EA 5F4F              sbci R21,255
+ 06EC           L125:
+ 06EC                   .dbline 601
+ 06EC 4C15              cp R20,R12
+ 06EE 5D05              cpc R21,R13
+ 06F0 3CF3              brlt L122
+ 06F2           X36:
+ 06F2                   .dbline 613
+ 06F2           ;     } else {
+ 06F2 31C0              xjmp L120
+ 06F4           L119:
+ 06F4                   .dbline 613
+ 06F4                   .dbline 618
+ 06F4           ;         time_t now;
+ 06F4           ;         tm     loc_time;
+ 06F4           ;         
+ 06F4           ;         /* Called without any parameter, show the current time */
+ 06F4           ;         now = time(NULL);
+ 06F4 0027              clr R16
+ 06F6 1127              clr R17
+ 06F8 0E940000          xcall _time
+ 06FC 0E8F              std y+30,R16
+ 06FE 1F8F              std y+31,R17
+ 0700 28A3              std y+32,R18
+ 0702 39A3              std y+33,R19
+ 0704                   .dbline 619
+ 0704           ;         localtime_r(&now, &loc_time);
+ 0704 9E01              movw R18,R28
+ 0706 245F              subi R18,244  ; offset = 12
+ 0708 3F4F              sbci R19,255
+ 070A 8E01              movw R16,R28
+ 070C 025E              subi R16,226  ; offset = 30
+ 070E 1F4F              sbci R17,255
+ 0710 0E940000          xcall _localtime_r
+ 0714                   .dbline 621
+ 0714           ; #ifdef __IMAGECRAFT__        
+ 0714           ;         fprintf(stream, "CGI ssi-demo.cgi called without any parameter.<br><br>Current time is: %02d.%02d.%04d -- %02d:%02d:%02d<br>\r\n",
+ 0714 2C84              ldd R2,y+12
+ 0716 3D84              ldd R3,y+13
+ 0718 3B86              std y+11,R3
+ 071A 2A86              std y+10,R2
+ 071C 2E84              ldd R2,y+14
+ 071E 3F84              ldd R3,y+15
+ 0720 3986              std y+9,R3
+ 0722 2886              std y+8,R2
+ 0724 2888              ldd R2,y+16
+ 0726 3988              ldd R3,y+17
+ 0728 3F82              std y+7,R3
+ 072A 2E82              std y+6,R2
+ 072C 8E89              ldd R24,y+22
+ 072E 9F89              ldd R25,y+23
+ 0730 8459              subi R24,148  ; offset = 1900
+ 0732 984F              sbci R25,248
+ 0734 9D83              std y+5,R25
+ 0736 8C83              std y+4,R24
+ 0738 8C89              ldd R24,y+20
+ 073A 9D89              ldd R25,y+21
+ 073C 0196              adiw R24,1
+ 073E 9B83              std y+3,R25
+ 0740 8A83              std y+2,R24
+ 0742 2A88              ldd R2,y+18
+ 0744 3B88              ldd R3,y+19
+ 0746 3982              std y+1,R3
+ 0748 2882              std y+0,R2
+ 074A 20E0              ldi R18,<L126
+ 074C 30E0              ldi R19,>L126
+ 074E 0CA5              ldd R16,y+44
+ 0750 1DA5              ldd R17,y+45
+ 0752 0E940000          xcall _fprintf
+ 0756                   .dbline 627
+ 0756           ;                   loc_time.tm_mday, loc_time.tm_mon+1, loc_time.tm_year+1900, loc_time.tm_hour, loc_time.tm_min, loc_time.tm_sec);
+ 0756           ; #else 
+ 0756           ;         fprintf_P(stream, PSTR("CGI ssi-demo.cgi called without any parameter.<br><br>Current time is: %02d.%02d.%04d -- %02d:%02d:%02d<br>\r\n"),
+ 0756           ;                   loc_time.tm_mday, loc_time.tm_mon+1, loc_time.tm_year+1900, loc_time.tm_hour, loc_time.tm_min, loc_time.tm_sec);
+ 0756           ; #endif
+ 0756           ;     }
+ 0756           L120:
+ 0756                   .dbline 629
+ 0756           ; 
+ 0756           ;     fflush(stream);
+ 0756 0CA5              ldd R16,y+44
+ 0758 1DA5              ldd R17,y+45
+ 075A 0E940000          xcall _fflush
+ 075E                   .dbline 631
+ 075E           ; 
+ 075E           ;     return 0;
+ 075E 0027              clr R16
+ 0760 1127              clr R17
+ 0762                   .dbline -2
+ 0762           L118:
+ 0762                   .dbline 0 ; func end
+ 0762 A296              adiw R28,34
+ 0764 0E940000          xcall pop_xgsetF0FC
+ 0768 2496              adiw R28,4
+ 076A 0895              ret
+ 076C                   .dbsym l now 30 L
+ 076C                   .dbsym l loc_time 12 S[_tm]
+ 076C                   .dbsym r count 12 I
+ 076C                   .dbsym r value 10 pc
+ 076C                   .dbsym r name 14 pc
+ 076C                   .dbsym r i 20 I
+ 076C                   .dbsym r req 22 pS[_REQUEST]
+ 076C                   .dbsym l stream 44 pS[__iobuf]
+ 076C                   .dbend
+ 076C                   .dbfunc e Service _Service fV
+ 076C           ;         stream -> R14,R15
+ 076C           ;           sock -> R12,R13
+ 076C           ;             id -> R10
+ 076C           ;            arg -> R10,R11
+                        .even
+ 076C           _Service::
+ 076C 0E940000          xcall push_xgset30FC
+ 0770 5801              movw R10,R16
+ 0772 2297              sbiw R28,2
+ 0774                   .dbline -1
+ 0774                   .dbline 647
+ 0774           ; }
+ 0774           ; 
+ 0774           ; /*! \fn Service(void *arg)
+ 0774           ;  * \brief HTTP service thread.
+ 0774           ;  *
+ 0774           ;  * The endless loop in this thread waits for a client connect,
+ 0774           ;  * processes the HTTP request and disconnects. Nut/Net doesn't
+ 0774           ;  * support a server backlog. If one client has established a
+ 0774           ;  * connection, further connect attempts will be rejected.
+ 0774           ;  * Typically browsers open more than one connection in order
+ 0774           ;  * to load images concurrently. So we run this routine by
+ 0774           ;  * several threads.
+ 0774           ;  *
+ 0774           ;  */
+ 0774           ; THREAD(Service, arg)
+ 0774           ; {
+ 0774                   .dbline 650
+ 0774           ;     TCPSOCKET *sock;
+ 0774           ;     FILE *stream;
+ 0774           ;     u_char id = (u_char) ((uptr_t) arg);
+ 0774                   .dbline 655
+ 0774           ; 
+ 0774           ;     /*
+ 0774           ;      * Now loop endless for connections.
+ 0774           ;      */
+ 0774           ;     for (;;) {
+ 0774           L133:
+ 0774                   .dbline 655
+ 0774                   .dbline 660
+ 0774           ; 
+ 0774           ;         /*
+ 0774           ;          * Create a socket.
+ 0774           ;          */
+ 0774           ;         if ((sock = NutTcpCreateSocket()) == 0) {
+ 0774 0E940000          xcall _NutTcpCreateSocket
+ 0778 6801              movw R12,R16
+ 077A CC20              tst R12
+ 077C 79F4              brne L137
+ 077E DD20              tst R13
+ 0780 69F4              brne L137
+ 0782           X37:
+ 0782                   .dbline 660
+ 0782                   .dbline 661
+ 0782           ;             printf("[%u] Creating socket failed\n", id);
+ 0782 2A2D              mov R18,R10
+ 0784 3327              clr R19
+ 0786 00E0              ldi R16,<L139
+ 0788 10E0              ldi R17,>L139
+ 078A 0E940000          xcall _printf_M
+ 078E                   .dbline 662
+ 078E           ;             NutSleep(5000);
+ 078E 08E8              ldi R16,136
+ 0790 13E1              ldi R17,19
+ 0792 20E0              ldi R18,0
+ 0794 30E0              ldi R19,0
+ 0796 0E940000          xcall _NutSleep
+ 079A                   .dbline 663
+ 079A           ;             continue;
+ 079A ECCF              xjmp L133
+ 079C           L137:
+ 079C                   .dbline 670
+ 079C           ;         }
+ 079C           ; 
+ 079C           ;         /*
+ 079C           ;          * Listen on port 80. This call will block until we get a connection
+ 079C           ;          * from a client.
+ 079C           ;          */
+ 079C           ;         NutTcpAccept(sock, 80);
+ 079C 20E5              ldi R18,80
+ 079E 30E0              ldi R19,0
+ 07A0 8601              movw R16,R12
+ 07A2 0E940000          xcall _NutTcpAccept
+ 07A6                   .dbline 672
+ 07A6           ; #if defined(__AVR__)
+ 07A6           ;         printf("[%u] Connected, %u bytes free\n", id, NutHeapAvailable());
+ 07A6 00E0              ldi R16,<_heapFreeList
+ 07A8 10E0              ldi R17,>_heapFreeList
+ 07AA 0E940000          xcall _NutHeapRootAvailable
+ 07AE 1983              std y+1,R17
+ 07B0 0883              std y+0,R16
+ 07B2 2A2D              mov R18,R10
+ 07B4 3327              clr R19
+ 07B6 00E0              ldi R16,<L140
+ 07B8 10E0              ldi R17,>L140
+ 07BA 0E940000          xcall _printf_M
+ 07BE 0CC0              xjmp L142
+ 07C0           L141:
+ 07C0                   .dbline 682
+ 07C0           ; #else
+ 07C0           ;         printf("[%u] Connected, %lu bytes free\n", id, NutHeapAvailable());
+ 07C0           ; #endif
+ 07C0           ; 
+ 07C0           ;         /*
+ 07C0           ;          * Wait until at least 8 kByte of free RAM is available. This will
+ 07C0           ;          * keep the client connected in low memory situations.
+ 07C0           ;          */
+ 07C0           ; #if defined(__AVR__)
+ 07C0           ;         while (NutHeapAvailable() < 8192) {
+ 07C0                   .dbline 686
+ 07C0           ; #else
+ 07C0           ;         while (NutHeapAvailable() < 4096) {
+ 07C0           ; #endif
+ 07C0           ;             printf("[%u] Low mem\n", id);
+ 07C0 2A2D              mov R18,R10
+ 07C2 3327              clr R19
+ 07C4 00E0              ldi R16,<L144
+ 07C6 10E0              ldi R17,>L144
+ 07C8 0E940000          xcall _printf_M
+ 07CC                   .dbline 687
+ 07CC           ;             NutSleep(1000);
+ 07CC 08EE              ldi R16,232
+ 07CE 13E0              ldi R17,3
+ 07D0 20E0              ldi R18,0
+ 07D2 30E0              ldi R19,0
+ 07D4 0E940000          xcall _NutSleep
+ 07D8                   .dbline 688
+ 07D8           ;         }
+ 07D8           L142:
+ 07D8                   .dbline 682
+ 07D8 00E0              ldi R16,<_heapFreeList
+ 07DA 10E0              ldi R17,>_heapFreeList
+ 07DC 0E940000          xcall _NutHeapRootAvailable
+ 07E0 A801              movw R20,R16
+ 07E2 0030              cpi R16,0
+ 07E4 E0E2              ldi R30,32
+ 07E6 1E07              cpc R17,R30
+ 07E8 58F3              brlo L141
+ 07EA           X38:
+ 07EA                   .dbline 693
+ 07EA           ; 
+ 07EA           ;         /*
+ 07EA           ;          * Associate a stream with the socket so we can use standard I/O calls.
+ 07EA           ;          */
+ 07EA           ;         if ((stream = _fdopen((int) ((uptr_t) sock), "r+b")) == 0) {
+ 07EA 20E0              ldi R18,<L147
+ 07EC 30E0              ldi R19,>L147
+ 07EE 8601              movw R16,R12
+ 07F0 0E940000          xcall __fdopen
+ 07F4 A801              movw R20,R16
+ 07F6 7A01              movw R14,R20
+ 07F8 0030              cpi R16,0
+ 07FA 0107              cpc R16,R17
+ 07FC 39F4              brne L145
+ 07FE           X39:
+ 07FE                   .dbline 693
+ 07FE                   .dbline 694
+ 07FE           ;             printf("[%u] Creating stream device failed\n", id);
+ 07FE 2A2D              mov R18,R10
+ 0800 3327              clr R19
+ 0802 00E0              ldi R16,<L148
+ 0804 10E0              ldi R17,>L148
+ 0806 0E940000          xcall _printf_M
+ 080A                   .dbline 695
+ 080A           ;         } else {
+ 080A 06C0              xjmp L146
+ 080C           L145:
+ 080C                   .dbline 695
+ 080C                   .dbline 702
+ 080C           ;             /*
+ 080C           ;              * This API call saves us a lot of work. It will parse the
+ 080C           ;              * client's HTTP request, send any requested file from the
+ 080C           ;              * registered file system or handle CGI requests by calling
+ 080C           ;              * our registered CGI routine.
+ 080C           ;              */
+ 080C           ;             NutHttpProcessRequest(stream);
+ 080C 8701              movw R16,R14
+ 080E 0E940000          xcall _NutHttpProcessRequest
+ 0812                   .dbline 707
+ 0812           ; 
+ 0812           ;             /*
+ 0812           ;              * Destroy the virtual stream device.
+ 0812           ;              */
+ 0812           ;             fclose(stream);
+ 0812 8701              movw R16,R14
+ 0814 0E940000          xcall _fclose
+ 0818                   .dbline 708
+ 0818           ;         }
+ 0818           L146:
+ 0818                   .dbline 713
+ 0818           ; 
+ 0818           ;         /*
+ 0818           ;          * Close our socket.
+ 0818           ;          */
+ 0818           ;         NutTcpCloseSocket(sock);
+ 0818 8601              movw R16,R12
+ 081A 0E940000          xcall _NutTcpCloseSocket
+ 081E                   .dbline 714
+ 081E           ;         printf("[%u] Disconnected\n", id);
+ 081E 2A2D              mov R18,R10
+ 0820 3327              clr R19
+ 0822 00E0              ldi R16,<L149
+ 0824 10E0              ldi R17,>L149
+ 0826 0E940000          xcall _printf_M
+ 082A                   .dbline 715
+ 082A           ;     }
+ 082A                   .dbline 655
+ 082A                   .dbline 655
+ 082A A4CF              xjmp L133
+ 082C           X40:
+ 082C                   .dbline -2
+ 082C           L132:
+ 082C                   .dbline 0 ; func end
+ 082C 2296              adiw R28,2
+ 082E 0C940000          xjmp pop_xgset30FC
+ 0832                   .dbsym r stream 14 pS[__iobuf]
+ 0832                   .dbsym r sock 12 pS[tcp_socket]
+ 0832                   .dbsym r id 10 c
+ 0832                   .dbsym r arg 10 pV
+ 0832                   .dbend
+                        .area lit(rom, con, rel)
+ 0599           L163:
+ 0599 00069830003500    .byte 0,6,152,48,0,53,0
+ 05A0           L195:
+ 05A0 68747470643000    .byte 'h,'t,'t,'p,'d,48,0
+                        .area text(rom, con, rel)
+ 0832                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0832                   .dbfunc e main _main fI
+ 0832           ;         thname -> y+14
+ 0832           ;        ip_gate -> y+29
+ 0832           ;        ip_mask -> y+25
+ 0832           ;        ip_addr -> y+21
+ 0832           ;            mac -> y+14
+ 0832           ;           baud -> y+10
+ 0832           ;              i -> R20
+                        .even
+ 0832           _main::
+ 0832 A197              sbiw R28,33
+ 0834                   .dbline -1
+ 0834                   .dbline 724
+ 0834           ; }
+ 0834           ; 
+ 0834           ; /*!
+ 0834           ;  * \brief Main application routine.
+ 0834           ;  *
+ 0834           ;  * Nut/OS automatically calls this entry after initialization.
+ 0834           ;  */
+ 0834           ; int main(void)
+ 0834           ; {
+ 0834                   .dbline 725
+ 0834           ;     u_long baud = 115200;
+ 0834 80E0              ldi R24,0
+ 0836 92EC              ldi R25,194
+ 0838 A1E0              ldi R26,1
+ 083A B0E0              ldi R27,0
+ 083C 8A87              std y+10,R24
+ 083E 9B87              std y+11,R25
+ 0840 AC87              std y+12,R26
+ 0842 BD87              std y+13,R27
+ 0844                   .dbline 731
+ 0844           ;     u_char i;
+ 0844           ; 
+ 0844           ;     /*
+ 0844           ;      * Initialize the uart device.
+ 0844           ;      */
+ 0844           ;     NutRegisterDevice(&DEV_DEBUG, 0, 0);
+ 0844 2224              clr R2
+ 0846 2882              std y+0,R2
+ 0848 2227              clr R18
+ 084A 3327              clr R19
+ 084C 00E0              ldi R16,<_devDebug0
+ 084E 10E0              ldi R17,>_devDebug0
+ 0850 0E940000          xcall _NutRegisterDevice
+ 0854                   .dbline 732
+ 0854           ;     freopen(DEV_DEBUG_NAME, "w", stdout);
+ 0854 20900200          lds R2,___iob+2
+ 0858 30900300          lds R3,___iob+2+1
+ 085C 3982              std y+1,R3
+ 085E 2882              std y+0,R2
+ 0860 20E0              ldi R18,<L152
+ 0862 30E0              ldi R19,>L152
+ 0864 00E0              ldi R16,<L151
+ 0866 10E0              ldi R17,>L151
+ 0868 0E940000          xcall _freopen
+ 086C                   .dbline 733
+ 086C           ;     _ioctl(_fileno(stdout), UART_SETSPEED, &baud);
+ 086C 00910200          lds R16,___iob+2
+ 0870 10910300          lds R17,___iob+2+1
+ 0874 0E940000          xcall __fileno
+ 0878 CE01              movw R24,R28
+ 087A 0A96              adiw R24,10
+ 087C 9983              std y+1,R25
+ 087E 8883              std y+0,R24
+ 0880 21E0              ldi R18,257
+ 0882 31E0              ldi R19,1
+ 0884 0E940000          xcall __ioctl
+ 0888                   .dbline 734
+ 0888           ;     NutSleep(200);
+ 0888 08EC              ldi R16,200
+ 088A 10E0              ldi R17,0
+ 088C 20E0              ldi R18,0
+ 088E 30E0              ldi R19,0
+ 0890 0E940000          xcall _NutSleep
+ 0894                   .dbline 735
+ 0894           ;     printf("\n\nNut/OS %s HTTP Daemon...", NutVersionString());
+ 0894 0E940000          xcall _NutVersionString
+ 0898 9801              movw R18,R16
+ 089A 00E0              ldi R16,<L155
+ 089C 10E0              ldi R17,>L155
+ 089E 0E940000          xcall _printf_M
+ 08A2                   .dbline 747
+ 08A2           ; 
+ 08A2           ; #ifdef NUTDEBUG
+ 08A2           ;     NutTraceTcp(stdout, 0);
+ 08A2           ;     NutTraceOs(stdout, 0);
+ 08A2           ;     NutTraceHeap(stdout, 0);
+ 08A2           ;     NutTracePPP(stdout, 0);
+ 08A2           ; #endif
+ 08A2           ; 
+ 08A2           ;     /*
+ 08A2           ;      * Register Ethernet controller.
+ 08A2           ;      */
+ 08A2           ;     if (NutRegisterDevice(&DEV_ETHER, 0, 0)) {
+ 08A2 2224              clr R2
+ 08A4 2882              std y+0,R2
+ 08A6 2227              clr R18
+ 08A8 3327              clr R19
+ 08AA 00E0              ldi R16,<_devEth0
+ 08AC 10E0              ldi R17,>_devEth0
+ 08AE 0E940000          xcall _NutRegisterDevice
+ 08B2 5801              movw R10,R16
+ 08B4 0030              cpi R16,0
+ 08B6 0107              cpc R16,R17
+ 08B8 21F0              breq L156
+ 08BA           X41:
+ 08BA                   .dbline 747
+ 08BA                   .dbline 748
+ 08BA           ;         puts("Registering device failed");
+ 08BA 00E0              ldi R16,<L158
+ 08BC 10E0              ldi R17,>L158
+ 08BE 0E940000          xcall _puts_M
+ 08C2                   .dbline 749
+ 08C2           ;     }
+ 08C2           L156:
+ 08C2                   .dbline 751
+ 08C2           ; 
+ 08C2           ;     printf("Configure %s...", DEV_ETHER_NAME);
+ 08C2 20E0              ldi R18,<L160
+ 08C4 30E0              ldi R19,>L160
+ 08C6 00E0              ldi R16,<L159
+ 08C8 10E0              ldi R17,>L159
+ 08CA 0E940000          xcall _printf_M
+ 08CE                   .dbline 752
+ 08CE           ;     if (NutNetLoadConfig(DEV_ETHER_NAME)) {
+ 08CE 00E0              ldi R16,<L160
+ 08D0 10E0              ldi R17,>L160
+ 08D2 0E940000          xcall _NutNetLoadConfig
+ 08D6 5801              movw R10,R16
+ 08D8 0030              cpi R16,0
+ 08DA 0107              cpc R16,R17
+ 08DC 09F4              brne X48
+ 08DE 79C0              xjmp L161
+ 08E0           X48:
+ 08E0           X42:
+ 08E0                   .dbline 752
+ 08E0                   .dbline 753
+ 08E0           ;         u_char mac[] = MY_MAC;
+ 08E0 80E0              ldi R24,<L163
+ 08E2 90E0              ldi R25,>L163
+ 08E4 FE01              movw R30,R28
+ 08E6 3E96              adiw R30,14
+ 08E8 07E0              ldi R16,7
+ 08EA 10E0              ldi R17,0
+ 08EC FA93              st -y,R31
+ 08EE EA93              st -y,R30
+ 08F0 9A93              st -y,R25
+ 08F2 8A93              st -y,R24
+ 08F4 0E940000          xcall asgncblkx
+ 08F8                   .dbline 755
+ 08F8           ; 
+ 08F8           ;         printf("initial boot...");
+ 08F8 00E0              ldi R16,<L164
+ 08FA 10E0              ldi R17,>L164
+ 08FC 0E940000          xcall _printf_M
+ 0900                   .dbline 759
+ 0900           ; #ifdef USE_DHCP
+ 0900           ;         if (NutDhcpIfConfig(DEV_ETHER_NAME, mac, 60000)) 
+ 0900           ; #endif
+ 0900           ;         {
+ 0900                   .dbline 760
+ 0900           ;             u_long ip_addr = inet_addr(MY_IPADDR);
+ 0900 00E0              ldi R16,<L165
+ 0902 10E0              ldi R17,>L165
+ 0904 0E940000          xcall _inet_addr
+ 0908 0D8B              std y+21,R16
+ 090A 1E8B              std y+22,R17
+ 090C 2F8B              std y+23,R18
+ 090E 388F              std y+24,R19
+ 0910                   .dbline 761
+ 0910           ;             u_long ip_mask = inet_addr(MY_IPMASK);
+ 0910 00E0              ldi R16,<L166
+ 0912 10E0              ldi R17,>L166
+ 0914 0E940000          xcall _inet_addr
+ 0918 098F              std y+25,R16
+ 091A 1A8F              std y+26,R17
+ 091C 2B8F              std y+27,R18
+ 091E 3C8F              std y+28,R19
+ 0920                   .dbline 762
+ 0920           ;             u_long ip_gate = inet_addr(MY_IPGATE);
+ 0920 00E0              ldi R16,<L167
+ 0922 10E0              ldi R17,>L167
+ 0924 0E940000          xcall _inet_addr
+ 0928 0D8F              std y+29,R16
+ 092A 1E8F              std y+30,R17
+ 092C 2F8F              std y+31,R18
+ 092E 38A3              std y+32,R19
+ 0930                   .dbline 764
+ 0930           ; 
+ 0930           ;             printf("No DHCP...");
+ 0930 00E0              ldi R16,<L168
+ 0932 10E0              ldi R17,>L168
+ 0934 0E940000          xcall _printf_M
+ 0938                   .dbline 765
+ 0938           ;             if (NutNetIfConfig(DEV_ETHER_NAME, mac, ip_addr, ip_mask) == 0) {
+ 0938 298C              ldd R2,y+25
+ 093A 3A8C              ldd R3,y+26
+ 093C 4B8C              ldd R4,y+27
+ 093E 5C8C              ldd R5,y+28
+ 0940 2C82              std y+4,R2
+ 0942 3D82              std y+5,R3
+ 0944 4E82              std y+6,R4
+ 0946 5F82              std y+7,R5
+ 0948 2D88              ldd R2,y+21
+ 094A 3E88              ldd R3,y+22
+ 094C 4F88              ldd R4,y+23
+ 094E 588C              ldd R5,y+24
+ 0950 2882              std y+0,R2
+ 0952 3982              std y+1,R3
+ 0954 4A82              std y+2,R4
+ 0956 5B82              std y+3,R5
+ 0958 9E01              movw R18,R28
+ 095A 225F              subi R18,242  ; offset = 14
+ 095C 3F4F              sbci R19,255
+ 095E 00E0              ldi R16,<L160
+ 0960 10E0              ldi R17,>L160
+ 0962 0E940000          xcall _NutNetIfConfig
+ 0966 5801              movw R10,R16
+ 0968 0030              cpi R16,0
+ 096A 0107              cpc R16,R17
+ 096C 69F5              brne L169
+ 096E           X43:
+ 096E                   .dbline 765
+ 096E                   .dbline 767
+ 096E           ;                 /* Without DHCP we had to set the default gateway manually.*/
+ 096E           ;                 if(ip_gate) {
+ 096E 2D8C              ldd R2,y+29
+ 0970 3E8C              ldd R3,y+30
+ 0972 4F8C              ldd R4,y+31
+ 0974 58A0              ldd R5,y+32
+ 0976 8894              clc
+ 0978 2220              tst R2
+ 097A 3204              cpc R3,R2
+ 097C 4204              cpc R4,R2
+ 097E 5204              cpc R5,R2
+ 0980 F1F0              breq L171
+ 0982           X44:
+ 0982                   .dbline 767
+ 0982                   .dbline 768
+ 0982           ;                     printf("hard coded gate...");
+ 0982 00E0              ldi R16,<L173
+ 0984 10E0              ldi R17,>L173
+ 0986 0E940000          xcall _printf_M
+ 098A                   .dbline 769
+ 098A           ;                     NutIpRouteAdd(0, 0, ip_gate, &DEV_ETHER);
+ 098A 80E0              ldi R24,<_devEth0
+ 098C 90E0              ldi R25,>_devEth0
+ 098E 9987              std y+9,R25
+ 0990 8887              std y+8,R24
+ 0992 2D8C              ldd R2,y+29
+ 0994 3E8C              ldd R3,y+30
+ 0996 4F8C              ldd R4,y+31
+ 0998 58A0              ldd R5,y+32
+ 099A 2C82              std y+4,R2
+ 099C 3D82              std y+5,R3
+ 099E 4E82              std y+6,R4
+ 09A0 5F82              std y+7,R5
+ 09A2 80E0              ldi R24,0
+ 09A4 90E0              ldi R25,0
+ 09A6 A0E0              ldi R26,0
+ 09A8 B0E0              ldi R27,0
+ 09AA 8883              std y+0,R24
+ 09AC 9983              std y+1,R25
+ 09AE AA83              std y+2,R26
+ 09B0 BB83              std y+3,R27
+ 09B2 00E0              ldi R16,0
+ 09B4 10E0              ldi R17,0
+ 09B6 20E0              ldi R18,0
+ 09B8 30E0              ldi R19,0
+ 09BA 0E940000          xcall _NutIpRouteAdd
+ 09BE                   .dbline 770
+ 09BE           ;                 }
+ 09BE           L171:
+ 09BE                   .dbline 771
+ 09BE           ;                 puts("OK");
+ 09BE 00E0              ldi R16,<L59
+ 09C0 10E0              ldi R17,>L59
+ 09C2 0E940000          xcall _puts_M
+ 09C6                   .dbline 772
+ 09C6           ;             }
+ 09C6 2CC0              xjmp L162
+ 09C8           L169:
+ 09C8                   .dbline 773
+ 09C8           ;             else {
+ 09C8                   .dbline 774
+ 09C8           ;                 puts("failed");
+ 09C8 00E0              ldi R16,<L174
+ 09CA 10E0              ldi R17,>L174
+ 09CC 0E940000          xcall _puts_M
+ 09D0                   .dbline 775
+ 09D0           ;             }
+ 09D0                   .dbline 776
+ 09D0           ;         }
+ 09D0                   .dbline 777
+ 09D0           ;     }
+ 09D0 27C0              xjmp L162
+ 09D2           L161:
+ 09D2                   .dbline 778
+ 09D2           ;     else {
+ 09D2                   .dbline 787
+ 09D2           ; #ifdef USE_DHCP
+ 09D2           ;         if (NutDhcpIfConfig(DEV_ETHER_NAME, 0, 60000)) {
+ 09D2           ;             puts("failed");
+ 09D2           ;         }
+ 09D2           ;         else {
+ 09D2           ;             puts("OK");
+ 09D2           ;         }
+ 09D2           ; #else
+ 09D2           ;         if (NutNetIfConfig(DEV_ETHER_NAME, 0, 0, confnet.cdn_ip_mask)) {
+ 09D2 40901600          lds R4,_confnet+20+2
+ 09D6 50901700          lds R5,_confnet+20+2+1
+ 09DA 20901400          lds R2,_confnet+20
+ 09DE 30901500          lds R3,_confnet+20+1
+ 09E2 2C82              std y+4,R2
+ 09E4 3D82              std y+5,R3
+ 09E6 4E82              std y+6,R4
+ 09E8 5F82              std y+7,R5
+ 09EA 80E0              ldi R24,0
+ 09EC 90E0              ldi R25,0
+ 09EE A0E0              ldi R26,0
+ 09F0 B0E0              ldi R27,0
+ 09F2 8883              std y+0,R24
+ 09F4 9983              std y+1,R25
+ 09F6 AA83              std y+2,R26
+ 09F8 BB83              std y+3,R27
+ 09FA 2227              clr R18
+ 09FC 3327              clr R19
+ 09FE 00E0              ldi R16,<L160
+ 0A00 10E0              ldi R17,>L160
+ 0A02 0E940000          xcall _NutNetIfConfig
+ 0A06 5801              movw R10,R16
+ 0A08 0030              cpi R16,0
+ 0A0A 0107              cpc R16,R17
+ 0A0C 29F0              breq L175
+ 0A0E           X45:
+ 0A0E                   .dbline 787
+ 0A0E                   .dbline 788
+ 0A0E           ;             puts("failed");
+ 0A0E 00E0              ldi R16,<L174
+ 0A10 10E0              ldi R17,>L174
+ 0A12 0E940000          xcall _puts_M
+ 0A16                   .dbline 789
+ 0A16           ;         }
+ 0A16 04C0              xjmp L176
+ 0A18           L175:
+ 0A18                   .dbline 790
+ 0A18           ;         else {
+ 0A18                   .dbline 791
+ 0A18           ;             puts("OK");
+ 0A18 00E0              ldi R16,<L59
+ 0A1A 10E0              ldi R17,>L59
+ 0A1C 0E940000          xcall _puts_M
+ 0A20                   .dbline 792
+ 0A20           ;         }
+ 0A20           L176:
+ 0A20                   .dbline 794
+ 0A20           ; #endif
+ 0A20           ;     }
+ 0A20           L162:
+ 0A20                   .dbline 795
+ 0A20           ;     printf("%s ready\n", inet_ntoa(confnet.cdn_ip_addr));
+ 0A20 20911200          lds R18,_confnet+16+2
+ 0A24 30911300          lds R19,_confnet+16+2+1
+ 0A28 00911000          lds R16,_confnet+16
+ 0A2C 10911100          lds R17,_confnet+16+1
+ 0A30 0E940000          xcall _inet_ntoa
+ 0A34 5801              movw R10,R16
+ 0A36 9501              movw R18,R10
+ 0A38 00E0              ldi R16,<L178
+ 0A3A 10E0              ldi R17,>L178
+ 0A3C 0E940000          xcall _printf_M
+ 0A40                   .dbline 804
+ 0A40           ; 
+ 0A40           ; #ifdef USE_DISCOVERY
+ 0A40           ;     NutRegisterDiscovery((u_long)-1, 0, DISF_INITAL_ANN);
+ 0A40           ; #endif
+ 0A40           ; 
+ 0A40           ;     /*
+ 0A40           ;      * Register our device for the file system.
+ 0A40           ;      */
+ 0A40           ;     NutRegisterDevice(&MY_FSDEV, 0, 0);
+ 0A40 2224              clr R2
+ 0A42 2882              std y+0,R2
+ 0A44 2227              clr R18
+ 0A46 3327              clr R19
+ 0A48 00E0              ldi R16,<_devUrom
+ 0A4A 10E0              ldi R17,>_devUrom
+ 0A4C 0E940000          xcall _NutRegisterDevice
+ 0A50                   .dbline 834
+ 0A50           ; 
+ 0A50           ; #ifdef MY_BLKDEV
+ 0A50           ;     /* Register block device. */
+ 0A50           ;     printf("Registering block device '" MY_BLKDEV_NAME "'...");
+ 0A50           ;     if (NutRegisterDevice(&MY_BLKDEV, 0, 0)) {
+ 0A50           ;         puts("failed");
+ 0A50           ;         for (;;);
+ 0A50           ;     }
+ 0A50           ;     puts("OK");
+ 0A50           ; 
+ 0A50           ;     /* Mount partition. */
+ 0A50           ;     printf("Mounting block device '" MY_BLKDEV_NAME ":1/" MY_FSDEV_NAME "'...");
+ 0A50           ;     if (_open(MY_BLKDEV_NAME ":1/" MY_FSDEV_NAME, _O_RDWR | _O_BINARY) == -1) {
+ 0A50           ;         puts("failed");
+ 0A50           ;         for (;;);
+ 0A50           ;     }
+ 0A50           ;     puts("OK");
+ 0A50           ; #endif
+ 0A50           ; 
+ 0A50           ; #ifdef MY_HTTPROOT
+ 0A50           ;     /* Register root path. */
+ 0A50           ;     printf("Registering HTTP root '" MY_HTTPROOT "'...");
+ 0A50           ;     if (NutRegisterHttpRoot(MY_HTTPROOT)) {
+ 0A50           ;         puts("failed");
+ 0A50           ;         for (;;);
+ 0A50           ;     }
+ 0A50           ;     puts("OK");
+ 0A50           ; #endif
+ 0A50           ; 
+ 0A50           ;     NutRegisterCgiBinPath("cgi-bin/;user/cgi-bin/;admin/cgi-bin/");
+ 0A50 00E0              ldi R16,<L180
+ 0A52 10E0              ldi R17,>L180
+ 0A54 0E940000          xcall _NutRegisterCgiBinPath
+ 0A58                   .dbline 841
+ 0A58           ; 
+ 0A58           ; 
+ 0A58           ;     /*
+ 0A58           ;      * Register our CGI sample. This will be called
+ 0A58           ;      * by http://host/cgi-bin/test.cgi?anyparams
+ 0A58           ;      */
+ 0A58           ;     NutRegisterCgi("test.cgi", ShowQuery);
+ 0A58 20E0              ldi R18,<PL_ShowQuery
+ 0A5A 30E0              ldi R19,>PL_ShowQuery
+ 0A5C 00E0              ldi R16,<L181
+ 0A5E 10E0              ldi R17,>L181
+ 0A60 0E940000          xcall _NutRegisterCgi
+ 0A64                   .dbline 849
+ 0A64           ; 
+ 0A64           ;     /* 
+ 0A64           ;      * Register a cgi included by the ssi demo. This will show how dynamic 
+ 0A64           ;      * content is included in a ssi page and how the request parameters for 
+ 0A64           ;      * a site are passed down to the included cgi.
+ 0A64           ;      */
+ 0A64           ;     
+ 0A64           ;     NutRegisterCgi("ssi-demo.cgi", SSIDemoCGI);
+ 0A64 20E0              ldi R18,<PL_SSIDemoCGI
+ 0A66 30E0              ldi R19,>PL_SSIDemoCGI
+ 0A68 00E0              ldi R16,<L182
+ 0A6A 10E0              ldi R17,>L182
+ 0A6C 0E940000          xcall _NutRegisterCgi
+ 0A70                   .dbline 855
+ 0A70           ;     
+ 0A70           ;     /*
+ 0A70           ;      * Register some CGI samples, which display interesting
+ 0A70           ;      * system informations.
+ 0A70           ;      */
+ 0A70           ;     NutRegisterCgi("threads.cgi", ShowThreads);
+ 0A70 20E0              ldi R18,<PL_ShowThreads
+ 0A72 30E0              ldi R19,>PL_ShowThreads
+ 0A74 00E0              ldi R16,<L183
+ 0A76 10E0              ldi R17,>L183
+ 0A78 0E940000          xcall _NutRegisterCgi
+ 0A7C                   .dbline 856
+ 0A7C           ;     NutRegisterCgi("timers.cgi", ShowTimers);
+ 0A7C 20E0              ldi R18,<PL_ShowTimers
+ 0A7E 30E0              ldi R19,>PL_ShowTimers
+ 0A80 00E0              ldi R16,<L184
+ 0A82 10E0              ldi R17,>L184
+ 0A84 0E940000          xcall _NutRegisterCgi
+ 0A88                   .dbline 857
+ 0A88           ;     NutRegisterCgi("sockets.cgi", ShowSockets);
+ 0A88 20E0              ldi R18,<PL_ShowSockets
+ 0A8A 30E0              ldi R19,>PL_ShowSockets
+ 0A8C 00E0              ldi R16,<L185
+ 0A8E 10E0              ldi R17,>L185
+ 0A90 0E940000          xcall _NutRegisterCgi
+ 0A94                   .dbline 862
+ 0A94           ; 
+ 0A94           ;     /*
+ 0A94           ;      * Finally a CGI example to process a form.
+ 0A94           ;      */
+ 0A94           ;     NutRegisterCgi("form.cgi", ShowForm);
+ 0A94 20E0              ldi R18,<PL_ShowForm
+ 0A96 30E0              ldi R19,>PL_ShowForm
+ 0A98 00E0              ldi R16,<L186
+ 0A9A 10E0              ldi R17,>L186
+ 0A9C 0E940000          xcall _NutRegisterCgi
+ 0AA0                   .dbline 868
+ 0AA0           ; 
+ 0AA0           ;     /*
+ 0AA0           ;      * Protect the cgi-bin directory with
+ 0AA0           ;      * user and password.
+ 0AA0           ;      */
+ 0AA0           ;     NutRegisterAuth("admin", "root:root");
+ 0AA0 20E0              ldi R18,<L188
+ 0AA2 30E0              ldi R19,>L188
+ 0AA4 00E0              ldi R16,<L187
+ 0AA6 10E0              ldi R17,>L187
+ 0AA8 0E940000          xcall _NutRegisterAuth
+ 0AAC                   .dbline 869
+ 0AAC           ;     NutRegisterAuth("user", "user:user");
+ 0AAC 20E0              ldi R18,<L190
+ 0AAE 30E0              ldi R19,>L190
+ 0AB0 00E0              ldi R16,<L189
+ 0AB2 10E0              ldi R17,>L189
+ 0AB4 0E940000          xcall _NutRegisterAuth
+ 0AB8                   .dbline 874
+ 0AB8           ; 
+ 0AB8           ;     /*
+ 0AB8           ;      * Register SSI and ASP handler
+ 0AB8           ;      */
+ 0AB8           ;     NutRegisterSsi();
+ 0AB8 0E940000          xcall _NutRegisterSsi
+ 0ABC                   .dbline 875
+ 0ABC           ;     NutRegisterAsp();
+ 0ABC 0E940000          xcall _NutRegisterAsp
+ 0AC0                   .dbline 876
+ 0AC0           ;     NutRegisterAspCallback(ASPCallback);
+ 0AC0 00E0              ldi R16,<PL_ASPCallback
+ 0AC2 10E0              ldi R17,>PL_ASPCallback
+ 0AC4 0E940000          xcall _NutRegisterAspCallback
+ 0AC8                   .dbline 880
+ 0AC8           ;     /*
+ 0AC8           ;      * Start four server threads.
+ 0AC8           ;      */
+ 0AC8           ;     for (i = 1; i <= 4; i++) {
+ 0AC8 41E0              ldi R20,1
+ 0ACA 1FC0              xjmp L194
+ 0ACC           L191:
+ 0ACC                   .dbline 880
+ 0ACC                   .dbline 881
+ 0ACC           ;         char thname[] = "httpd0";
+ 0ACC 80E0              ldi R24,<L195
+ 0ACE 90E0              ldi R25,>L195
+ 0AD0 FE01              movw R30,R28
+ 0AD2 3E96              adiw R30,14
+ 0AD4 07E0              ldi R16,7
+ 0AD6 10E0              ldi R17,0
+ 0AD8 FA93              st -y,R31
+ 0ADA EA93              st -y,R30
+ 0ADC 9A93              st -y,R25
+ 0ADE 8A93              st -y,R24
+ 0AE0 0E940000          xcall asgncblkx
+ 0AE4                   .dbline 883
+ 0AE4           ; 
+ 0AE4           ;         thname[5] = '0' + i;
+ 0AE4 842F              mov R24,R20
+ 0AE6 805D              subi R24,208    ; addi 48
+ 0AE8 8B8B              std y+19,R24
+ 0AEA                   .dbline 884
+ 0AEA           ;         NutThreadCreate(thname, Service, (void *) (uptr_t) i, 
+ 0AEA 84E4              ldi R24,580
+ 0AEC 92E0              ldi R25,2
+ 0AEE 9B83              std y+3,R25
+ 0AF0 8A83              std y+2,R24
+ 0AF2 242E              mov R2,R20
+ 0AF4 3324              clr R3
+ 0AF6 3982              std y+1,R3
+ 0AF8 2882              std y+0,R2
+ 0AFA 20E0              ldi R18,<PL_Service
+ 0AFC 30E0              ldi R19,>PL_Service
+ 0AFE 8E01              movw R16,R28
+ 0B00 025F              subi R16,242  ; offset = 14
+ 0B02 1F4F              sbci R17,255
+ 0B04 0E940000          xcall _NutThreadCreate
+ 0B08                   .dbline 886
+ 0B08           ;             (HTTPD_SERVICE_STACK * NUT_THREAD_STACK_MULT) + NUT_THREAD_STACK_ADD);
+ 0B08           ;     }
+ 0B08           L192:
+ 0B08                   .dbline 880
+ 0B08 4395              inc R20
+ 0B0A           L194:
+ 0B0A                   .dbline 880
+ 0B0A 84E0              ldi R24,4
+ 0B0C 8417              cp R24,R20
+ 0B0E F0F6              brsh L191
+ 0B10           X46:
+ 0B10                   .dbline 891
+ 0B10           ; 
+ 0B10           ;     /*
+ 0B10           ;      * We could do something useful here, like serving a watchdog.
+ 0B10           ;      */
+ 0B10           ;     NutThreadSetPriority(254);
+ 0B10 0EEF              ldi R16,254
+ 0B12 0E940000          xcall _NutThreadSetPriority
+ 0B16                   .dbline 892
+ 0B16           ;     for (;;) {
+ 0B16           L197:
+ 0B16                   .dbline 892
+ 0B16                   .dbline 893
+ 0B16           ;         NutSleep(60000);
+ 0B16 00E6              ldi R16,96
+ 0B18 1AEE              ldi R17,234
+ 0B1A 20E0              ldi R18,0
+ 0B1C 30E0              ldi R19,0
+ 0B1E 0E940000          xcall _NutSleep
+ 0B22                   .dbline 894
+ 0B22           ;     }
+ 0B22                   .dbline 892
+ 0B22                   .dbline 892
+ 0B22 F9CF              xjmp L197
+ 0B24           X47:
+ 0B24                   .dbline -2
+ 0B24           L150:
+ 0B24                   .dbline 0 ; func end
+ 0B24 A196              adiw R28,33
+ 0B26 0895              ret
+ 0B28                   .dbsym l thname 14 A[7:7]c
+ 0B28                   .dbsym l ip_gate 29 l
+ 0B28                   .dbsym l ip_mask 25 l
+ 0B28                   .dbsym l ip_addr 21 l
+ 0B28                   .dbsym l mac 14 A[7:7]c
+ 0B28                   .dbsym l baud 10 l
+ 0B28                   .dbsym r i 20 c
+ 0B28                   .dbend
+                        .area data(ram, con, rel)
+ 000A                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 000A           L190:
+ 000A                   .blkb 10
+                        .area idata
+ 000A 757365723A7573657200      .byte 'u,'s,'e,'r,58,'u,'s,'e,'r,0
+                        .area data(ram, con, rel)
+ 0014                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0014           L189:
+ 0014                   .blkb 5
+                        .area idata
+ 0014 7573657200        .byte 'u,'s,'e,'r,0
+                        .area data(ram, con, rel)
+ 0019                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0019           L188:
+ 0019                   .blkb 10
+                        .area idata
+ 0019 726F6F743A726F6F7400      .byte 'r,'o,'o,'t,58,'r,'o,'o,'t,0
+                        .area data(ram, con, rel)
+ 0023                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0023           L187:
+ 0023                   .blkb 6
+                        .area idata
+ 0023 61646D696E00      .byte 'a,'d,'m,'i,'n,0
+                        .area data(ram, con, rel)
+ 0029                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0029           L186:
+ 0029                   .blkb 9
+                        .area idata
+ 0029 666F726D2E63676900        .byte 'f,'o,'r,'m,46,'c,'g,'i,0
+                        .area data(ram, con, rel)
+ 0032                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0032           L185:
+ 0032                   .blkb 12
+                        .area idata
+ 0032 736F636B6574732E63676900  .byte 's,'o,'c,'k,'e,'t,'s,46,'c,'g,'i,0
+                        .area data(ram, con, rel)
+ 003E                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 003E           L184:
+ 003E                   .blkb 11
+                        .area idata
+ 003E 74696D6572732E63676900    .byte 't,'i,'m,'e,'r,'s,46,'c,'g,'i,0
+                        .area data(ram, con, rel)
+ 0049                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0049           L183:
+ 0049                   .blkb 12
+                        .area idata
+ 0049 746872656164732E63676900  .byte 't,'h,'r,'e,'a,'d,'s,46,'c,'g,'i,0
+                        .area data(ram, con, rel)
+ 0055                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0055           L182:
+ 0055                   .blkb 13
+                        .area idata
+ 0055 7373692D64656D6F2E63676900        .byte 's,'s,'i,45,'d,'e,'m,'o,46,'c,'g,'i,0
+                        .area data(ram, con, rel)
+ 0062                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0062           L181:
+ 0062                   .blkb 9
+                        .area idata
+ 0062 746573742E63676900        .byte 't,'e,'s,'t,46,'c,'g,'i,0
+                        .area data(ram, con, rel)
+ 006B                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 006B           L180:
+ 006B                   .blkb 38
+                        .area idata
+ 006B 6367692D62696E2F3B757365722F6367  .byte 'c,'g,'i,45,'b,'i,'n,47,59,'u,'s,'e,'r,47,'c,'g
+ 007B 692D62696E2F3B61646D696E2F636769  .byte 'i,45,'b,'i,'n,47,59,'a,'d,'m,'i,'n,47,'c,'g,'i
+ 008B 2D62696E2F00      .byte 45,'b,'i,'n,47,0
+                        .area data(ram, con, rel)
+ 0091                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0091           L178:
+ 0091                   .blkb 10
+                        .area idata
+ 0091 25732072656164790A00      .byte 37,'s,32,'r,'e,'a,'d,'y,10,0
+                        .area data(ram, con, rel)
+ 009B                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 009B           L174:
+ 009B                   .blkb 7
+                        .area idata
+ 009B 6661696C656400    .byte 'f,'a,'i,'l,'e,'d,0
+                        .area data(ram, con, rel)
+ 00A2                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 00A2           L173:
+ 00A2                   .blkb 19
+                        .area idata
+ 00A2 6861726420636F64656420676174652E  .byte 'h,'a,'r,'d,32,'c,'o,'d,'e,'d,32,'g,'a,'t,'e,46
+ 00B2 2E2E00            .byte 46,46,0
+                        .area data(ram, con, rel)
+ 00B5                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 00B5           L168:
+ 00B5                   .blkb 11
+                        .area idata
+ 00B5 4E6F20444843502E2E2E00    .byte 'N,'o,32,'D,'H,'C,'P,46,46,46,0
+                        .area data(ram, con, rel)
+ 00C0                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 00C0           L167:
+ 00C0                   .blkb 14
+                        .area idata
+ 00C0 3139322E3136382E3139322E3100      .byte 49,57,50,46,49,54,56,46,49,57,50,46,49,0
+                        .area data(ram, con, rel)
+ 00CE                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 00CE           L166:
+ 00CE                   .blkb 14
+                        .area idata
+ 00CE 3235352E3235352E3235352E3000      .byte 50,53,53,46,50,53,53,46,50,53,53,46,48,0
+                        .area data(ram, con, rel)
+ 00DC                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 00DC           L165:
+ 00DC                   .blkb 15
+                        .area idata
+ 00DC 3139322E3136382E3139322E333500    .byte 49,57,50,46,49,54,56,46,49,57,50,46,51,53,0
+                        .area data(ram, con, rel)
+ 00EB                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 00EB           L164:
+ 00EB                   .blkb 16
+                        .area idata
+ 00EB 696E697469616C20626F6F742E2E2E00  .byte 'i,'n,'i,'t,'i,'a,'l,32,'b,'o,'o,'t,46,46,46,0
+                        .area data(ram, con, rel)
+ 00FB                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 00FB           L160:
+ 00FB                   .blkb 5
+                        .area idata
+ 00FB 6574683000        .byte 'e,'t,'h,48,0
+                        .area data(ram, con, rel)
+ 0100                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0100           L159:
+ 0100                   .blkb 16
+                        .area idata
+ 0100 436F6E6669677572652025732E2E2E00  .byte 'C,'o,'n,'f,'i,'g,'u,'r,'e,32,37,'s,46,46,46,0
+                        .area data(ram, con, rel)
+ 0110                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0110           L158:
+ 0110                   .blkb 26
+                        .area idata
+ 0110 5265676973746572696E672064657669  .byte 'R,'e,'g,'i,'s,'t,'e,'r,'i,'n,'g,32,'d,'e,'v,'i
+ 0120 6365206661696C656400      .byte 'c,'e,32,'f,'a,'i,'l,'e,'d,0
+                        .area data(ram, con, rel)
+ 012A                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 012A           L155:
+ 012A                   .blkb 27
+                        .area idata
+ 012A 0A0A4E75742F4F532025732048545450  .byte 10,10,'N,'u,'t,47,'O,'S,32,37,'s,32,'H,'T,'T,'P
+ 013A 204461656D6F6E2E2E2E00    .byte 32,'D,'a,'e,'m,'o,'n,46,46,46,0
+                        .area data(ram, con, rel)
+ 0145                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0145           L152:
+ 0145                   .blkb 2
+                        .area idata
+ 0145 7700              .byte 'w,0
+                        .area data(ram, con, rel)
+ 0147                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0147           L151:
+ 0147                   .blkb 6
+                        .area idata
+ 0147 756172743000      .byte 'u,'a,'r,'t,48,0
+                        .area data(ram, con, rel)
+ 014D                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 014D           L149:
+ 014D                   .blkb 19
+                        .area idata
+ 014D 5B25755D20446973636F6E6E65637465  .byte 91,37,'u,93,32,'D,'i,'s,'c,'o,'n,'n,'e,'c,'t,'e
+ 015D 640A00            .byte 'd,10,0
+                        .area data(ram, con, rel)
+ 0160                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0160           L148:
+ 0160                   .blkb 36
+                        .area idata
+ 0160 5B25755D204372656174696E67207374  .byte 91,37,'u,93,32,'C,'r,'e,'a,'t,'i,'n,'g,32,'s,'t
+ 0170 7265616D20646576696365206661696C  .byte 'r,'e,'a,'m,32,'d,'e,'v,'i,'c,'e,32,'f,'a,'i,'l
+ 0180 65640A00          .byte 'e,'d,10,0
+                        .area data(ram, con, rel)
+ 0184                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0184           L147:
+ 0184                   .blkb 4
+                        .area idata
+ 0184 722B6200          .byte 'r,43,'b,0
+                        .area data(ram, con, rel)
+ 0188                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0188           L144:
+ 0188                   .blkb 14
+                        .area idata
+ 0188 5B25755D204C6F77206D656D0A00      .byte 91,37,'u,93,32,'L,'o,'w,32,'m,'e,'m,10,0
+                        .area data(ram, con, rel)
+ 0196                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0196           L140:
+ 0196                   .blkb 31
+                        .area idata
+ 0196 5B25755D20436F6E6E65637465642C20  .byte 91,37,'u,93,32,'C,'o,'n,'n,'e,'c,'t,'e,'d,44,32
+ 01A6 257520627974657320667265650A00    .byte 37,'u,32,'b,'y,'t,'e,'s,32,'f,'r,'e,'e,10,0
+                        .area data(ram, con, rel)
+ 01B5                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 01B5           L139:
+ 01B5                   .blkb 29
+                        .area idata
+ 01B5 5B25755D204372656174696E6720736F  .byte 91,37,'u,93,32,'C,'r,'e,'a,'t,'i,'n,'g,32,'s,'o
+ 01C5 636B6574206661696C65640A00        .byte 'c,'k,'e,'t,32,'f,'a,'i,'l,'e,'d,10,0
+                        .area data(ram, con, rel)
+ 01D2                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 01D2           L126:
+ 01D2                   .blkb 110
+                        .area idata
+ 01D2 434749207373692D64656D6F2E636769  .byte 'C,'G,'I,32,'s,'s,'i,45,'d,'e,'m,'o,46,'c,'g,'i
+ 01E2 2063616C6C656420776974686F757420  .byte 32,'c,'a,'l,'l,'e,'d,32,'w,'i,'t,'h,'o,'u,'t,32
+ 01F2 616E7920706172616D657465722E3C62  .byte 'a,'n,'y,32,'p,'a,'r,'a,'m,'e,'t,'e,'r,46,60,'b
+ 0202 723E3C62723E43757272656E74207469  .byte 'r,62,60,'b,'r,62,'C,'u,'r,'r,'e,'n,'t,32,'t,'i
+ 0212 6D652069733A20253032642E25303264  .byte 'm,'e,32,'i,'s,58,32,37,48,50,'d,46,37,48,50,'d
+ 0222 2E25303464202D2D20253032643A2530  .byte 46,37,48,52,'d,32,45,45,32,37,48,50,'d,58,37,48
+ 0232 32643A253032643C62723E0D0A00      .byte 50,'d,58,37,48,50,'d,60,'b,'r,62,13,10,0
+                        .area data(ram, con, rel)
+ 0240                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0240           L121:
+ 0240                   .blkb 71
+                        .area idata
+ 0240 434749207373692D64656D6F2E636769  .byte 'C,'G,'I,32,'s,'s,'i,45,'d,'e,'m,'o,46,'c,'g,'i
+ 0250 2063616C6C6564207769746820706172  .byte 32,'c,'a,'l,'l,'e,'d,32,'w,'i,'t,'h,32,'p,'a,'r
+ 0260 616D65746572733A2054686573652061  .byte 'a,'m,'e,'t,'e,'r,'s,58,32,'T,'h,'e,'s,'e,32,'a
+ 0270 72652074686520706172616D65746572  .byte 'r,'e,32,'t,'h,'e,32,'p,'a,'r,'a,'m,'e,'t,'e,'r
+ 0280 730D0A3C703E00    .byte 's,13,10,60,'p,62,0
+                        .area data(ram, con, rel)
+ 0287                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0287           L117:
+ 0287                   .blkb 13
+                        .area idata
+ 0287 25733A2025733C42523E0D0A00        .byte 37,'s,58,32,37,'s,60,'B,'R,62,13,10,0
+                        .area data(ram, con, rel)
+ 0294                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0294           L107:
+ 0294                   .blkb 13
+                        .area idata
+ 0294 3C2F54443E3C2F54523E0D0A00        .byte 60,47,'T,'D,62,60,47,'T,'R,62,13,10,0
+                        .area data(ram, con, rel)
+ 02A1                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 02A1           L59:
+ 02A1                   .blkb 3
+                        .area idata
+ 02A1 4F4B00            .byte 'O,'K,0
+                        .area data(ram, con, rel)
+ 02A4                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 02A4           L58:
+ 02A4                   .blkb 5
+                        .area idata
+ 02A4 436F727200        .byte 'C,'o,'r,'r,0
+                        .area data(ram, con, rel)
+ 02A9                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 02A9           L53:
+ 02A9                   .blkb 4
+                        .area idata
+ 02A9 534C5000          .byte 'S,'L,'P,0
+                        .area data(ram, con, rel)
+ 02AD                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 02AD           L52:
+ 02AD                   .blkb 31
+                        .area idata
+ 02AD 3C464F4E5420434F4C4F523D23333339  .byte 60,'F,'O,'N,'T,32,'C,'O,'L,'O,'R,61,35,51,51,57
+ 02BD 3936363E5244593C2F464F4E543E00    .byte 57,54,54,62,'R,'D,'Y,60,47,'F,'O,'N,'T,62,0
+                        .area data(ram, con, rel)
+ 02CC                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 02CC           L51:
+ 02CC                   .blkb 31
+                        .area idata
+ 02CC 3C464F4E5420434F4C4F523D23434330  .byte 60,'F,'O,'N,'T,32,'C,'O,'L,'O,'R,61,35,'C,'C,48
+ 02DC 3030303E52554E3C2F464F4E543E00    .byte 48,48,48,62,'R,'U,'N,60,47,'F,'O,'N,'T,62,0
+                        .area data(ram, con, rel)
+ 02EB                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 02EB           L50:
+ 02EB                   .blkb 4
+                        .area idata
+ 02EB 54524D00          .byte 'T,'R,'M,0
+                        .area data(ram, con, rel)
+ 02EF                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 02EF           L32:
+ 02EF                   .blkb 8
+                        .area idata
+ 02EF 554E4B4E4F574E00  .byte 'U,'N,'K,'N,'O,'W,'N,0
+                        .area data(ram, con, rel)
+ 02F7                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 02F7           L31:
+ 02F7                   .blkb 5
+                        .area idata
+ 02F7 4845414400        .byte 'H,'E,'A,'D,0
+                        .area data(ram, con, rel)
+ 02FC                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 02FC           L29:
+ 02FC                   .blkb 5
+                        .area idata
+ 02FC 504F535400        .byte 'P,'O,'S,'T,0
+                        .area data(ram, con, rel)
+ 0301                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0301           L27:
+ 0301                   .blkb 4
+                        .area idata
+ 0301 47455400          .byte 'G,'E,'T,0
+                        .area data(ram, con, rel)
+ 0305                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0305           L22:
+ 0305                   .blkb 3
+                        .area idata
+ 0305 4F6B00            .byte 'O,'k,0
+                        .area data(ram, con, rel)
+ 0308                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0308           L11:
+ 0308                   .blkb 24
+                        .area idata
+ 0308 44756D6D79206578616D706C653A2031  .byte 'D,'u,'m,'m,'y,32,'e,'x,'a,'m,'p,'l,'e,58,32,49
+ 0318 323A31353A303200  .byte 50,58,49,53,58,48,50,0
+                        .area data(ram, con, rel)
+ 0320                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0320           L10:
+ 0320                   .blkb 9
+                        .area idata
+ 0320 7573725F74696D6500        .byte 'u,'s,'r,95,'t,'i,'m,'e,0
+                        .area data(ram, con, rel)
+ 0329                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0329           L7:
+ 0329                   .blkb 26
+                        .area idata
+ 0329 44756D6D79206578616D706C653A2030  .byte 'D,'u,'m,'m,'y,32,'e,'x,'a,'m,'p,'l,'e,58,32,48
+ 0339 312E30312E3230303500      .byte 49,46,48,49,46,50,48,48,53,0
+                        .area data(ram, con, rel)
+ 0343                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0343           L6:
+ 0343                   .blkb 9
+                        .area idata
+ 0343 7573725F6461746500        .byte 'u,'s,'r,95,'d,'a,'t,'e,0
+                        .area data(ram, con, rel)
+ 034C                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 034C           L2:
+ 034C                   .blkb 10
+                        .area idata
+ 034C 746578742F68746D6C00      .byte 't,'e,'x,'t,47,'h,'t,'m,'l,0
+                        .area data(ram, con, rel)
+ 0356                   .dbfile C:\ethernut-4.9.7\nutapp_13h\httpd\httpserv.c
+ 0356           ;     return 0;
+ 0356           ; }
+                        .area  func_lit
+ 0000 B603      PL_Service:     .word `_Service
+ 0002 0000      PL_ASPCallback: .word `_ASPCallback
+ 0004 E202      PL_ShowForm:    .word `_ShowForm
+ 0006 0302      PL_ShowSockets: .word `_ShowSockets
+ 0008 7A01      PL_ShowTimers:  .word `_ShowTimers
+ 000A EC00      PL_ShowThreads: .word `_ShowThreads
+ 000C 4603      PL_SSIDemoCGI:  .word `_SSIDemoCGI
+ 000E 2800      PL_ShowQuery:   .word `_ShowQuery
