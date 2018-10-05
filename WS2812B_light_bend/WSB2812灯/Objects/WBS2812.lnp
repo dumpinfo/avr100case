@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\WS2812_Drive.obj" 
+TO ".\Objects\WBS2812" 
+PRINT(".\Listings\WBS2812.m51") RAMSIZE(256) 

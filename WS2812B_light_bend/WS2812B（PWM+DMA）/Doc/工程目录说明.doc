@@ -1,0 +1,7 @@
+CMSIS:		内核驱动程序
+Lib:		内部功能的基本函数库
+Startup:	启动程序
+User:		用户程序（包括主函数）
+Basic:		内部功能的驱动程序
+Hardware:	外部硬件的驱动程序
+Doc:		说明文档

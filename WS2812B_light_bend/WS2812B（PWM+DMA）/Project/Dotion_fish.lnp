@@ -1,0 +1,28 @@
+--cpu Cortex-M3
+".\project\core_cm3.o"
+".\project\system_stm32f10x.o"
+".\project\misc.o"
+".\project\stm32f10x_gpio.o"
+".\project\stm32f10x_rcc.o"
+".\project\stm32f10x_usart.o"
+".\project\stm32f10x_bkp.o"
+".\project\stm32f10x_pwr.o"
+".\project\stm32f10x_rtc.o"
+".\project\stm32f10x_flash.o"
+".\project\stm32f10x_i2c.o"
+".\project\stm32f10x_exti.o"
+".\project\stm32f10x_spi.o"
+".\project\stm32f10x_tim.o"
+".\project\stm32f10x_dma.o"
+".\project\startup_stm32f10x_md.o"
+".\project\main.o"
+".\project\stm32f10x_it.o"
+".\project\delay.o"
+".\project\sys.o"
+".\project\dma.o"
+".\project\pwm.o"
+".\project\ws2812b.o"
+--library_type=microlib --strict --scatter ".\Project\Dotion_fish.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Dotion_fish.map" -o .\Project\Dotion_fish.axf
